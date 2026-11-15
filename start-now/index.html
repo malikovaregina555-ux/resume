@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>START NOW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=PT+Serif:ital@0;1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #F5C518;
+    --red: #E63946;
+    --blue: #2B2DFF;
+    --green: #1F4D2B;
+    --black: #111;
+    --white: #fff;
+    --stage: #c9cdd4;
+    --display: "Unbounded", system-ui, sans-serif;
+    --serif: "PT Serif", Georgia, serif;
+    --ui: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: var(--stage); overflow: hidden; }
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+
+  .slide {
+    position: absolute; left: 50%; top: 50%;
+    width: 1920px; height: 1080px;
+    margin: -540px 0 0 -960px;
+    overflow: hidden;
+    background: var(--white); color: var(--black);
+    font-family: var(--display);
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.18);
+    visibility: hidden;
+  }
+  .slide.is-active { visibility: visible; }
+
+  .yellow { background: var(--yellow); }
+  .red { background: var(--red); color: var(--white); }
+
+  .pill { border-radius: 999px; flex: 1; display: flex; align-items: center; justify-content: center; }
+
+  /* общий футер как в референсе */
+  .foot {
+    position: absolute; left: 80px; right: 80px; bottom: 56px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: end;
+    font: 400 20px/1.3 var(--ui);
+  }
+  .foot span:nth-child(2) { text-align: center; }
+  .foot .logo { justify-self: end; font: 900 30px/1 var(--display); letter-spacing: -.02em; }
+  .foot .logo i { font-style: normal; color: var(--red); }
+  .red .foot .logo i { color: var(--yellow); }
+
+  /* 1 — титульный */
+  .s1 { padding: 70px 80px; display: flex; flex-direction: column; justify-content: space-between; }
+  .s1 .row { display: flex; align-items: center; gap: 36px; font: 900 300px/.86 var(--display); letter-spacing: -.03em; }
+  .s1 .pill { height: 230px; font: 500 40px/1 var(--display); letter-spacing: .02em; color: var(--white); }
+  .s1 .p-red { background: var(--red); }
+  .s1 .p-yellow { background: var(--yellow); }
+  .s1 .p-blue { background: var(--blue); font-weight: 900; font-size: 42px; }
+  .s1 .p-blue { flex: 1.6; white-space: nowrap; }
+  .s1 .p-green { background: var(--green); }
+
+  /* 2 — вопрос */
+  .s2 .text {
+    position: absolute; left: 80px; right: 80px; top: 80px;
+    font: 900 124px/1.02 var(--display); text-transform: uppercase;
+    text-align: justify; text-align-last: left; letter-spacing: -.01em;
+  }
+
+  .s2 .text em { font-style: normal; color: var(--red); }
+
+  /* 3 — цитата */
+  .s3 .quote-mark { position: absolute; left: -40px; top: 0; height: 1080px; }
+  .s3 blockquote {
+    position: absolute; left: 1180px; right: 110px; top: 120px;
+    font: 400 58px/1.18 var(--serif); letter-spacing: -.01em;
+  }
+  .s3 .foot { left: 1180px; grid-template-columns: 1fr auto; gap: 40px; }
+  .s3 .foot span:first-child { display: none; }
+  .s3 cite { display: block; margin-top: 56px; font: italic 400 30px/1.3 var(--serif); }
+
+  /* 4 — цифры */
+  .s4 { padding: 80px 80px 140px; display: flex; flex-direction: column; }
+  .s4 .cards { flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+  .s4 .card {
+    border-radius: 56px; padding: 56px; color: var(--white);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .s4 .num { font: 900 150px/.9 var(--display); letter-spacing: -.05em; }
+  .s4 .label { font: 500 40px/1.2 var(--display); }
+
+  /* 5 — три страха */
+  .s5 { padding: 80px; }
+  .s5 h2 { font: 900 100px/1 var(--display); text-transform: uppercase; letter-spacing: -.02em; }
+  .s5 .fears { position: absolute; left: 80px; right: 80px; bottom: 150px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .s5 .fear { position: relative; }
+  .s5 .shape { height: 340px; position: relative; margin-bottom: 40px; }
+  .s5 .shape b { position: absolute; left: 0; bottom: -10px; font: 900 200px/.8 var(--display); letter-spacing: -.05em; }
+  .s5 .shape::before { content: ""; position: absolute; }
+  .s5 .f1 .shape::before { right: 30px; top: 0; width: 340px; height: 340px; border-radius: 50%; background: var(--red); }
+  .s5 .f2 .shape::before { right: 0; top: 70px; width: 440px; height: 200px; border-radius: 999px; background: var(--blue); }
+  .s5 .f3 .shape::before { right: 30px; top: 100px; width: 400px; height: 200px; border-radius: 200px 200px 0 0; background: var(--yellow); }
+  .s5 .fear p { font: 700 46px/1.15 var(--display); }
+
+  /* 6 — решение */
+  .s6 .five {
+    position: absolute; left: -120px; top: 50%; width: 840px; height: 840px; margin-top: -450px;
+    border-radius: 50%; background: var(--yellow); color: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    font: 900 660px/1 var(--display); padding-left: 120px;
+  }
+  .s6 .text { position: absolute; left: 900px; right: 80px; top: 110px; text-transform: uppercase; }
+  .s6 h2 { font: 900 92px/1 var(--display); letter-spacing: -.02em; }
+  .s6 .rule { margin-top: 60px; font: 900 64px/1.08 var(--display); }
+  .s6 .rule span { display: block; }
+  .s6 .rule .soft { color: var(--yellow); }
+
+  /* 7 — примеры */
+  .s7 .art { position: absolute; inset: 0; }
+  .s7 .heads { position: absolute; left: 80px; top: 70px; color: var(--red); font: 900 86px/.98 var(--display); letter-spacing: -.03em; }
+  .s7 .sub { margin-top: 34px; color: var(--black); font: 500 36px/1.2 var(--display); letter-spacing: 0; }
+  .s7 .foot { color: var(--black); }
+  .s7 .foot span:first-child, .s6 .foot span:first-child { visibility: hidden; }
+  .s7 .foot .logo i { color: var(--black); }
+
+  /* 8 — финал */
+  .s8 { padding: 90px 80px; }
+  .s8 h2 { font: 900 104px/1 var(--display); text-transform: uppercase; letter-spacing: -.03em; }
+  .s8 .row { position: absolute; left: 80px; right: 80px; bottom: 190px; display: flex; gap: 36px; height: 300px; }
+  .s8 .p-blue { background: var(--blue); color: var(--white); font: 900 130px/1 var(--display); letter-spacing: -.03em; flex: 0 0 auto; padding: 0 70px; }
+  .s8 .p-red { background: var(--red); flex: 0 0 300px; }
+  .s8 .p-yellow { background: var(--yellow); }
+  .s8 .author { position: absolute; left: 80px; bottom: 110px; font: 700 34px/1 var(--display); }
+
+  /* печать: Ctrl+P → PDF, по слайду на страницу */
+  @page { size: 1920px 1080px; margin: 0; }
+  @media print {
+    html, body { height: auto; overflow: visible; background: none; }
+    .deck { position: static; overflow: visible; }
+    .slide {
+      position: relative; left: 0; top: 0; margin: 0; transform: none !important;
+      visibility: visible; border-radius: 0; box-shadow: none;
+      break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+<main class="deck">
+
+<!-- 1 -->
+<section class="slide s1">
+  <div class="row">ST<div class="pill p-red">РЕГИНА</div>ART</div>
+  <div class="row">N<div class="pill p-yellow"></div>OW</div>
+  <div class="row">2026<div class="pill p-blue">START NOW</div><div class="pill p-green"></div></div>
+</section>
+
+<!-- 2 -->
+<section class="slide s2 yellow">
+  <p class="text">Когда ты начнёшь жить? Не через год. Не после Нового года. Не «когда будет время». <em>А&nbsp;сейчас.</em></p>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 02</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide s3">
+  <svg class="quote-mark" viewBox="0 0 1160 1080" aria-hidden="true">
+    <g fill="#111">
+      <circle cx="300" cy="720" r="250"/>
+      <polygon points="50,720 330,-40 640,-40 420,500"/>
+      <circle cx="880" cy="720" r="250"/>
+      <polygon points="630,720 910,-40 1220,-40 1000,500"/>
+    </g>
+  </svg>
+  <blockquote>«Мы тратим 70% времени на мысли о&nbsp;будущем, которое ещё не наступило, и&nbsp;теряем настоящее, которое уже идёт.»
+    <cite>— Исследование тревожности, 2025</cite>
+  </blockquote>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 03</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide s4">
+  <div class="cards">
+    <div class="card" style="background:var(--red)"><div class="num">82%</div><div class="label">людей откладывают мечту «на&nbsp;потом»</div></div>
+    <div class="card" style="background:var(--blue)"><div class="num">64%</div><div class="label">жалеют об&nbsp;этом через 5&nbsp;лет</div></div>
+    <div class="card" style="background:var(--green)"><div class="num">12%</div><div class="label">всё-таки начинают</div></div>
+  </div>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 04</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide s5">
+  <h2>Три страха,<br>которые нас держат:</h2>
+  <div class="fears">
+    <div class="fear f1"><div class="shape"><b>01</b></div><p>Страх неудачи</p></div>
+    <div class="fear f2"><div class="shape"><b>02</b></div><p>Страх мнения других</p></div>
+    <div class="fear f3"><div class="shape"><b>03</b></div><p>Страх неизвестности</p></div>
+  </div>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 05</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide s6 red">
+  <div class="five">5</div>
+  <div class="text">
+    <h2>Правило<br>5 секунд:</h2>
+    <p class="rule">
+      <span>Почувствовал импульс —</span>
+      <span>действуй.</span>
+      <span class="soft">Не думай. Не планируй.</span>
+      <span>Просто сделай первый шаг.</span>
+    </p>
+  </div>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 06</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide s7 yellow">
+  <svg class="art" viewBox="0 0 1920 1080" aria-hidden="true">
+    <g fill="#E63946">
+      <path d="M960,540 L560,540 A400,400 0 0 0 960,140 Z"/>
+      <path d="M960,540 L960,0 A540,540 0 0 1 1500,540 Z"/>
+      <path d="M1920,0 L1500,0 A420,420 0 0 1 1920,420 Z"/>
+      <path d="M960,540 L960,1080 A540,540 0 0 1 420,540 Z"/>
+      <path d="M0,1080 L420,1080 A420,420 0 0 1 0,660 Z"/>
+      <path d="M960,540 L1360,540 A400,400 0 0 0 960,940 Z"/>
+      <path d="M1920,1080 L1440,1080 A480,480 0 0 1 1920,600 Z"/>
+    </g>
+  </svg>
+  <div class="heads">NEW PROJECT<br>NEW CITY<br>NEW LIFE
+    <p class="sub">Начни с малого. Сегодня.</p>
+  </div>
+  <div class="foot"><span>Start Now — Regina<br>Почему мы боимся начинать</span><span>Page 07</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide s8">
+  <h2>Будущее не наступит само.<br>Его нужно создать.</h2>
+  <div class="row">
+    <div class="pill p-blue">START NOW.</div>
+    <div class="pill p-red"></div>
+    <div class="pill p-yellow"></div>
+  </div>
+  <p class="author">Регина / Regina</p>
+  <div class="foot"><span></span><span>Page 08</span><span class="logo">START<i>●</i>NOW</span></div>
+</section>
+</main>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = Math.min(Math.max((parseInt(location.hash.slice(1)) || 1) - 1, 0), slides.length - 1);
+
+  function fit() {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080) * 0.94;
+    slides.forEach(el => el.style.transform = `scale(${s})`);
+  }
+  function show(n) {
+    i = Math.min(Math.max(n, 0), slides.length - 1);
+    slides.forEach((el, k) => el.classList.toggle('is-active', k === i));
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+  addEventListener('click', e => show(i + (e.clientX > innerWidth / 2 ? 1 : -1)));
+  addEventListener('resize', fit);
+
+  fit();
+  show(i);
+</script>
+</body>
+</html>

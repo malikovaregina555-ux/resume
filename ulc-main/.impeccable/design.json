@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T12:00:00Z",
+  "title": "Design System: Регина — веб дизайнер",
+  "extensions": {
+    "colorMeta": {
+      "bg":          { "role": "neutral", "displayName": "Серая бумага",        "tonalRamp": ["#1f1f1e", "#3a3a38", "#5a5a57", "#7c7c79", "#a0a09c", "#c4c4c1", "#e0e0dd", "#f2f2f0"] },
+      "panel":       { "role": "neutral", "displayName": "Картон папки",        "tonalRamp": ["#1d1d1c", "#373736", "#555554", "#767674", "#999997", "#bcbcba", "#dededc", "#f3f3f1"] },
+      "panel-soft":  { "role": "neutral", "displayName": "Тонкая бумага",       "tonalRamp": ["#1e1e1d", "#393937", "#585856", "#7a7a77", "#9e9e9a", "#c2c2bf", "#e9e9e6", "#f6f6f4"] },
+      "ink":         { "role": "neutral", "displayName": "Чернила",             "tonalRamp": ["#050505", "#181818", "#2c2c2c", "#464646", "#666666", "#8a8a8a", "#b4b4b4", "#e2e2e2"] },
+      "muted":       { "role": "neutral", "displayName": "Карандаш-графит",     "tonalRamp": ["#1b1b1a", "#2f2f2d", "#454543", "#5d5d5a", "#7a7a77", "#9b9b98", "#c0c0bd", "#e4e4e1"] },
+      "dark":        { "role": "neutral", "displayName": "Этикеточная лента",   "tonalRamp": ["#050505", "#141414", "#2c2c2c", "#474747", "#666666", "#8a8a8a", "#b3b3b3", "#e0e0e0"] },
+      "label-hover": { "role": "neutral", "displayName": "Лента под пальцем",   "tonalRamp": ["#0e0e0e", "#1c1c1c", "#2c2c2c", "#454545", "#646464", "#888888", "#b1b1b1", "#dedede"] },
+      "footer-text": { "role": "neutral", "displayName": "Мел",                 "tonalRamp": ["#1e1e1d", "#393937", "#595956", "#7c7c79", "#a1a19d", "#c3c3bf", "#d8d8d4", "#f0f0ed"] },
+      "blue":        { "role": "primary", "displayName": "Синий карандаш",      "tonalRamp": ["#021338", "#052f93", "#083fb8", "#2a5fd6", "#5a85e6", "#8eadf0", "#c2d3f7", "#e8eefc"] },
+      "blue-dark":   { "role": "primary", "displayName": "Синий карандаш, нажим", "tonalRamp": ["#010d28", "#031f63", "#052f93", "#1f4fc2", "#4d78dc", "#83a3ea", "#bccdf5", "#e6ecfb"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Штамп (NOGGI)", "purpose": "Только «веб дизайнер» в hero и цифры статистики, капсом." },
+      "headline": { "displayName": "Голос редактора", "purpose": "Строчные заголовки секций главной, название кейса, CTA." },
+      "title":    { "displayName": "Раздел кейса", "purpose": "Капс-заголовки разделов внутри кейса; заголовок карточки кейса." },
+      "body":     { "displayName": "Текст", "purpose": "Интро и описания разделов кейсов, цвет muted." },
+      "label":    { "displayName": "Метка", "purpose": "Мета карточки и теги, капс, трекинг 0.02em." }
+    },
+    "shadows": [
+      { "name": "folder-rest", "value": "0 6px 16px rgba(24, 24, 24, 0.1)", "purpose": "Карточки-папки кейсов в покое." },
+      { "name": "photo-over-tape", "value": "0 14px 28px rgba(20, 18, 15, 0.24)", "purpose": "Превью работ, вылетающие вокруг этикетки навыка при наведении." }
+    ],
+    "motion": [
+      { "name": "ease-lift", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Подъём этикеток и превью (0.4–0.45s)." },
+      { "name": "ease-reveal", "value": "cubic-bezier(0.2, 0.8, 0.2, 1)", "purpose": "Появление секций при прокрутке (620ms)." },
+      { "name": "quick", "value": "160ms ease", "purpose": "Кнопки и ссылки: цвет, подъём на 2px." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "560px" },
+      { "name": "desktop", "value": "900px" },
+      { "name": "wide", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Этикетка навыка",
+      "kind": "custom",
+      "refersTo": "skill-label",
+      "description": "Чёрная лента-наклейка с острыми углами и наклоном; при наведении поднимается и светлеет.",
+      "html": "<span class=\"ds-skill-label\">айдентика</span>",
+      "css": ".ds-skill-label { display: inline-block; background: var(--dark, #050505); color: var(--bg, #f2f2f0); font-family: Inter, Arial, sans-serif; font-size: 2rem; padding: 2px 16px 3px; border-radius: 0; transform: rotate(-5deg); transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.4s ease; cursor: default; } .ds-skill-label:hover { background: #2c2c2c; transform: rotate(-5deg) scale(1.14); } .ds-skill-label:focus-visible { outline: 2px solid var(--blue, #083fb8); outline-offset: 3px; }"
+    },
+    {
+      "name": "Карточка кейса",
+      "kind": "card",
+      "refersTo": "case-card",
+      "description": "Папка на столе: картон, скругление 12px, лёгкая тень; при наведении приподнимается.",
+      "html": "<a class=\"ds-case-card\" href=\"#\"><span class=\"ds-case-card__media\"></span><span class=\"ds-case-card__body\"><span class=\"ds-case-card__meta\">Лендинг · Тишь</span><span class=\"ds-case-card__title\">Лендинг эко-отеля «Тишь»</span><span class=\"ds-case-card__desc\">Спокойный лендинг для выбора дома</span></span></a>",
+      "css": ".ds-case-card { display: block; width: 280px; background: var(--panel, #dededc); color: var(--ink, #181818); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 16px rgba(24, 24, 24, 0.1); text-decoration: none; font-family: Inter, Arial, sans-serif; transition: transform 400ms ease; } .ds-case-card:hover, .ds-case-card:focus-visible { transform: translateY(-8px) scale(1.03); outline: 0; } .ds-case-card__media { display: block; aspect-ratio: 4 / 3; background: var(--panel-soft, #e9e9e6); } .ds-case-card__body { display: grid; gap: 6px; padding: 14px; } .ds-case-card__meta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--muted, #5d5d5a); } .ds-case-card__title { font-size: 0.95rem; font-weight: 600; } .ds-case-card__desc { font-size: 0.8rem; line-height: 1.25; color: var(--muted, #5d5d5a); }"
+    },
+    {
+      "name": "Тег",
+      "kind": "chip",
+      "refersTo": "case-tag",
+      "description": "Таблетка с тонкой обводкой для категорий кейса.",
+      "html": "<span class=\"ds-tag\">Лендинг</span>",
+      "css": ".ds-tag { display: inline-block; font-family: Inter, Arial, sans-serif; font-size: 0.7rem; color: var(--muted, #5d5d5a); border: 1px solid rgba(24, 24, 24, 0.18); border-radius: 999px; padding: 3px 9px; }"
+    },
+    {
+      "name": "CTA «тык»",
+      "kind": "button",
+      "refersTo": "cta-button",
+      "description": "Единственная синяя кнопка экрана; при наведении темнеет и приподнимается.",
+      "html": "<a class=\"ds-cta\" href=\"#\">тык</a>",
+      "css": ".ds-cta { display: inline-flex; align-items: center; justify-content: center; min-width: 220px; height: 76px; padding: 0 40px; background: var(--blue, #083fb8); color: var(--bg, #f2f2f0); border-radius: 38px; font-family: Inter, Arial, sans-serif; font-size: 2rem; text-decoration: none; transition: transform 160ms ease, background 160ms ease; } .ds-cta:hover, .ds-cta:focus-visible { background: var(--blue-dark, #052f93); transform: translateY(-2px); outline: 0; } .ds-cta:focus-visible { box-shadow: 0 0 0 3px var(--bg, #f2f2f0), 0 0 0 5px var(--blue, #083fb8); }"
+    },
+    {
+      "name": "Текстовая ссылка",
+      "kind": "nav",
+      "refersTo": "text-link",
+      "description": "Навигация внутри кейсов; при наведении синеет.",
+      "html": "<a class=\"ds-link\" href=\"#\">следующий кейс → тишь</a>",
+      "css": ".ds-link { font-family: Inter, Arial, sans-serif; font-size: 1.18rem; color: var(--ink, #181818); text-decoration: none; transition: color 160ms ease; } .ds-link:hover, .ds-link:focus-visible { color: var(--blue, #083fb8); outline: 0; }"
+    },
+    {
+      "name": "Футер",
+      "kind": "nav",
+      "refersTo": "footer",
+      "description": "Тёмная лента внизу страницы со ссылками цветом «мел».",
+      "html": "<nav class=\"ds-footer\"><a href=\"#\">кто я</a><a href=\"#\">что умею</a><a href=\"#\">кейсы</a><a href=\"#\">резюме</a></nav>",
+      "css": ".ds-footer { display: flex; gap: 24px; padding: 32px; background: var(--dark, #050505); font-family: Inter, Arial, sans-serif; } .ds-footer a { color: #d8d8d4; font-size: 1.05rem; text-decoration: none; transition: opacity 0.2s ease; } .ds-footer a:hover, .ds-footer a:focus-visible { opacity: 0.6; outline: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Этикетка и синий карандаш",
+    "overview": "Сайт — это стол редактора, где всё промаркировано. Основа монохромная и точная: светло-серая бумага, почти чёрные чернила, чёрные ленты-этикетки с короткими словами («айдентика», «брендбук», «сайт»). Поверх этой точности — одна синяя пометка, как карандаш редактора: она отмечает только то, что нужно сделать (написать, перейти, нажать «тык»).\n\nИрония живёт в деталях, а не в громкости: чуть повёрнутые этикетки, строчные заголовки, интонация «тык» и `{//.`. Элементы тактильные — наклейки и папки кейсов реагируют на курсор, приподнимаются, показывают работы, — но эффект никогда не перекрикивает сами работы. Внутри кейсов цвета клиентов живут в своих изображениях; оболочка сайта остаётся монохромной.\n\nСайт не становится корпоративным и стерильным (игра и ирония обязательны), не превращается в перегруженный арт-эксперимент и не становится пёстрым.",
+    "keyCharacteristics": [
+      "монохромная бумажная основа + единственный синий акцент;",
+      "NOGGI капсом — только для крупных дисплейных слов и цифр;",
+      "Inter строчными — голос всех заголовков и текста;",
+      "чёрные этикетки с острыми углами и лёгким наклоном;",
+      "тактильная реакция на курсор, плоские поверхности в покое."
+    ],
+    "rules": [
+      { "name": "The One Blue Pencil Rule", "body": "Синий — единственный акцент оболочки и занимает не больше ~10% экрана. Второй хроматический цвет в интерфейс сайта не добавляется; цвета клиентов живут только внутри изображений и макетов кейсов.", "section": "colors" },
+      { "name": "The Ink-on-Paper Rule", "body": "Текст — всегда `ink` или `muted` на `bg`/`panel`, либо `bg`/`footer-text` на `dark`. Никакого цветного текста, кроме синего состояния ссылки.", "section": "colors" },
+      { "name": "The Stamp-Only Rule", "body": "NOGGI — только для коротких дисплейных слов и цифр капсом. Никогда для заголовков секций, абзацев, кнопок и навигации.", "section": "typography" },
+      { "name": "The Lowercase Voice Rule", "body": "Заголовки главной — строчные Inter 400. Капс допустим только у NOGGI, у меток и у заголовков разделов внутри кейса.", "section": "typography" },
+      { "name": "The Flat-Paper Rule", "body": "Секции, фон, текстовые блоки и кнопки — без теней. Тень — признак физического предмета, а не украшение.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do оставлять синий (`blue`) единственным акцентом оболочки и отдавать его только действиям и отметкам.",
+      "Do делать новые метки в языке этикеток: чёрная лента, острые углы, лёгкий наклон, реакция на курсор.",
+      "Do писать заголовки главной строчными Inter 400, а NOGGI держать для коротких слов и цифр капсом.",
+      "Do давать тень только «предметам» (папки, всплывающие превью) и усиливать её при наведении.",
+      "Do брать размеры шрифта из шкалы `--fs-*` / `--text-*` и отключать движение при `prefers-reduced-motion`.",
+      "Do оставлять цвета клиентов внутри изображений кейсов, не перенося их в интерфейс."
+    ],
+    "donts": [
+      "Don't добавлять второй хроматический акцент на главную — сайт не должен стать цветным и пёстрым.",
+      "Don't убирать игру: выпрямлять этикетки, делать заголовки капсом, заменять «тык» на «Отправить заявку» — сайт не должен стать корпоративным и серьёзным.",
+      "Don't добавлять эффекты, которые перекрикивают работы: постоянную анимацию фона, параллакс на изображениях кейсов, декоративные частицы — это не арт-эксперимент.",
+      "Don't скруглять этикетки и кнопки меню — острые углы принадлежат ленте.",
+      "Don't использовать NOGGI для абзацев, кнопок и заголовков секций."
+    ]
+  }
+}

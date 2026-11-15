@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Скелетоны — Норма</title>
+<style>
+  :root{
+    --bg:#f2f2f0;
+    --ink:#181818;
+    --muted:#5d5d5a;
+    --line: rgba(24,24,24,0.12);
+    --font-main: Inter, Arial, sans-serif;
+
+    /* палитра кейса "Норма" */
+    --n-lime:#d4fc46;
+    --n-dark:#4f4f51;
+    --n-slate:#636a83;
+    --n-cream:#e7e6df;
+
+    --n-black:#141414;
+    --n-black-soft:#1e1e1e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-main);
+    padding:48px 40px 80px;
+  }
+  h1{
+    font-weight:800;
+    font-size:2.2rem;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  p.lead{
+    color:var(--muted);
+    max-width:640px;
+    line-height:1.5;
+    margin:0 0 40px;
+    font-size:0.95rem;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    gap:32px;
+    max-width:1400px;
+  }
+  figure{
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+  figcaption{
+    font-size:0.85rem;
+    color:var(--muted);
+    text-align:center;
+  }
+
+  /* --- телефон --- */
+  .phone{
+    width:210px;
+    height:455px;
+    border-radius:34px;
+    padding:10px;
+    position:relative;
+    overflow:hidden;
+  }
+  .phone.theme-light{ background:var(--n-cream); }
+  .phone.theme-dark{ background:var(--n-black); }
+  .phone .notch{
+    position:absolute;
+    top:10px; left:50%;
+    transform:translateX(-50%);
+    width:64px; height:14px;
+    border-radius:8px;
+    background:rgba(0,0,0,0.4);
+    z-index:2;
+  }
+  .theme-light .notch{ background:rgba(24,24,24,0.5); }
+  .screen{
+    width:100%;
+    height:100%;
+    padding:28px 14px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+  }
+
+  /* --- shimmer skeleton block --- */
+  .sk{
+    position:relative;
+    overflow:hidden;
+    border-radius:10px;
+    background:rgba(99,106,131,0.16);
+  }
+  .theme-dark .sk{ background:rgba(255,255,255,0.08); }
+  .sk::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform:translateX(-100%);
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(212,252,70,0.35),
+      transparent
+    );
+    animation:shimmer 1.8s infinite;
+  }
+  .theme-light .sk::after{
+    background:linear-gradient(
+      90deg,
+      transparent,
+      rgba(24,24,24,0.10),
+      transparent
+    );
+  }
+  @keyframes shimmer{
+    100%{ transform:translateX(100%); }
+  }
+
+  .row-flex{ display:flex; gap:10px; align-items:center; }
+  .circle{ border-radius:50%; flex-shrink:0; }
+  .grow{ flex:1; }
+  .pill{ border-radius:999px; }
+  .card{ border-radius:16px; padding:12px; display:flex; flex-direction:column; gap:8px; }
+  .spacer{ flex:1; }
+
+  .legend{
+    display:flex; align-items:center; gap:16px; margin-bottom:36px; flex-wrap:wrap;
+  }
+  .legend-label{
+    font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .swatch{ display:flex; align-items:center; gap:8px; font-size:0.85rem; }
+  .swatch i{ width:16px; height:16px; border-radius:4px; display:inline-block; border:1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<h1>Скелетоны экранов «Норма»</h1>
+<p class="lead">Состояния загрузки для существующих экранов приложения — форма и пропорции блоков повторяют реальный UI, чтобы layout не «прыгал» при подгрузке данных. Анимация мерцания — в лаймовом акценте фирменной палитры.</p>
+
+<div class="legend">
+  <span class="legend-label">Палитра</span>
+  <span class="swatch"><i style="background:#d4fc46"></i>#D4FC46</span>
+  <span class="swatch"><i style="background:#4f4f51"></i>#4F4F51</span>
+  <span class="swatch"><i style="background:#636a83"></i>#636A83</span>
+  <span class="swatch"><i style="background:#e7e6df"></i>#E7E6DF</span>
+</div>
+
+<div class="grid">
+
+  <!-- 1. Онбординг: открытие счёта -->
+  <figure>
+    <div class="phone theme-dark">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="sk pill" style="width:70px;height:18px;"></div>
+        <div class="row-flex" style="margin-top:14px; flex-wrap:wrap; gap:10px;">
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+          <div class="sk circle" style="width:42px;height:42px;"></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="sk" style="height:16px;width:90%;"></div>
+        <div class="sk" style="height:16px;width:60%;"></div>
+        <div class="sk" style="height:12px;width:70%;margin-top:6px;"></div>
+        <div class="sk pill" style="height:44px;margin-top:10px;"></div>
+        <div class="sk pill" style="height:14px;width:50%;align-self:center;margin-top:6px;"></div>
+      </div>
+    </div>
+    <figcaption>Онбординг: открытие счёта</figcaption>
+  </figure>
+
+  <!-- 2. Онбординг: визуальная концепция -->
+  <figure>
+    <div class="phone theme-dark">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="sk pill" style="width:70px;height:18px;"></div>
+        <div class="spacer"></div>
+        <div class="sk" style="height:220px;border-radius:20px;"></div>
+        <div class="spacer"></div>
+        <div class="sk" style="height:16px;width:85%;"></div>
+        <div class="sk" style="height:16px;width:55%;"></div>
+        <div class="sk pill" style="height:44px;margin-top:10px;"></div>
+      </div>
+    </div>
+    <figcaption>Онбординг: визуальная концепция</figcaption>
+  </figure>
+
+  <!-- 3. Перевод между валютами -->
+  <figure>
+    <div class="phone theme-dark">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+        </div>
+        <div class="sk card" style="height:52px;"></div>
+        <div class="sk card" style="height:70px;margin-top:4px;"></div>
+        <div style="text-align:center;">
+          <div class="sk" style="width:20px;height:20px;display:inline-block;border-radius:6px;"></div>
+        </div>
+        <div class="sk card" style="height:70px;"></div>
+        <div class="row-flex" style="margin-top:6px;">
+          <div class="sk pill grow" style="height:26px;"></div>
+          <div class="sk pill grow" style="height:26px;"></div>
+          <div class="sk pill grow" style="height:26px;"></div>
+          <div class="sk pill grow" style="height:26px;"></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="sk pill" style="height:44px;"></div>
+      </div>
+    </div>
+    <figcaption>Перевод между валютами</figcaption>
+  </figure>
+
+  <!-- 4. Норма Black -->
+  <figure>
+    <div class="phone theme-dark">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="sk pill" style="width:70px;height:18px;"></div>
+        <div class="sk" style="height:34px;width:70%;margin-top:10px;"></div>
+        <div class="sk" style="height:34px;width:55%;"></div>
+        <div class="sk" style="height:14px;width:85%;margin-top:8px;"></div>
+        <div class="sk" style="height:14px;width:65%;"></div>
+        <div class="sk card" style="height:110px;margin-top:12px;"></div>
+        <div class="spacer"></div>
+        <div class="sk pill" style="height:44px;"></div>
+      </div>
+    </div>
+    <figcaption>Премиальный продукт «Норма Black»</figcaption>
+  </figure>
+
+  <!-- 5. Каталог продуктов -->
+  <figure>
+    <div class="phone theme-light">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;">
+          <div class="sk card" style="height:90px;"></div>
+          <div class="sk card" style="height:90px;"></div>
+          <div class="sk card" style="height:90px;"></div>
+          <div class="sk card" style="height:90px;"></div>
+          <div class="sk card" style="height:90px;"></div>
+          <div class="sk card" style="height:90px;"></div>
+        </div>
+      </div>
+    </div>
+    <figcaption>Каталог продуктов</figcaption>
+  </figure>
+
+  <!-- 6. Оплата НПД -->
+  <figure>
+    <div class="phone theme-light">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+        </div>
+        <div class="sk" style="height:12px;width:60%;margin-top:10px;"></div>
+        <div class="sk" style="height:34px;width:75%;"></div>
+        <div class="sk" style="height:12px;width:80%;"></div>
+        <div class="sk card" style="height:80px;margin-top:12px;"></div>
+        <div class="spacer"></div>
+        <div class="sk pill" style="height:44px;"></div>
+        <div class="sk pill" style="height:44px;background:rgba(99,106,131,0.10);"></div>
+      </div>
+    </div>
+    <figcaption>Оплата НПД</figcaption>
+  </figure>
+
+  <!-- 7. Выставление счёта клиенту -->
+  <figure>
+    <div class="phone theme-dark">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+        </div>
+        <div class="sk" style="height:10px;width:40%;margin-top:12px;"></div>
+        <div class="sk" style="height:16px;width:70%;"></div>
+        <div class="sk" style="height:10px;width:30%;margin-top:8px;"></div>
+        <div class="sk" style="height:28px;width:60%;"></div>
+        <div class="sk card" style="height:56px;margin-top:8px;"></div>
+        <div class="sk card" style="height:56px;"></div>
+        <div class="spacer"></div>
+        <div class="sk pill" style="height:44px;"></div>
+      </div>
+    </div>
+    <figcaption>Выставление счёта клиенту</figcaption>
+  </figure>
+
+  <!-- 8. Чек ФНС с QR -->
+  <figure>
+    <div class="phone theme-light">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+        </div>
+        <div class="sk card" style="margin-top:10px; align-items:center;">
+          <div class="sk" style="height:10px;width:50%;"></div>
+          <div class="sk" style="height:24px;width:65%;"></div>
+          <div class="sk" style="height:10px;width:70%;"></div>
+          <div class="sk" style="width:120px;height:120px;border-radius:12px;margin:10px 0;"></div>
+          <div class="sk" style="height:10px;width:40%;"></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="sk pill" style="height:44px;"></div>
+        <div class="sk pill" style="height:44px;background:rgba(99,106,131,0.10);"></div>
+      </div>
+    </div>
+    <figcaption>Чек ФНС для клиента</figcaption>
+  </figure>
+
+  <!-- 9. Доход за месяц -->
+  <figure>
+    <div class="phone theme-light">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:26px;height:26px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+          <div class="sk" style="width:36px;height:14px;"></div>
+        </div>
+        <div class="sk" style="height:10px;width:30%;margin-top:10px;"></div>
+        <div class="sk" style="height:30px;width:65%;"></div>
+        <div class="sk" style="height:12px;width:40%;"></div>
+        <div class="row-flex" style="align-items:flex-end;height:70px;margin-top:10px;">
+          <div class="sk grow" style="height:40%;"></div>
+          <div class="sk grow" style="height:55%;"></div>
+          <div class="sk grow" style="height:65%;"></div>
+          <div class="sk grow" style="height:50%;"></div>
+          <div class="sk grow" style="height:100%;"></div>
+        </div>
+        <div class="sk" style="height:14px;margin-top:10px;"></div>
+        <div class="sk" style="height:14px;"></div>
+        <div class="sk" style="height:14px;"></div>
+      </div>
+    </div>
+    <figcaption>Доход за месяц</figcaption>
+  </figure>
+
+  <!-- 10. Баланс и последние операции -->
+  <figure>
+    <div class="phone theme-light">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="row-flex">
+          <div class="sk circle" style="width:32px;height:32px;"></div>
+          <div class="sk grow" style="height:16px;"></div>
+          <div class="sk circle" style="width:32px;height:32px;"></div>
+        </div>
+        <div class="sk card" style="height:190px;margin-top:10px;">
+          <div class="row-flex">
+            <div class="sk pill" style="width:44px;height:18px;"></div>
+            <div class="sk pill" style="width:44px;height:18px;"></div>
+            <div class="sk pill" style="width:54px;height:18px;"></div>
+          </div>
+          <div class="sk" style="height:30px;width:70%;margin-top:8px;"></div>
+          <div class="sk" style="height:12px;width:40%;"></div>
+        </div>
+        <div class="row-flex" style="margin-top:6px;">
+          <div class="sk circle" style="width:38px;height:38px;flex:1;max-width:38px;"></div>
+          <div class="sk circle" style="width:38px;height:38px;flex:1;max-width:38px;"></div>
+          <div class="sk circle" style="width:38px;height:38px;flex:1;max-width:38px;"></div>
+          <div class="sk circle" style="width:38px;height:38px;flex:1;max-width:38px;"></div>
+        </div>
+        <div class="sk" style="height:14px;width:50%;margin-top:6px;"></div>
+        <div class="row-flex"><div class="sk circle" style="width:28px;height:28px;"></div><div class="sk grow" style="height:14px;"></div></div>
+        <div class="row-flex"><div class="sk circle" style="width:28px;height:28px;"></div><div class="sk grow" style="height:14px;"></div></div>
+      </div>
+    </div>
+    <figcaption>Баланс и последние операции</figcaption>
+  </figure>
+
+</div>
+
+</body>
+</html>

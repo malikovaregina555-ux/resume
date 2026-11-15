@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Экраны по user flow — Норма</title>
+<style>
+  :root{
+    --bg:#f2f2f0;
+    --ink:#181818;
+    --muted:#5d5d5a;
+    --line: rgba(24,24,24,0.12);
+    --font-main: Inter, Arial, sans-serif;
+
+    --n-lime:#d4fc46;
+    --n-dark:#4f4f51;
+    --n-slate:#636a83;
+    --n-cream:#e7e6df;
+    --n-black:#141414;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-main);
+    padding:48px 40px 90px;
+  }
+  h1{
+    font-weight:800;
+    font-size:2.1rem;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  p.lead{
+    color:var(--muted);
+    max-width:680px;
+    line-height:1.5;
+    margin:0 0 40px;
+    font-size:0.95rem;
+  }
+  .group{ margin-bottom:48px; }
+  .group-title{
+    font-size:1.1rem;
+    font-weight:700;
+    margin:0 0 16px;
+  }
+  .letter{
+    display:inline-flex;
+    width:22px;height:22px;
+    border-radius:50%;
+    background:var(--n-cream);
+    color:var(--n-dark);
+    align-items:center;justify-content:center;
+    font-size:0.75rem; font-weight:700;
+    margin-right:8px;
+  }
+  .flow{
+    display:flex;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:0;
+  }
+  .step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+    width:150px;
+    margin-bottom:20px;
+  }
+  .arrow-between{
+    color:var(--muted);
+    font-size:1.1rem;
+    align-self:center;
+    margin-top:130px;
+    flex-shrink:0;
+    padding:0 4px;
+  }
+  figcaption{
+    font-size:0.76rem;
+    text-align:center;
+    line-height:1.3;
+    max-width:140px;
+    color:var(--muted);
+  }
+  .branch-pair{ display:flex; gap:8px; }
+
+  /* --- phone --- */
+  .phone{
+    width:130px;
+    height:270px;
+    border-radius:22px;
+    padding:6px;
+    position:relative;
+    background:var(--n-black);
+    flex-shrink:0;
+  }
+  .phone.light{ background:var(--n-cream); }
+  .notch{
+    position:absolute;
+    top:6px; left:50%;
+    transform:translateX(-50%);
+    width:38px; height:9px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.15);
+    z-index:2;
+  }
+  .light .notch{ background:rgba(24,24,24,0.25); }
+  .screen{
+    width:100%;
+    height:100%;
+    border-radius:16px;
+    overflow:hidden;
+    padding:16px 8px 8px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:8.5px;
+    color:#fff;
+  }
+  .light .screen{ color:var(--ink); }
+
+  .topbar{ display:flex; align-items:center; gap:6px; margin-bottom:2px; }
+  .back{
+    width:14px;height:14px;border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:7px; color:#fff; flex-shrink:0;
+  }
+  .light .back{ background:rgba(24,24,24,0.08); color:var(--ink); }
+  .title{ flex:1; text-align:center; font-weight:700; font-size:8px; margin-right:14px; }
+
+  .label{ color:rgba(255,255,255,0.4); font-size:6.5px; letter-spacing:0.02em; text-transform:uppercase; }
+  .light .label{ color:var(--muted); }
+  .value{ font-weight:800; font-size:12px; }
+  .field{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:7px;
+    padding:5px 6px;
+  }
+  .light .field{ background:rgba(24,24,24,0.04); border-color:var(--line); }
+  .row-item{ display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .light .row-item{ border-color:var(--line); }
+  .btn{
+    border-radius:999px;
+    padding:6px;
+    text-align:center;
+    font-weight:700;
+    font-size:7.5px;
+  }
+  .btn.primary{ background:var(--n-lime); color:#141414; }
+  .btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; }
+  .light .btn.ghost{ border-color:var(--line); color:var(--ink); }
+  .grow{ flex:1; }
+  .center{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:4px; }
+  .check{
+    width:26px;height:26px;border-radius:50%;
+    background:var(--n-lime);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px; color:#141414; font-weight:900;
+  }
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:4px; }
+  .tile{
+    background:rgba(255,255,255,0.06);
+    border-radius:7px;
+    padding:5px;
+    font-size:7px;
+  }
+  .light .tile{ background:rgba(24,24,24,0.05); }
+  .chatline{ display:flex; gap:4px; align-items:flex-start; }
+  .bubble{ background:rgba(255,255,255,0.06); border-radius:6px; padding:4px 5px; flex:1; }
+  .light .bubble{ background:rgba(24,24,24,0.05); }
+</style>
+</head>
+<body>
+
+<h1>Экраны по всему user flow</h1>
+<p class="lead">Быстрые wireframe-экраны на каждый шаг основного flow — без детализации, только ключевое действие/состояние экрана. Стиль — тёмные и светлые поверхности «Нормы», лаймовый акцент на главном действии.</p>
+
+<!-- ВХОД -->
+<section class="group">
+  <h2 class="group-title">Вход</h2>
+  <div class="flow">
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="value" style="font-size:14px;">норма</div>
+          <div class="btn primary" style="width:100%;margin-top:8px;">Войти</div>
+          <div class="btn ghost" style="width:100%;">Регистрация</div>
+        </div>
+      </div>
+      <figcaption>Запуск приложения</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="topbar"><div class="back">←</div><div class="title">Вход</div></div>
+          <div class="label">Телефон</div>
+          <div class="field">+7 ___ ___-__-__</div>
+          <div class="grow"></div>
+          <div class="btn primary">Получить код</div>
+        </div>
+      </div>
+      <figcaption>Вход</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="topbar"><div class="back">←</div><div class="title">Регистрация</div></div>
+          <div class="label">e-mail</div>
+          <div class="field">you@mail.com</div>
+          <div class="label">Пароль</div>
+          <div class="field">••••••••</div>
+          <div class="grow"></div>
+          <div class="btn primary">Создать аккаунт</div>
+        </div>
+      </div>
+      <figcaption>Регистрация</figcaption>
+    </div>
+
+  </div>
+</section>
+
+<!-- ОНБОРДИНГ -->
+<section class="group">
+  <h2 class="group-title">Онбординг</h2>
+  <div class="flow">
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Шаг 1 из 4</div>
+          <div class="label" style="margin-top:6px;">Телефон / e-mail</div>
+          <div class="field">+7 900 123-45-67</div>
+          <div class="grow"></div>
+          <div class="btn primary">Продолжить</div>
+        </div>
+      </div>
+      <figcaption>Телефон / e-mail</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="value" style="font-size:16px; letter-spacing:2px;">• • • •</div>
+          <div class="label">код из СМС</div>
+          <div class="btn primary" style="width:100%;margin-top:8px;">Подтвердить</div>
+        </div>
+      </div>
+      <figcaption>Код из СМС</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Шаг 2 из 4</div>
+          <div class="label" style="margin-top:6px;">Имя</div>
+          <div class="field">Анна</div>
+          <div class="label">Фамилия</div>
+          <div class="field">Смирнова</div>
+          <div class="grow"></div>
+          <div class="btn primary">Далее</div>
+        </div>
+      </div>
+      <figcaption>Профиль</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="check">✓</div>
+          <div class="label" style="margin-top:4px;">Статус НПД найден</div>
+          <div class="btn primary" style="width:100%;margin-top:8px;">Продолжить</div>
+        </div>
+      </div>
+      <figcaption>Проверка статуса самозанятого</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="tile" style="width:70%;">📷 фото паспорта</div>
+          <div class="tile" style="width:70%;">🤳 селфи</div>
+          <div class="btn primary" style="width:100%;margin-top:6px;">Отправить</div>
+        </div>
+      </div>
+      <figcaption>Идентификация / KYC</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="spinner"></div>
+          <div class="label">проверяем документы…</div>
+        </div>
+      </div>
+      <figcaption>Проверка пройдена</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step" style="width:170px;">
+      <div class="branch-pair">
+        <div class="phone" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen center" style="padding:16px 4px 4px;">
+            <div class="check" style="width:20px;height:20px;font-size:9px;">✓</div>
+            <div class="label" style="font-size:6px;">на главный экран</div>
+          </div>
+        </div>
+        <div class="phone" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen center" style="padding:16px 4px 4px;">
+            <div class="btn ghost" style="font-size:6px;padding:4px;">Повторить</div>
+            <div class="label" style="font-size:6px;">ошибка проверки</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Переход к главному экрану / Ошибка</figcaption>
+    </div>
+
+  </div>
+</section>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="group">
+  <h2 class="group-title">Главный экран</h2>
+  <div class="flow">
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Доброе утро, Анна</div>
+          <div class="value">320 000 ₽</div>
+          <div class="label" style="color:var(--n-dark);">+12,4% за неделю</div>
+          <div class="grow"></div>
+          <div class="row-item"><span>Пополнить</span><span>↓</span></div>
+        </div>
+      </div>
+      <figcaption>Главный экран</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="label">Баланс</div>
+          <div class="value">320 000 ₽</div>
+        </div>
+      </div>
+      <figcaption>Баланс</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="label">Доход за май</div>
+          <div class="value">140 000 ₽</div>
+          <div class="label" style="color:var(--n-dark);">+18% к апрелю</div>
+        </div>
+      </div>
+      <figcaption>Доход за месяц</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Последние операции</div>
+          <div class="row-item"><span>Кофейня</span><span>−420 ₽</span></div>
+          <div class="row-item"><span>О. Соколова</span><span>+5 000 ₽</span></div>
+        </div>
+      </div>
+      <figcaption>Последние операции</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="grid2">
+            <div class="tile">+ Пополнить</div>
+            <div class="tile">↓ Получить</div>
+            <div class="tile">↗ Оплатить</div>
+            <div class="tile" style="background:var(--n-lime);color:#141414;">⇄ Перевод</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Быстрые действия</figcaption>
+    </div>
+
+  </div>
+</section>
+
+<!-- ОСНОВНЫЕ СЦЕНАРИИ -->
+<section class="group">
+  <h2 class="group-title">Основные сценарии</h2>
+
+  <!-- A -->
+  <h3 style="font-size:0.95rem;margin:0 0 10px;"><span class="letter">A</span>Принять оплату</h3>
+  <div class="flow">
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="topbar"><div class="back">←</div><div class="title">Счёт клиенту</div></div>
+          <div class="label">Сумма</div>
+          <div class="field">85 000 ₽</div>
+          <div class="grow"></div>
+          <div class="btn primary">Выставить счёт</div>
+        </div>
+      </div>
+      <figcaption>Создать счёт / ссылку / QR</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="value">85 000 ₽</div>
+          <div class="btn primary" style="width:100%;margin-top:6px;">Отправить клиенту</div>
+        </div>
+      </div>
+      <figcaption>Отправить клиенту</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="spinner"></div>
+          <div class="label">ждём оплату…</div>
+        </div>
+      </div>
+      <figcaption>Клиент оплачивает</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="check">?</div>
+          <div class="label">оплата успешна?</div>
+        </div>
+      </div>
+      <figcaption>Оплата успешна?</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step" style="width:170px;">
+      <div class="branch-pair">
+        <div class="phone" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen center" style="padding:16px 4px 4px;">
+            <div class="check" style="width:20px;height:20px;font-size:9px;">✓</div>
+            <div class="label" style="font-size:6px;">+85 000 ₽</div>
+          </div>
+        </div>
+        <div class="phone" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen center" style="padding:16px 4px 4px;">
+            <div class="btn ghost" style="font-size:6px;padding:4px;">Повторить</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Деньги зачислены / Повторить оплату</figcaption>
+    </div>
+  </div>
+
+  <!-- B -->
+  <h3 style="font-size:0.95rem;margin:28px 0 10px;"><span class="letter">B</span>Доходы и аналитика</h3>
+  <div class="flow">
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">История операций</div>
+          <div class="row-item"><span>ООО «Восход»</span><span>85 000</span></div>
+          <div class="row-item"><span>Тимур К.</span><span>42 000</span></div>
+        </div>
+      </div>
+      <figcaption>История операций</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="grid2">
+            <div class="tile" style="background:var(--n-lime);">Май</div>
+            <div class="tile">Апрель</div>
+            <div class="tile">Доход</div>
+            <div class="tile">Расход</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Фильтры</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="tile">📄 отчёт.pdf</div>
+          <div class="btn primary" style="width:100%;">Скачать</div>
+        </div>
+      </div>
+      <figcaption>Отчёты / выгрузка</figcaption>
+    </div>
+  </div>
+
+  <!-- C -->
+  <h3 style="font-size:0.95rem;margin:28px 0 10px;"><span class="letter">C</span>Налоги</h3>
+  <div class="flow">
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="label">К оплате до 25 июня</div>
+          <div class="value">4 320 ₽</div>
+        </div>
+      </div>
+      <figcaption>Расчёт налога</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="row-item"><span>Начислено</span><span>4 320 ₽</span></div>
+          <div class="row-item"><span>Статус</span><span>не оплачен</span></div>
+        </div>
+      </div>
+      <figcaption>Статус начислений</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="value">4 320 ₽</div>
+          <div class="btn primary" style="width:100%;margin-top:6px;">Оплатить через СБП</div>
+        </div>
+      </div>
+      <figcaption>Оплатить налог</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="check">✓</div>
+          <div class="label">налог оплачен</div>
+        </div>
+      </div>
+      <figcaption>Подтверждение</figcaption>
+    </div>
+  </div>
+
+  <!-- D -->
+  <h3 style="font-size:0.95rem;margin:28px 0 10px;"><span class="letter">D</span>Вывод средств</h3>
+  <div class="flow">
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Куда вывести</div>
+          <div class="field">Visa •••• 3490</div>
+          <div class="field">Счёт в банке</div>
+        </div>
+      </div>
+      <figcaption>Выбор карты / счёта</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="spinner"></div>
+          <div class="label">проверяем реквизиты…</div>
+        </div>
+      </div>
+      <figcaption>Проверка реквизитов</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="value">50 000 ₽</div>
+          <div class="btn primary" style="width:100%;margin-top:6px;">Подтвердить вывод</div>
+        </div>
+      </div>
+      <figcaption>Подтверждение вывода</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="screen center">
+          <div class="check">✓</div>
+          <div class="label">средства отправлены</div>
+        </div>
+      </div>
+      <figcaption>Средства отправлены</figcaption>
+    </div>
+  </div>
+
+  <!-- E -->
+  <h3 style="font-size:0.95rem;margin:28px 0 10px;"><span class="letter">E</span>Профиль и настройки</h3>
+  <div class="flow">
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">Имя</div>
+          <div class="field">Анна Смирнова</div>
+          <div class="label">Телефон</div>
+          <div class="field">+7 900 123-45-67</div>
+        </div>
+      </div>
+      <figcaption>Личные данные</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">ИНН</div>
+          <div class="field">770123456789</div>
+          <div class="label">Счёт</div>
+          <div class="field">RUB •••• 3490</div>
+        </div>
+      </div>
+      <figcaption>Реквизиты</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="row-item"><span>Push</span><span>вкл</span></div>
+          <div class="row-item"><span>E-mail</span><span>выкл</span></div>
+        </div>
+      </div>
+      <figcaption>Уведомления</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="row-item"><span>Face ID</span><span>вкл</span></div>
+          <div class="row-item"><span>Пароль</span><span>изменить</span></div>
+        </div>
+      </div>
+      <figcaption>Безопасность</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step">
+      <div class="phone light">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="label">FAQ</div>
+          <div class="tile">Как оплатить налог?</div>
+          <div class="tile">Как вывести деньги?</div>
+        </div>
+      </div>
+      <figcaption>Поддержка / FAQ</figcaption>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="step" style="width:170px;">
+      <div class="branch-pair">
+        <div class="phone" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen" style="padding:16px 4px 4px;">
+            <div class="chatline"><div class="bubble" style="font-size:6px;">Здравствуйте!</div></div>
+          </div>
+        </div>
+        <div class="phone light" style="width:80px;height:270px;">
+          <div class="notch"></div>
+          <div class="screen center" style="padding:16px 4px 4px;">
+            <div class="field" style="font-size:6px;">тема обращения</div>
+            <div class="btn primary" style="font-size:6px;padding:4px;">Отправить</div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Чат с поддержкой / Создать обращение</figcaption>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .spinner{
+    width:22px;height:22px;border-radius:50%;
+    border:2.5px solid rgba(255,255,255,0.15);
+    border-top-color:var(--n-lime);
+    animation:spin 1s linear infinite;
+  }
+  .light .spinner{ border-color:rgba(24,24,24,0.12); border-top-color:var(--n-dark); }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+</style>
+
+</body>
+</html>

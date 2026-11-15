@@ -1,0 +1,4 @@
+Unbounded (Google Fonts) и JetBrains Mono (JetBrains) распространяются по лицензии SIL Open Font License 1.1.
+Текст лицензии: https://openfontlicense.org
+Используются кириллическая и латинская части шрифтов (woff2) из Google Fonts.
+Golos Text берётся из ../../assets/fonts (лицензия golostext-OFL.txt).

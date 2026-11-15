@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регина - веб дизайнер</title>
+  <meta name="description" content="Регина — веб-дизайнер. Упаковка бренда за 9 дней: айдентика, гайды, брендбук, сайты, креативы. Ищу проектную / полную занятость.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Регина - веб дизайнер">
+  <meta property="og:description" content="Упаковка бренда за 9 дней: айдентика, гайды, брендбук, сайты, креативы.">
+  <meta property="og:url" content="https://des-reg.vercel.app/">
+  <meta property="og:image" content="https://des-reg.vercel.app/img/front.png">
+  <meta property="og:image:width" content="981">
+  <meta property="og:image:height" content="981">
+  <meta property="og:image:alt" content="Портрет Регины в синем растре">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://des-reg.vercel.app/img/front.png">
+  <link rel="canonical" href="https://des-reg.vercel.app/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">к содержанию</a>
+
+  <button class="menu-toggle" type="button" aria-label="открыть меню" aria-controls="menuOverlay" aria-expanded="false">
+    <span class="menu-toggle__lines" aria-hidden="true"></span>
+  </button>
+
+  <main class="home-view" id="main">
+    <!-- Главная собрана как постер: огромные слова NOGGI от края до края (data-mega — скрипт режет их на буквы,
+         буквы выезжают из-под линии), мелкий текст по углам, синие «карандашные» пометки и тонкие линии-разметка.
+         --in / --out у каждого блока (0…1: как далеко блок въехал / насколько его закрыл следующий) считает setupStack() -->
+    <section class="hero section" id="about" aria-labelledby="heroTitle">
+      <div class="hx">
+        <p class="hx__intro">я Регина — беру задачу <span class="pencil">целиком<svg class="pencil__loop" viewBox="0 0 200 64" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M170 9C128 1 44 3 15 20C-5 33 14 58 84 61C146 64 197 53 193 30C190 12 150 4 98 7"/></svg></span>: бренд, сайт, интерфейс. на связи для проектов и в штат</p>
+
+        <div class="hx__visual" aria-hidden="true" data-parallax data-depth="-0.1" data-rotate="-0.04">
+          <span class="crop crop--tl"></span><span class="crop crop--tr"></span><span class="crop crop--bl"></span><span class="crop crop--br"></span>
+          <img class="portrait turntable-img" src="img/front.webp" width="981" height="981" alt="" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+
+        <dl class="hx__stats" aria-label="ключевые факты">
+          <div class="hx__stat"><dt>7</dt><dd>лет опыта</dd></div>
+          <div class="hx__stat"><dt>50+</dt><dd>законченных проектов</dd></div>
+          <div class="hx__stat"><dt>B2B <br>B2C</dt><dd>форматы</dd></div>
+        </dl>
+
+        <h1 class="hx__title" id="heroTitle">
+          <span class="hx__line hx__line--top"><span class="mega" data-mega>веб</span><a class="hero__resume" href="Regina_Malikova_Web_Designer_CV.pdf" target="_blank" rel="noopener" data-resume aria-label="резюме"><img src="images/hero/resume-badge.png" width="358" height="107" alt="" decoding="async"><img class="hero__resume-doggi" src="images/hero/resume-doggi.webp" width="480" height="404" alt="" aria-hidden="true" loading="lazy" decoding="async"></a></span>
+          <span class="hx__line"><span class="mega" data-mega>дизайнер</span></span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="package section" aria-labelledby="packageTitle">
+      <div class="pk">
+        <p class="kicker"><span class="kicker__no">01</span>{//. упаковка бренда</p>
+        <h2 class="pk__title" id="packageTitle"><span class="mega" data-mega>упакую</span> <span class="pk__sub rise">бренд <span class="pk__soft">за 9 дней:</span></span></h2>
+        <p class="pk__note rise">этот сайт я сделала <span class="pencil">за 7 дней<svg class="pencil__loop" viewBox="0 0 200 64" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M170 9C128 1 44 3 15 20C-5 33 14 58 84 61C146 64 197 53 193 30C190 12 150 4 98 7"/></svg></span></p>
+
+        <ol class="pk__steps">
+          <li class="pk__step">
+            <span class="pk__fig depth" style="--d: 0.5" aria-hidden="true"><img src="images/А1.png" width="600" height="600" alt="" loading="lazy" decoding="async"></span>
+            <span class="pk__name">концепция</span>
+            <span class="pk__days">дни 1–3</span>
+          </li>
+          <li class="pk__step">
+            <!-- заглушка «макет»: вайрфрейм страницы тонкой линией + синяя пометка вокруг кнопки -->
+            <span class="pk__fig depth" style="--d: 0.9" aria-hidden="true">
+              <svg class="wire" viewBox="0 0 240 180" fill="none">
+                <rect x="2" y="2" width="236" height="176" rx="12" pathLength="1"/>
+                <path d="M2 28h236" pathLength="1"/>
+                <circle cx="17" cy="15" r="4"/><circle cx="30" cy="15" r="4"/><circle cx="43" cy="15" r="4"/>
+                <rect x="18" y="44" width="112" height="82" rx="6" pathLength="1"/>
+                <path d="M18 44l112 82M130 44 18 126" pathLength="1"/>
+                <path d="M148 50h74M148 64h58M148 78h66M148 92h38" pathLength="1"/>
+                <rect x="148" y="104" width="54" height="22" rx="11" pathLength="1"/>
+                <path d="M18 148h204M18 162h142" pathLength="1"/>
+                <path class="wire__pencil" pathLength="1" d="M214 101C200 92 150 92 140 104C130 118 160 134 192 132C220 130 230 116 220 104C214 97 196 94 180 96"/>
+              </svg>
+            </span>
+            <span class="pk__name">макет</span>
+            <span class="pk__days">дни 4–6</span>
+          </li>
+          <li class="pk__step">
+            <span class="pk__fig depth" style="--d: 1.3" aria-hidden="true"><img src="images/Б2.png" width="600" height="687" alt="" loading="lazy" decoding="async"></span>
+            <span class="pk__name">дизайн</span>
+            <span class="pk__days">дни 7–9</span>
+          </li>
+        </ol>
+
+        <!-- линейка на 9 дней: синяя стрелка дорисовывается, пока блок въезжает -->
+        <div class="pk__ruler" aria-hidden="true">
+          <span class="pk__arrow"></span>
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills section" id="skills" aria-labelledby="skillsTitle">
+      <div class="skills__inner">
+        <p class="kicker"><span class="kicker__no">02</span>{//. навыки и форматы</p>
+        <h2 class="section-title mega" id="skillsTitle" data-mega>что умею</h2>
+        <!-- таблички и предметы собраны кучкой в центре; курсор расталкивает их (setupSkillForms в script.js).
+             --ox/--oy — место в кучке от центра сцены (в % её ширины/высоты), --r — наклон -->
+        <div class="skills__stage" data-forms>
+          <img class="skill-form skill-form--foil" src="images/skills/forms/foil.svg" width="200" height="200" alt="" aria-hidden="true" style="--ox: -18.0%; --oy: 22.3%; --r: 8deg; --mx: 4%; --my: 14%" decoding="async">
+          <img class="skill-form skill-form--asterisk" src="images/skills/forms/asterisk.svg" width="200" height="200" alt="" aria-hidden="true" style="--ox: 15.1%; --oy: -25.7%; --r: -6deg; --mx: 16%; --my: -14%" decoding="async">
+          <img class="skill-form skill-form--heart" src="images/skills/forms/heart.svg" width="200" height="200" alt="" aria-hidden="true" style="--ox: 26.1%; --oy: 8.2%; --r: -14deg; --mx: -24%; --my: -2%" decoding="async">
+          <img class="skill-form skill-form--gum" src="images/skills/forms/gum.svg" width="200" height="200" alt="" aria-hidden="true" style="--ox: -18.5%; --oy: -27.7%; --r: 0deg; --mx: -26%; --my: -26%" decoding="async">
+          <img class="skill-form skill-form--candy" src="images/skills/forms/candy.svg" width="200" height="200" alt="" aria-hidden="true" style="--ox: 15.0%; --oy: 29.2%; --r: 12deg; --mx: 26%; --my: 6%" decoding="async">
+          <span class="skill-label" style="--ox: -31.4%; --oy: -17.0%; --r: -8deg; --mx: -8%; --my: -36%">презентация</span>
+          <span class="skill-label" style="--ox: -37.0%; --oy: 0.0%; --r: 4deg; --mx: -12%; --my: 4%">айдентика</span>
+          <span class="skill-label" style="--ox: 30.3%; --oy: -18.4%; --r: 6deg; --mx: 16%; --my: -27%">брендбук</span>
+          <span class="skill-label" style="--ox: -1.3%; --oy: -32.0%; --r: -3deg; --mx: -18%; --my: -18%">сайт</span>
+          <span class="skill-label" style="--ox: 37.0%; --oy: 0.0%; --r: -10deg; --mx: 22%; --my: -4%">крео</span>
+          <span class="skill-label" style="--ox: -6.4%; --oy: 31.5%; --r: 7deg; --mx: 22%; --my: 22%">мерч</span>
+          <span class="skill-label" style="--ox: 30.3%; --oy: 18.4%; --r: -5deg; --mx: 10%; --my: 33%">реклама</span>
+          <span class="skill-label" style="--ox: -32.0%; --oy: 16.0%; --r: 3deg; --mx: -16%; --my: 25%">анимация</span>
+          <p class="skills__note">и другое, уточните<br class="mobile-break"> у меня</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cases section" id="cases" aria-labelledby="casesTitle">
+      <div class="cases__inner">
+        <div class="cases__head">
+          <p class="kicker"><span class="kicker__no">03</span>{//. только свежие</p>
+          <!-- огромное «кейсы» лентой: при листании едет вбок медленнее карточек (--cases-p) -->
+          <h2 class="cases__band" id="casesTitle"><span class="sr-only">кейсы</span><span class="cases__band-track" aria-hidden="true"><span class="mega">кейсы</span><i class="star"></i><span class="mega">кейсы</span><i class="star"></i><span class="mega">кейсы</span></span></h2>
+        </div>
+        <div class="desktop-board" aria-label="список кейсов">
+          <a class="case-folder case-folder--site case-card" href="#case-tish" aria-label="открыть кейс лендинга Тишь">
+            <span class="case-card__media" aria-hidden="true">
+              <img src="images/tish/cover.webp" width="800" height="500" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="case-card__body">
+              <span class="case-card__meta">Лендинг <i>·</i> Тишь</span>
+              <span class="case-card__title">Лендинг эко-отеля «Тишь»</span>
+              <span class="case-card__desc">Спокойный лендинг для выбора дома и бронирования отдыха</span>
+              <span class="case-card__tags"><span>Лендинг</span><span>Отдых</span><span>Бронирование</span></span>
+            </span>
+          </a>
+
+          <a class="case-folder case-folder--brand case-card" href="#case-opara" aria-label="открыть кейс лендинга пекарни Опара">
+            <span class="case-card__media" aria-hidden="true">
+              <img src="images/opara/cover.webp" width="800" height="500" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="case-card__body">
+              <span class="case-card__meta">Лендинг <i>·</i> Опара</span>
+              <span class="case-card__title">Лендинг пекарни «Опара»</span>
+              <span class="case-card__desc">Тёплый лендинг домашнего хлеба с заказом к завтраку</span>
+              <span class="case-card__tags"><span>Лендинг</span><span>Еда</span><span>Заказ</span></span>
+            </span>
+          </a>
+
+          <a class="case-folder case-folder--motion case-card" href="#case-podpislon" aria-label="открыть кейс сервиса Подпислон">
+            <span class="case-card__media" aria-hidden="true">
+              <img src="images/podpislon/cover.webp" width="800" height="500" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="case-card__body">
+              <span class="case-card__meta">Крео и анимация <i>·</i> Подпислон</span>
+              <span class="case-card__title">Креативы и анимация «Подпислон»</span>
+              <span class="case-card__desc">Анимации маскота для онбординга и B2B-креативы</span>
+              <span class="case-card__tags"><span>Крео</span><span>Анимация</span><span>B2B</span></span>
+            </span>
+          </a>
+
+          <a class="case-folder case-folder--app case-card" href="#case-norma" aria-label="открыть кейс приложения Норма">
+            <span class="case-card__media" aria-hidden="true">
+              <img src="images/norma/cover.webp" width="1280" height="800" alt="" loading="lazy" decoding="async">
+            </span>
+            <span class="case-card__body">
+              <span class="case-card__meta">Стартап <i>·</i> Норма</span>
+              <span class="case-card__title">Экраны Финтех приложения</span>
+              <span class="case-card__desc">Концепт макетов финтех приложения для самозанятых</span>
+              <span class="case-card__tags"><span>Стартап</span><span>Продуктовый дизайн</span><span>UI</span></span>
+            </span>
+          </a>
+
+          <div class="case-folder case-folder--soon case-card" aria-label="новый кейс скоро">
+            <span class="case-card__media case-card__media--placeholder" aria-hidden="true">
+              <svg class="wire wire--soon" viewBox="0 0 320 200" fill="none" preserveAspectRatio="none">
+                <rect x="14" y="14" width="292" height="172" rx="10" pathLength="1"/>
+                <path d="M14 14l292 172M306 14 14 186" pathLength="1"/>
+              </svg>
+              <svg class="wire wire--plus" viewBox="0 0 80 80" fill="none">
+                <path class="wire__pencil" pathLength="1" d="M58 12C44 2 16 6 8 28C0 52 22 74 46 72C70 70 80 46 72 28C67 17 56 10 42 10"/>
+                <path class="wire__pencil" pathLength="1" d="M40 26v28M26 40h28"/>
+              </svg>
+            </span>
+            <span class="case-card__body">
+              <span class="case-card__meta">Скоро</span>
+              <span class="case-card__title">Новый кейс</span>
+            </span>
+          </div>
+        </div>
+        <div class="cases__foot" aria-hidden="true">
+          <span class="cases__count"><b data-cases-count>01</b> / 05</span>
+          <span class="cases__bar"><i></i></span>
+          <span class="cases__hint">листайте вниз — лента едет вбок</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta section" id="contacts" aria-labelledby="ctaTitle">
+      <div class="cx">
+        <p class="kicker"><span class="kicker__no">04</span>{//. контакты</p>
+        <h2 class="cx__title rise" id="ctaTitle">пишите, обсудим ваш проект без <span class="cta__word">г<span class="face-o" aria-hidden="true"></span>л<span class="face-o" aria-hidden="true"></span>вн<span class="face-o" aria-hidden="true"></span>й</span> боли</h2>
+        <a class="cx__button" href="https://t.me/verykarachay" target="_blank" rel="noopener"><span class="mega" data-mega>тык</span><span class="cx__tg">telegram ↗</span></a>
+        <div class="cx__marquee" aria-hidden="true">
+          <div class="cx__track">
+            <span>бренд</span><i class="star"></i><span>сайт</span><i class="star"></i><span>интерфейс</span><i class="star"></i><span>айдентика</span><i class="star"></i><span>презентация</span><i class="star"></i><span>крео</span><i class="star"></i><span>мерч</span><i class="star"></i><span>анимация</span><i class="star"></i>
+            <span>бренд</span><i class="star"></i><span>сайт</span><i class="star"></i><span>интерфейс</span><i class="star"></i><span>айдентика</span><i class="star"></i><span>презентация</span><i class="star"></i><span>крео</span><i class="star"></i><span>мерч</span><i class="star"></i><span>анимация</span><i class="star"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <article class="case-view" id="caseView" data-case-route="#case-norma" hidden>
+    <div class="case-page">
+      <a class="back-link" href="#cases" aria-label="назад к кейсам">&lt;</a>
+      <header class="case-hero">
+        <h1 class="case-title">норма</h1>
+        <div class="case-tags" aria-label="теги кейса">
+          <span>Стартап</span>
+          <span>Продуктовый дизайн</span>
+          <span>UI</span>
+        </div>
+      </header>
+
+      <p class="case-section__copy">«Норму» придумали двое бывших фрилансеров, уставших собирать доходы по заметкам, чекам и банковским приложениям. Отсюда характер продукта: спокойный и прямой, без банковского пафоса. Самозанятым здесь нужны три вещи в одном окне: выставить счёт, получить оплату и заплатить налог.</p>
+
+      <div class="case-body case-body--stacked">
+        <figure class="case-figure case-figure--lead">
+          <img src="images/norma/lead.webp" width="1672" height="941" alt="Три экрана онбординга Нормы на телефонах: «Налог считается сам», «Финансы без банковской волокиты» и «Выставили счёт — деньги уже в пути»" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption>Онбординг: налог считается сам · финансы без волокиты · счёт клиенту</figcaption>
+        </figure>
+
+        <dl class="case-facts">
+          <div>
+            <dt>задача:</dt>
+            <dd>доработать дизайн-систему, сократить путь пользователя, не усложнять визуал</dd>
+          </div>
+          <div>
+            <dt>результат:</dt>
+            <dd>переработан UI-kit и user flow, 20+ готовых фреймов, дополнительно разработан логобук</dd>
+          </div>
+          <div>
+            <dt>срок:</dt>
+            <dd>3 недели, 2026</dd>
+          </div>
+        </dl>
+      </div>
+
+      <section class="case-section" aria-labelledby="conceptTitle">
+        <h2 class="case-section__title" id="conceptTitle">концепт</h2>
+        <p class="case-section__copy">Дизайн-систему «Нормы» я доработала, а не пересобрала: сократила лишние шаги в сценариях. Лаймовый акцент и строгую финансовую логику сохранила — теперь они одинаково работают на всех экранах. Считываемость держат тёмные поверхности, крупная типографика и мягкие градиенты.</p>
+        <div class="case-gallery case-gallery--concept">
+          <figure class="case-figure">
+            <img src="images/norma/promo-receipt.webp" width="941" height="1672" alt="Экран чека ФНС на телефоне на фоне лаймового свечения: 85 000 ₽ от ООО «Восход», QR-код для клиента и кнопка «Сохранить PDF»" loading="lazy" decoding="async">
+            <figcaption>Чек ФНС: формируется автоматически</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/norma/promo-black.webp" width="941" height="1672" alt="Экран тарифа «Норма Black» в руке: кэшбэк до 8%, выплата 7,5% и обслуживание 990 ₽ в месяц" loading="lazy" decoding="async">
+            <figcaption>Премиальный продукт «Норма Black»</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section case-section--palette" aria-labelledby="paletteTitle">
+        <h2 class="case-section__title" id="paletteTitle">палитра</h2>
+        <p class="case-section__copy">Четыре цвета работают как компактная дизайн-система: лайм остаётся единственным акцентом на статус и действие, тёмно-серый держит структуру интерфейса, а светлые оттенки берут на себя фон и паузы между блоками. Такой ограниченный набор легко масштабировать на новые экраны без потери узнаваемости.</p>
+        <figure class="case-figure palette-share">
+          <ul class="palette-share__list" aria-label="цветовая палитра приложения Норма">
+            <li style="--swatch: #4f4f51; --share: 51; --texture: url(images/norma/texture-graphite.webp)"><i aria-hidden="true"></i><p><strong>#4F4F51</strong> <span>51%</span></p></li>
+            <li style="--swatch: #e7e6df; --share: 42; --texture: url(images/norma/texture-silver.webp)"><i aria-hidden="true"></i><p><strong>#E7E6DF</strong> <span>42%</span></p></li>
+            <li style="--swatch: #d4fc46; --share: 5; --texture: url(images/norma/texture-fur.webp)"><i aria-hidden="true"></i><p><strong>#D4FC46</strong> <span>5%</span></p></li>
+            <li style="--swatch: #636a83; --share: 2; --texture: url(images/norma/texture-matte.webp)"><i aria-hidden="true"></i><p><strong>#636A83</strong> <span>2%</span></p></li>
+          </ul>
+        </figure>
+      </section>
+
+      <section class="case-section" aria-labelledby="logobookTitle">
+        <h2 class="case-section__title" id="logobookTitle">логобук</h2>
+        <p class="case-section__copy">Логотип собран из простых модулей и поддерживает характер продукта — технологичный, точный и дружелюбный. Знак и написание сохраняют читаемость как в интерфейсе, так и в рекламных материалах.</p>
+        <div class="case-gallery case-gallery--logobook">
+          <figure class="case-figure">
+            <img src="images/norma/logobook-construction.webp" width="2000" height="1415" alt="Построение логотипа Норма: знак из четырёх круговых модулей, словесный знак и цвета — графитовый #111111 и неоновый лайм #C6FF00" loading="lazy" decoding="async">
+            <figcaption>Построение логотипа</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/norma/ris-05.webp" width="963" height="678" alt="Варианты фирменного знака Норма" loading="lazy" decoding="async">
+            <figcaption>Фирменный знак</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/norma/ris-06.webp" width="960" height="676" alt="Правила использования логотипа Норма" loading="lazy" decoding="async">
+            <figcaption>Охранное поле</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="flowTitle">
+        <h2 class="case-section__title" id="flowTitle">user flow</h2>
+        <p class="case-section__copy">Прежде чем перерисовывать экраны, я собрала карту всего пути пользователя: вход, онбординг с проверкой статуса самозанятого, главный экран и пять основных сценариев — от приёма оплаты до профиля и поддержки. В каждом сценарии остались только шаги, которые меняют результат: самозанятый создаёт счёт, отправляет его клиенту и сразу видит, прошла ли оплата.</p>
+        <figure class="case-figure case-scheme">
+          <a class="case-scheme__link case-scheme__link--fit" href="images/norma/userflow.webp" target="_blank" rel="noopener" aria-label="открыть схему user flow в полном размере"><picture><source media="(max-width: 899px)" srcset="images/norma/userflow-mobile.webp" width="1080" height="2187"><img src="images/norma/userflow.webp" width="2400" height="1535" alt="Схема user flow приложения Норма: вход, онбординг, главный экран и пять основных сценариев — принять оплату, доходы и аналитика, налоги, вывод средств, профиль и настройки" loading="lazy" decoding="async"></picture></a>
+          <figcaption>Полный user flow: вход, онбординг, главный экран и пять сценариев</figcaption>
+        </figure>
+        <figure class="case-figure case-scheme case-scheme--wide">
+          <a class="case-scheme__link case-scheme__link--fit" href="images/norma/userflow-extra-steps.webp" target="_blank" rel="noopener" aria-label="открыть схему лишних шагов в полном размере"><picture><source media="(max-width: 899px)" srcset="images/norma/userflow-extra-steps-mobile.webp" width="1080" height="1920"><img src="images/norma/userflow-extra-steps.webp" width="2400" height="523" alt="Сценарий «принять оплату» с лишними шагами: выбор шаблона документа, повторное подтверждение суммы, экран ожидания без действий и повторное подтверждение отправки" loading="lazy" decoding="async"></picture></a>
+          <figcaption>Для сравнения — тот же сценарий «принять оплату» с четырьмя шагами из похожих продуктов. Результат они не меняют, только добавляют клики, поэтому в «Норме» их нет</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" aria-labelledby="skeletonsTitle">
+        <h2 class="case-section__title" id="skeletonsTitle">скелетоны</h2>
+        <p class="case-section__copy">Для всех десяти экранов есть состояния загрузки. Форма и пропорции блоков повторяют реальный интерфейс, чтобы при подгрузке данных экран не прыгал, а пользователь заранее видел, где появятся баланс, суммы и кнопки.</p>
+        <figure class="case-figure case-scheme case-scheme--skeletons">
+          <a class="case-scheme__link case-scheme__link--fit" href="images/norma/skeletons-dark.webp" target="_blank" rel="noopener" aria-label="открыть скелетоны экранов в полном размере"><picture><source media="(max-width: 899px)" srcset="images/norma/skeletons-dark-mobile.webp" width="1000" height="2080"><img src="images/norma/skeletons-dark.webp" width="2480" height="1080" alt="Тёмные скелетоны экранов приложения Норма: онбординг, перевод между валютами, Норма Black и выставление счёта" loading="lazy" decoding="async"></picture></a>
+          <figcaption><span class="case-scheme__caption-wide">Скелетоны тёмных экранов — состояния загрузки</span><span class="case-scheme__caption-narrow">Скелетоны четырёх тёмных экранов — состояния загрузки</span></figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" aria-labelledby="screensTitle">
+        <h2 class="case-section__title" id="screensTitle">экраны</h2>
+        <p class="case-section__copy">Интерфейс объединён единой дизайн-системой: ключевые действия выделены лаймовым цветом, а суммы и статусы быстро считываются. Экраны показывают основные сценарии — от входа и главной до накоплений, вкладов, переводов и подтверждения операций.</p>
+        <div class="case-gallery case-gallery--screens">
+          <figure class="case-figure"><img src="images/norma/onboarding-1.webp" width="417" height="893" alt="Онбординг Нормы, экран 1: сетка цветных кругов и заголовок «Финансы без банковской волокиты»" loading="lazy" decoding="async"><figcaption>Онбординг 1: финансы без волокиты</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/onboarding-2.webp" width="417" height="893" alt="Онбординг Нормы, экран 2: два крупных круга и заголовок «Выставили счёт — деньги уже в пути»" loading="lazy" decoding="async"><figcaption>Онбординг 2: счёт клиенту</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/onboarding-3.webp" width="417" height="893" alt="Онбординг Нормы, экран 3: знак из четырёх кругов на лаймовом свечении и заголовок «Налог считается сам»" loading="lazy" decoding="async"><figcaption>Онбординг 3: налог считается сам</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-home.webp" width="420" height="893" alt="Главный экран Нормы: баланс 320 000 ₽ с графиком, кнопки пополнить, получить и оплатить, последние операции" loading="lazy" decoding="async"><figcaption>Главная: баланс и последние операции</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-tax.webp" width="420" height="893" alt="Экран налогов: 7 176 ₽ к оплате до 28 октября, лимит дохода, автоплатёж и начисления" loading="lazy" decoding="async"><figcaption>Налоги: сумма, срок и автоплатёж</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-invoices.webp" width="420" height="893" alt="Экран счетов: счёт ООО «Восход» на 85 000 ₽ со статусом оплаты и список неоплаченных счетов" loading="lazy" decoding="async"><figcaption>Счета: статус оплаты у клиента</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-history.webp" width="420" height="893" alt="Экран истории: поступления и списания за сентябрь по неделям, фильтры и операции по дням" loading="lazy" decoding="async"><figcaption>История: движение денег за месяц</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-transfer.webp" width="417" height="903" alt="Экран перевода Михаилу Лебедеву: 20 000 ₽ с карты превращаются в 186,00 € по курсу 0,0093 без комиссии, быстрые суммы 5K–50K" loading="lazy" decoding="async"><figcaption>Перевод между валютами</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-black.webp" width="422" height="893" alt="Экран тарифа «Норма Black»: кэшбэк до 8%, выплата 7,5% и обслуживание 990 ₽ в месяц" loading="lazy" decoding="async"><figcaption>Премиальное предложение «Норма Black»</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-products.webp" width="420" height="893" alt="Экран продуктов: карты, накопления 12,5% годовых, кредит до 5 млн, новая плитка «Инвестиции», страхование и ипотека от 7,2%" loading="lazy" decoding="async"><figcaption>Каталог продуктов</figcaption></figure>
+          <figure class="case-figure"><img src="images/norma/screen-receipt.webp" width="422" height="893" alt="Экран чека ФНС на 85 000 ₽ для ООО «Восход» с QR-кодом для клиента и кнопкой «Сохранить PDF»" loading="lazy" decoding="async"><figcaption>Чек ФНС для клиента</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="normaMerchTitle">
+        <h2 class="case-section__title" id="normaMerchTitle">мерч</h2>
+        <p class="case-section__copy">Знак проверила за пределами экрана — на брелоке, бейджах команды, металлическом значке и футболках. Четыре круга узнаются и в одном цвете на матовом пластике, и в мелком размере на груди футболки, а лаймовый круг остаётся единственным акцентом, как и в интерфейсе.</p>
+        <div class="case-gallery">
+          <figure class="case-figure">
+            <img src="images/norma/merch.webp" width="1758" height="1704" alt="Мерч Нормы: брелок-кошелёк со знаком на сумке, бейджи сотрудников, металлический значок с логотипом на джинсовой ткани и чёрная и белая футболки со знаком" loading="lazy" decoding="async">
+            <figcaption>Брелок, бейджи команды, значок и футболки с фирменным знаком</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section case-outro" aria-labelledby="normaOutroTitle">
+        <h2 class="case-section__title" id="normaOutroTitle">результат</h2>
+        <p class="case-section__copy">20+ фреймов на обновлённом UI kit, короткий user flow, логобук и гайдлайн знака. Новые продукты «Нормы» можно собирать на этой системе, не пересобирая стиль.</p>
+        <p class="case-section__copy case-outro__note">Нужен похожий продуктовый UI для финтеха — пишите :)</p>
+        <nav class="case-outro__nav" aria-label="навигация по кейсам">
+          <a class="case-outro__home" href="#">← на главный экран</a>
+          <a class="case-outro__next" href="#case-tish"><span>следующий кейс</span><strong>тишь&nbsp;<i aria-hidden="true">→</i></strong></a>
+        </nav>
+      </section>
+    </div>
+    <!-- вне .case-page: у него transform от анимации появления, а кнопка закреплена относительно экрана -->
+    <a class="case-outro__button" href="https://t.me/verykarachay" target="_blank" rel="noopener">написать в тг</a>
+  </article>
+
+  <article class="case-view case-view--tish" id="caseTish" data-case-route="#case-tish" hidden>
+    <div class="case-page">
+      <a class="back-link" href="#cases" aria-label="назад к кейсам">&lt;</a>
+      <header class="case-hero">
+        <h1 class="case-title">тишь</h1>
+        <div class="case-tags" aria-label="теги кейса">
+          <span>лендинг</span>
+          <span>отдых</span>
+          <span>бронирование</span>
+        </div>
+      </header>
+
+      <div class="case-body case-body--stacked">
+        <figure class="case-figure case-figure--lead">
+          <img src="images/tish/lead-wide.webp" width="1600" height="900" alt="Лендинг загородных домов «Тишь» на ноутбуке и смартфоне" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption>Лендинг «Тишь» на ноутбуке и в телефоне</figcaption>
+        </figure>
+
+        <dl class="case-facts">
+          <div>
+            <dt>задача:</dt>
+            <dd>создать спокойный лендинг для выбора дома и быстрого бронирования отдыха</dd>
+          </div>
+          <div>
+            <dt>результат:</dt>
+            <dd>концепция, айдентика и лендинг для ПК и телефона, путь к брони — четыре экрана: место → дом → даты → заявка. Сдан клиенту</dd>
+          </div>
+          <div>
+            <dt>срок:</dt>
+            <dd>2 недели</dd>
+          </div>
+        </dl>
+      </div>
+
+      <section class="case-section" aria-labelledby="tishConceptTitle">
+        <h2 class="case-section__title" id="tishConceptTitle">концепт</h2>
+        <p class="case-section__copy">Гости выбирают такой отдых, чтобы отдохнуть от лишнего шума — поэтому композиция остаётся просторной, а крупные фотографии озера и леса говорят больше, чем текст. Короткие фразы и заметные кнопки нужны, чтобы решение о доме принималось по фотографии, а не после долгого чтения.</p>
+        <div class="case-gallery case-gallery--concept tish-concept-grid">
+          <figure class="case-figure tish-photo" data-parallax data-depth="-0.035" data-rotate="-0.01">
+            <img src="images/tish/interior.webp" width="1536" height="1024" alt="Светлая гостиная деревянного дома с панорамным видом на озеро" loading="lazy" decoding="async">
+            <figcaption>Свет и дерево — чтобы интерьер не проигрывал озеру за окном</figcaption>
+          </figure>
+          <figure class="case-figure tish-photo tish-photo--portrait" data-parallax data-depth="0.04" data-rotate="0.012">
+            <img src="images/tish/forest.webp" width="1024" height="1536" alt="Лесная тропа среди сосен, берёз и покрытых мхом камней" loading="lazy" decoding="async">
+            <figcaption>Лес перед домом важнее самого дома — так тишина считывается с первого кадра</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section case-section--palette" aria-labelledby="tishPaletteTitle">
+        <h2 class="case-section__title" id="tishPaletteTitle">палитра</h2>
+        <p class="case-section__copy">Молочный фон и хвойный текст держат страницу приглушённой, чтобы главными оставались фотографии. Шалфейный отмечает детали — выбранные даты в календаре, отзыв гостей, галочку подтверждения. Терракотовый появляется на странице один раз — фоном блока бронирования, чтобы главное действие не терялось при прокрутке.</p>
+        <div class="case-palette" aria-label="цветовая палитра лендинга Тишь">
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #f2f0e8"></span><strong>#F2F0E8 · молочный</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #b9c2a3"></span><strong>#B9C2A3 · шалфейный</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #26302a"></span><strong>#26302A · хвойный</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #b56f45"></span><strong>#B56F45 · терракотовый</strong></div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishLogobookTitle">
+        <h2 class="case-section__title" id="tishLogobookTitle">логобук</h2>
+        <p class="case-section__copy">Широкие буквы и увеличенные паузы в словесном знаке нужны, чтобы название читалось так же медленно, как течёт сам отдых. Круглый знак существует отдельно от текста — он отсылает к отражению луны в воде и работает как метка там, где словесному знаку не хватает места.</p>
+        <div class="case-gallery case-gallery--logobook tish-brand-gallery">
+          <figure class="case-figure">
+            <img src="images/tish/logobook-01.webp" width="794" height="1323" alt="Построение словесного знака Тишь" loading="lazy" decoding="async">
+            <figcaption>Сетка знака: почему буквы стоят так широко</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/tish/logobook-02.webp" width="794" height="1323" alt="Знак Тишь и его отражение в воде" loading="lazy" decoding="async">
+            <figcaption>Отражение вместо иллюстрации — знак получает смысл без картинки</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/tish/logobook-03.webp" width="794" height="1323" alt="Фирменный знак Тишь на фотографии террасы у озера" loading="lazy" decoding="async">
+            <figcaption>Проверка знака на реальной фотографии, а не в вакууме макета</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishApproachTitle">
+        <h2 class="case-section__title" id="tishApproachTitle">дизайн-подход</h2>
+        <p class="case-section__copy">Один принцип держит все экраны вместе: фотография места важнее интерфейса поверх неё. Крупные кадры, короткие фразы и одна и та же кнопка выбора даты повторяются от главного экрана до формы брони, поэтому бронирование считывается как продолжение истории про отдых, а не отдельный технический шаг.</p>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishDesktopTitle">
+        <h2 class="case-section__title" id="tishDesktopTitle">настольная версия</h2>
+        <p class="case-section__copy">Порядок экранов — сначала место, потом дом, затем то, что в него входит — нужен, чтобы бронирование не ощущалось холодной покупкой: сперва человек соглашается с местом, а после уже выбирает даты. Поэтому призыв выбрать даты повторяется на каждом экране, но остаётся тише фотографий.</p>
+        <figure class="case-figure tish-desktop-figure" data-parallax data-depth="0.025" data-rotate="0.006">
+          <div class="tish-desktop-page">
+            <div class="tish-browser__bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <section class="tish-page-hero">
+              <img src="images/tish/hero-cabin.webp" width="1536" height="1024" alt="Дом у тихого озера на главном экране лендинга" loading="lazy" decoding="async">
+              <div class="tish-page-nav"><strong>ТИШЬ</strong><span>Дома&nbsp;&nbsp; Чем заняться&nbsp;&nbsp; О месте</span><b>Выбрать даты</b></div>
+              <div class="tish-page-hero__copy"><small>Карелия · берег озера</small><h3>Место, где<br>слышно тишину</h3><p>Четыре дома среди сосен.<br>Вода, тепло и время для себя.</p><span>Смотреть дома ↓</span></div>
+            </section>
+            <section class="tish-page-intro"><small>О месте</small><h3>Не уезжать от жизни,<br>а возвращаться к ней</h3><p>Просыпайтесь у воды, гуляйте без маршрута и оставайтесь у огня столько, сколько захочется.</p><b>4 дома<br><small>на первой линии</small></b></section>
+            <section class="tish-page-houses"><div class="tish-page-heading"><small>Дома</small><h3>Выберите свой вид<br>на тишину</h3></div><div class="tish-house-card"><img src="images/tish/interior.webp" width="1536" height="1024" alt="Интерьер дома Сосна" loading="lazy" decoding="async"><span>Дом «Сосна» · до 4 гостей</span></div><div class="tish-house-card"><img src="images/tish/sauna.webp" width="1536" height="1024" alt="Сауна в доме Вода" loading="lazy" decoding="async"><span>Дом «Вода» · до 2 гостей</span></div></section>
+            <section class="tish-page-experience"><img src="images/tish/boat.webp" width="1536" height="1024" alt="Лодка у деревянного причала на озере" loading="lazy" decoding="async"><div><small>Включено в проживание</small><h3>Лодка, сауна,<br>завтрак и лес</h3><ul><li>Тихая прогулка по озеру</li><li>Сауна с видом на воду</li><li>Завтрак у двери каждое утро</li></ul></div></section>
+            <section class="tish-page-review"><small>Гости о нас</small><blockquote>«Здесь впервые за долгое время не хотелось проверять время»</blockquote><span>Анна и Михаил · три ночи в доме «Сосна»</span></section>
+            <section class="tish-page-booking"><div><small>Бронирование</small><h3>Выберите даты<br>для своей паузы</h3></div><div class="tish-page-fields"><span>Заезд<br><b>18 сентября</b></span><span>Выезд<br><b>21 сентября</b></span><span>Гости<br><b>2 взрослых</b></span><strong>Найти дом →</strong></div></section>
+            <footer class="tish-page-footer"><strong>ТИШЬ</strong><span>Карелия · берег озера<br>Как добраться · Связаться с нами</span></footer>
+          </div>
+          <figcaption>Весь путь целиком — от атмосферы места до формы бронирования — на одном развороте</figcaption>
+        </figure>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishMobileTitle">
+        <h2 class="case-section__title" id="tishMobileTitle">мобильная версия</h2>
+        <p class="case-section__copy">На маленьком экране нет места, чтобы сравнивать дома бок о бок, поэтому карточки и форма выстраиваются в один вертикальный сценарий — по нему идут, а не выбирают из таблицы. Крупные фотографии и тот же спокойный ритм сохраняются, чтобы мобильная версия не выглядела урезанной.</p>
+        <div class="case-gallery tish-mobile-grid">
+          <figure class="case-figure" data-parallax data-depth="-0.025" data-rotate="-0.008"><div class="tish-phone"><div class="tish-phone__screen tish-phone__screen--hero"><img src="images/tish/hero-cabin.webp" width="1536" height="1024" alt="Главный экран мобильного лендинга с домом у озера" loading="lazy" decoding="async"><div class="tish-phone__top"><strong>ТИШЬ</strong><span>Меню</span></div><div class="tish-phone__hero-copy"><small>Карелия · берег озера</small><b>Место, где<br>слышно тишину</b><span>Выбрать даты →</span></div></div></div><figcaption>Экран, который должен продать паузу за секунду</figcaption></figure>
+          <figure class="case-figure" data-parallax data-depth="0.03" data-rotate="0.009"><div class="tish-phone"><div class="tish-phone__screen tish-phone__screen--content"><div class="tish-phone__top tish-phone__top--dark"><strong>ТИШЬ</strong><span>Меню</span></div><small><span class="tish-phone__back" aria-hidden="true">←</span>Дома</small><h3>Выберите свой<br>вид на тишину</h3><img src="images/tish/interior.webp" width="1536" height="1024" alt="Интерьер дома в карточке мобильного лендинга" loading="lazy" decoding="async"><b>Дом «Сосна»</b><p>До 4 гостей · сауна · вид на озеро</p><span class="tish-ui-button">Подробнее →</span></div></div><figcaption>Один дом на экране — чтобы сравнение не отвлекало от решения</figcaption></figure>
+          <figure class="case-figure" data-parallax data-depth="-0.032" data-rotate="-0.01"><div class="tish-phone"><div class="tish-phone__screen tish-phone__screen--content"><div class="tish-phone__top tish-phone__top--dark"><strong>ТИШЬ</strong><span>Меню</span></div><img class="tish-phone__feature" src="images/tish/sauna.webp" width="1536" height="1024" alt="Сауна с видом на озеро в мобильном лендинге" loading="lazy" decoding="async"><small><span class="tish-phone__back" aria-hidden="true">←</span>Дом «Вода»</small><h3>Тепло внутри,<br>озеро перед вами</h3><ul><li>2 гостя</li><li>своя сауна</li><li>завтрак включён</li></ul><span class="tish-ui-button">Выбрать даты →</span></div></div><figcaption>Те же преимущества, что и на ПК, — коротким списком в одну колонку</figcaption></figure>
+          <figure class="case-figure" data-parallax data-depth="0.027" data-rotate="0.008"><div class="tish-phone"><div class="tish-phone__screen tish-phone__screen--booking"><div class="tish-phone__top tish-phone__top--dark"><strong>ТИШЬ</strong><span>Закрыть</span></div><small><span class="tish-phone__back" aria-hidden="true">←</span>Бронирование</small><h3>Когда вы хотите<br>приехать?</h3><div class="tish-phone__field"><span>Заезд</span><b>18 сентября</b></div><div class="tish-phone__field"><span>Выезд</span><b>21 сентября</b></div><div class="tish-phone__field"><span>Гости</span><b>2 взрослых</b></div><span class="tish-ui-button">Найти дом →</span><img src="images/tish/breakfast.webp" width="1536" height="1024" alt="Завтрак у окна с видом на озеро" loading="lazy" decoding="async"></div></div><figcaption>Три поля — заезд, выезд и гости: вся форма брони помещается на один экран</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishStatesTitle">
+        <h2 class="case-section__title" id="tishStatesTitle">состояния страницы</h2>
+        <p class="case-section__copy">Меню открывается поверх фотографии, а не отдельным экраном, чтобы не терять ощущение места даже во время навигации. Календарь показывает только даты и гостей — без лишних фильтров, которые превращают лендинг в обычный сервис бронирования. Подтверждение звучит коротко, потому что после решения гостю нужен покой, а не отчёт о заявке.</p>
+        <div class="case-gallery tish-states-grid">
+          <figure class="case-figure tish-state"><div class="tish-state__menu"><img src="images/tish/forest.webp" width="1024" height="1536" alt="Лес на фоне открытого меню лендинга" loading="lazy" decoding="async"><div class="tish-state__shade" aria-hidden="true"></div><header><strong>ТИШЬ</strong><span>Закрыть</span></header><nav><b>Дома</b><b>Чем заняться</b><b>О месте</b><b>Как добраться</b></nav><small>Карелия · берег озера</small></div><figcaption>Меню поверх фотографии — место не пропадает даже во время навигации</figcaption></figure>
+          <figure class="case-figure tish-state"><div class="tish-state__calendar"><header><strong>Выберите даты</strong><span>Закрыть</span></header><h3>Сентябрь</h3><div class="tish-calendar-week"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div><div class="tish-calendar-days"><i></i><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b><b>15</b><b>16</b><b>17</b><b class="is-selected">18</b><b class="is-range">19</b><b class="is-range">20</b><b class="is-selected">21</b></div><div class="tish-guests"><span>Гости<br><b>2 взрослых</b></span><strong>−&nbsp;&nbsp; 2 &nbsp;&nbsp;+</strong></div><span class="tish-ui-button">Показать дома →</span></div><figcaption>Только даты и число гостей — без фильтров обычного бронирования</figcaption></figure>
+          <figure class="case-figure tish-state"><div class="tish-state__success"><img src="images/tish/boat.webp" width="1536" height="1024" alt="Лодка на тихом озере после отправки заявки" loading="lazy" decoding="async"><div class="tish-state__shade" aria-hidden="true"></div><header><strong>ТИШЬ</strong><span>Закрыть</span></header><div><i aria-hidden="true">✓</i><h3>Дом ждёт вас</h3><p>Заявка отправлена. Мы свяжемся с вами в течение часа и подтвердим бронирование.</p><b>Вернуться на главную →</b></div></div><figcaption>Короткое подтверждение вместо отчёта о заявке: принято, дальше — звонок в течение часа</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="tishResultTitle">
+        <h2 class="case-section__title" id="tishResultTitle">результат</h2>
+        <p class="case-section__copy">Готовый лендинг в настольной и мобильной версиях: путь от главного экрана до отправленной заявки укладывается в четыре экрана. Плюс адаптивные состояния меню, календаря и подтверждения. Сайт сдан клиенту.</p>
+      </section>
+
+      <section class="case-section case-outro" aria-labelledby="tishOutroTitle">
+        <h2 class="case-section__title" id="tishOutroTitle">что дальше</h2>
+        <p class="case-section__copy">Тишина здесь — не пустой экран, а рабочий сценарий: от логобука до формы бронирования всё ведёт к одному действию. Если нужен лендинг или бренд с таким же спокойным, но конверсионным подходом — пишите.</p>
+        <nav class="case-outro__nav" aria-label="навигация по кейсам">
+          <a class="case-outro__home" href="#">← на главный экран</a>
+          <a class="case-outro__next" href="#case-opara"><span>следующий кейс</span><strong>опара&nbsp;<i aria-hidden="true">→</i></strong></a>
+        </nav>
+      </section>
+    </div>
+    <!-- вне .case-page: у него transform от анимации появления, а кнопка закреплена относительно экрана -->
+    <a class="case-outro__button" href="https://t.me/verykarachay" target="_blank" rel="noopener">написать в тг</a>
+  </article>
+
+  <article class="case-view case-view--opara" id="caseOpara" data-case-route="#case-opara" hidden>
+    <div class="case-page">
+      <a class="back-link" href="#cases" aria-label="назад к кейсам">&lt;</a>
+      <header class="case-hero">
+        <h1 class="case-title">опара</h1>
+        <div class="case-tags" aria-label="теги кейса">
+          <span>лендинг</span>
+          <span>еда</span>
+          <span>заказ</span>
+        </div>
+      </header>
+
+      <div class="case-body case-body--stacked">
+        <figure class="case-figure case-figure--lead">
+          <img src="images/opara/lead.webp" width="1440" height="900" alt="Первый экран лендинга «Опара»: стопка хлеба на закваске с паром, за ней печь с огнём" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption>Первый экран: хлеб, пар и печь на заднем плане</figcaption>
+          <a class="opara-sticker" href="opara/index.html" target="_blank" rel="noopener"><span>открыть<br>сайт</span></a>
+        </figure>
+
+        <dl class="case-facts">
+          <div>
+            <dt>задача:</dt>
+            <dd>сделать лендинг домашней пекарни, который передаёт тепло свежего хлеба и доводит до заказа на завтра</dd>
+          </div>
+          <div>
+            <dt>результат:</dt>
+            <dd>знак, иконка и лендинг для ПК и телефона: корзина со счётчиком на всех кнопках «Заказать», выбор количества в карточке, шкала прогресса прокрутки. Сдан клиенту</dd>
+          </div>
+          <div>
+            <dt>срок:</dt>
+            <dd>2 недели</dd>
+          </div>
+        </dl>
+      </div>
+
+      <section class="case-section case-section--palette" aria-labelledby="oparaPaletteTitle">
+        <h2 class="case-section__title" id="oparaPaletteTitle">палитра</h2>
+        <p class="case-section__copy">Графитовый фон работает как ночная пекарня: на нём корка и мякиш выглядят теплее, чем на белом. Мучной — цвет текста и кнопок, корочный отмечает только заказ: счётчик в корзине, выбор количества и карточку доставки. Приглушённый бежевый забирает второстепенный текст, чтобы не спорить с фотографиями.</p>
+        <div class="case-palette" aria-label="цветовая палитра лендинга Опара">
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #131315"></span><strong>#131315 · графит</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #efe9df"></span><strong>#EFE9DF · мука</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #9a5422"></span><strong>#9A5422 · корка</strong></div>
+          <div class="palette-card"><span class="palette-card__swatch" style="--swatch: #a39b90"></span><strong>#A39B90 · закваска</strong></div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="oparaLogobookTitle">
+        <h2 class="case-section__title" id="oparaLogobookTitle">логобук</h2>
+        <p class="case-section__copy">Рукописное «опара» с буханкой над буквами звучит как подпись на бумажном пакете из пекарни — по-домашнему, без глянца. Для иконки сайта знак сокращён до контура буханки: он читается даже в 16 пикселях вкладки браузера.</p>
+        <div class="case-gallery case-gallery--logobook">
+          <figure class="case-figure">
+            <img src="images/opara/logobook-01.webp" width="800" height="1200" alt="Рукописный знак Опара на графитовом фоне с тёплым свечением" loading="lazy" decoding="async">
+            <figcaption>Основной знак на графите</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/logobook-02.webp" width="800" height="1200" alt="Знак Опара на фоне цвета корки" loading="lazy" decoding="async">
+            <figcaption>Знак на цвете корки — для пакетов и наклеек</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/logobook-03.webp" width="800" height="1200" alt="Иконка сайта Опара — контур буханки — в трёх размерах и во вкладке браузера" loading="lazy" decoding="async">
+            <figcaption>Иконка сайта: контур буханки от 192 до 16 пикселей</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="oparaDesktopTitle">
+        <h2 class="case-section__title" id="oparaDesktopTitle">настольная версия</h2>
+        <p class="case-section__copy">Страница идёт как утро пекаря: три хлеба на выбор, затем как они пекутся, и в конце — заказ к завтраку. Фото шагов «Как печём» наслаиваются друг на друга по мере прокрутки, а отзывы и бутерброды парят вокруг финального призыва, чтобы заказ ощущался продолжением истории, а не формой.</p>
+        <div class="opara-desktop">
+          <figure class="case-figure">
+            <img src="images/opara/desktop-02.webp" width="1440" height="900" alt="Блок «Три хлеба, одна закваска»: пшеничный, ржаной и зерновой в форме ломтиков на фоне тёмного камня" loading="lazy" decoding="async">
+            <figcaption>Три хлеба в форме ломтика — на лёгкой текстуре камня</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/desktop-03.webp" width="1440" height="900" alt="Блок «Медленно и честно»: шаги выпечки с иконками и наслаивающиеся фото процесса" loading="lazy" decoding="async">
+            <figcaption>«Как печём»: фото процесса наслаиваются вслед за шагами</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/desktop-04.webp" width="1440" height="900" alt="Финальный блок «Тёплый хлеб к завтраку» с отзывами и бутербродами вокруг кнопки заказа" loading="lazy" decoding="async">
+            <figcaption>Финал: отзывы и бутерброды вокруг одной кнопки заказа</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="oparaMobileTitle">
+        <h2 class="case-section__title" id="oparaMobileTitle">мобильная версия</h2>
+        <p class="case-section__copy">На телефоне шапка закреплена: логотип по центру, «Заказать» всегда под пальцем. Печь остаётся на заднем плане первого экрана, а карточки и отзывы перестроены в одну колонку, чтобы ничего не теснилось.</p>
+        <div class="case-gallery opara-mobile-grid">
+          <figure class="case-figure">
+            <img src="images/opara/mobile-01.webp" width="780" height="1688" alt="Первый экран мобильной версии: логотип в шапке и крупный заголовок «Хлеб, который дышит»" loading="lazy" decoding="async">
+            <figcaption>Первый экран</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/mobile-04.webp" width="780" height="1688" alt="Стопка хлеба на фоне печи и карточка «Печём ночью, привозим тёплым» в мобильной версии" loading="lazy" decoding="async">
+            <figcaption>Хлеб на фоне печи и доставка</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/mobile-03.webp" width="780" height="1688" alt="Финальный блок в мобильной версии с отзывами и фотографиями вокруг заголовка" loading="lazy" decoding="async">
+            <figcaption>Финальный призыв с отзывами</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="oparaStatesTitle">
+        <h2 class="case-section__title" id="oparaStatesTitle">интерактив</h2>
+        <p class="case-section__copy">Заказ не уводит на отдельную страницу: «В заказ» превращается в счётчик прямо в карточке, а число буханок сразу появляется на всех кнопках «Заказать». Шаги выпечки на телефоне листаются горизонтальной галереей — экран замирает, пока не покажет последний шаг. Меню открывается поверх страницы и закрывается любым пунктом.</p>
+        <div class="case-gallery opara-mobile-grid">
+          <figure class="case-figure">
+            <img src="images/opara/state-order.webp" width="780" height="1688" alt="Карточка пшеничного хлеба со счётчиком «2 шт» и цифрой 2 на кнопке «Заказать» в шапке" loading="lazy" decoding="async">
+            <figcaption>Счётчик в карточке и корзина в шапке</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/mobile-02.webp" width="780" height="1688" alt="Горизонтальная галерея шагов выпечки: под каждой фотографией её описание" loading="lazy" decoding="async">
+            <figcaption>Галерея шагов: фото и описание едут вместе</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="images/opara/state-menu.webp" width="780" height="1688" alt="Открытое мобильное меню с пунктами Хлеба, Как печём, Доставка, Отзывы" loading="lazy" decoding="async">
+            <figcaption>Меню поверх страницы</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="oparaResultTitle">
+        <h2 class="case-section__title" id="oparaResultTitle">результат</h2>
+        <p class="case-section__copy">Лендинг в настольной и мобильной версиях: от первого экрана до заказа — одна прокрутка и два касания. Плюс рукописный знак, иконка сайта и состояния корзины, меню и галереи. Сайт сдан клиенту.</p>
+      </section>
+
+      <section class="case-section case-outro" aria-labelledby="oparaOutroTitle">
+        <h2 class="case-section__title" id="oparaOutroTitle">что дальше</h2>
+        <p class="case-section__copy">Тёплая атмосфера здесь работает на заказ: пар, печь и отзывы подводят к одной кнопке. Если нужен лендинг для кафе, пекарни или любого вкусного продукта — пишите.</p>
+        <nav class="case-outro__nav" aria-label="навигация по кейсам">
+          <a class="case-outro__home" href="#">← на главный экран</a>
+          <a class="case-outro__next" href="#case-podpislon"><span>следующий кейс</span><strong>подпислон&nbsp;<i aria-hidden="true">→</i></strong></a>
+        </nav>
+      </section>
+    </div>
+    <!-- вне .case-page: у него transform от анимации появления, а кнопка закреплена относительно экрана -->
+    <a class="case-outro__button" href="https://t.me/verykarachay" target="_blank" rel="noopener">написать в тг</a>
+  </article>
+
+  <article class="case-view case-view--podpislon" id="casePodpislon" data-case-route="#case-podpislon" hidden>
+    <div class="case-page">
+      <a class="back-link" href="#cases" aria-label="назад к кейсам">&lt;</a>
+      <header class="case-hero">
+        <h1 class="case-title">сервис Подпислон</h1>
+        <div class="case-tags" aria-label="теги кейса">
+          <span>b2b</span>
+          <span>анимация</span>
+          <span>крео</span>
+        </div>
+      </header>
+
+      <div class="case-body podpislon-intro">
+        <figure class="case-figure case-figure--lead podpislon-lead" data-parallax data-depth="0.018" data-rotate="0.006">
+          <img src="images/podpislon/pic1.webp" width="2304" height="1536" alt="Креативы сервиса Подпислон с маскотом-слоном на экране ноутбука" loading="eager" fetchpriority="high" decoding="async">
+          <figcaption>Серия B2B-креативов в существующей дизайн-системе</figcaption>
+        </figure>
+
+        <dl class="case-facts podpislon-task">
+          <div>
+            <dt>задача</dt>
+            <dd>Использовать маскота в существующей дизайн-системе для создания креативов и сделать анимации для слайдера онбординга личного кабинета.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <section class="case-section podpislon-creatives" aria-labelledby="podpislonCreativesTitle">
+        <h2 class="case-section__title" id="podpislonCreativesTitle">креативы</h2>
+        <p class="case-section__copy">Разрабатываю креативы, которые помогают просто и наглядно объяснять сложные процессы.</p>
+        <div class="case-gallery podpislon-creatives__grid">
+          <figure class="case-figure podpislon-creative podpislon-creative--lead">
+            <img src="images/podpislon/creative-01.webp" width="1200" height="1200" alt="Креатив Подпислон о потерянном акте и задержке бухгалтерии" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-figure podpislon-creative">
+            <img src="images/podpislon/creative-02.webp" width="1200" height="1200" alt="Креатив Подпислон с признаками сложного документооборота" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-figure podpislon-creative">
+            <img src="images/podpislon/creative-03.webp" width="1200" height="1200" alt="Креатив Подпислон о процессе до и после внедрения сервиса" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-figure podpislon-creative">
+            <img src="images/podpislon/creative-04.webp" width="1200" height="1200" alt="Креатив Подпислон о результатах внедрения сервиса" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-figure podpislon-creative">
+            <img src="images/podpislon/creative-05.webp" width="1200" height="1200" alt="Креатив Подпислон с приглашением разобрать бизнес-процесс" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section podpislon-motion" aria-labelledby="podpislonMotionTitle">
+        <h2 class="case-section__title" id="podpislonMotionTitle">анимация онбординга</h2>
+        <div class="case-gallery podpislon-motion__grid">
+          <figure class="case-figure podpislon-motion__item">
+            <video width="400" height="738" muted loop playsinline preload="none" poster="images/podpislon/onboarding-01-poster.webp" aria-label="Анимация успешного результата проверки" data-autoplay><source src="images/podpislon/onboarding-01.webm" type="video/webm"><source src="images/podpislon/onboarding-01.mp4" type="video/mp4"></video>
+            <figcaption>Успешный результат</figcaption>
+          </figure>
+          <figure class="case-figure podpislon-motion__item">
+            <video width="400" height="738" muted loop playsinline preload="none" poster="images/podpislon/onboarding-02-poster.webp" aria-label="Анимация состояния документов" data-autoplay><source src="images/podpislon/onboarding-02.webm" type="video/webm"><source src="images/podpislon/onboarding-02.mp4" type="video/mp4"></video>
+            <figcaption>Состояние документов</figcaption>
+          </figure>
+          <figure class="case-figure podpislon-motion__item">
+            <video width="400" height="738" muted loop playsinline preload="none" poster="images/podpislon/onboarding-03-poster.webp" aria-label="Анимация действия в слайдере" data-autoplay><source src="images/podpislon/onboarding-03.webm" type="video/webm"><source src="images/podpislon/onboarding-03.mp4" type="video/mp4"></video>
+            <figcaption>Действие в слайдере</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section case-outro" aria-labelledby="podpislonOutroTitle">
+        <h2 class="case-section__title" id="podpislonOutroTitle">что дальше</h2>
+        <p class="case-section__copy">Анимации и креативы держат один визуальный язык маскота — от онбординга до рекламных материалов. Если нужны похожие креативы или моушн для продукта — пишите.</p>
+        <nav class="case-outro__nav" aria-label="навигация по кейсам">
+          <a class="case-outro__home" href="#">← на главный экран</a>
+          <a class="case-outro__next" href="#case-norma"><span>следующий кейс</span><strong>норма&nbsp;<i aria-hidden="true">→</i></strong></a>
+        </nav>
+      </section>
+    </div>
+    <!-- вне .case-page: у него transform от анимации появления, а кнопка закреплена относительно экрана -->
+    <a class="case-outro__button" href="https://t.me/verykarachay" target="_blank" rel="noopener">написать в тг</a>
+  </article>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer__inner">
+      <nav class="footer__nav" aria-label="нижняя навигация">
+        <a href="#about">кто я</a>
+        <a href="#skills">что умею</a>
+        <a href="#cases">кейсы</a>
+        <a href="#contacts">контакты</a>
+        <a href="Regina_Malikova_Web_Designer_CV.pdf" target="_blank" rel="noopener" data-resume>резюме</a>
+      </nav>
+      <p class="footer__contact">по всем вопросам<br>тг:<a href="https://t.me/verykarachay" target="_blank" rel="noopener">@verykarachay</a></p>
+    </div>
+  </footer>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-media" aria-hidden="true">
+      <img src="img/front.webp" width="981" height="981" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="menu-panel">
+      <div>
+        <button class="menu-close" type="button" aria-label="закрыть меню"></button>
+        <nav class="menu-nav" aria-label="главное меню">
+          <a href="#about">кто я</a>
+          <a href="#skills">что умею</a>
+          <a href="#cases">кейсы</a>
+          <a href="#contacts">контакты</a>
+          <a href="Regina_Malikova_Web_Designer_CV.pdf" target="_blank" rel="noopener" data-resume>резюме</a>
+        </nav>
+      </div>
+      <p class="menu-contact">по всем вопросам<br>тг:<a href="https://t.me/verykarachay" target="_blank" rel="noopener">@verykarachay</a></p>
+    </div>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="просмотр изображения">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" alt="" draggable="false">
+    </div>
+    <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="предыдущее изображение" data-step="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
+    <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="следующее изображение" data-step="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg></button>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

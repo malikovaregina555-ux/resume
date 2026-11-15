@@ -3,7 +3,7 @@
 
 ОТКРЫТЬ
 Дважды щёлкните index.html. Интернет, установка библиотек и сборка не нужны.
-Отдельные страницы: fleur.html, sense.html, kyoto.html, norma.html (кейс), opara/index.html (сайт пекарни).
+Отдельные страницы: fleur.html, sense.html, kyoto.html, norma.html (кейс), opara/index.html (сайт пекарни), folio/index.html (личное портфолио, шрифты в folio/assets/fonts).
 norma.html и opara подгружают шрифты Inter и Onest с Google Fonts; без интернета подставятся системные.
 Все изображения, кириллические шрифты, CSS и JavaScript лежат в assets/.
 

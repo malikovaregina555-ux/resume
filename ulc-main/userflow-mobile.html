@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=360">
+<title>User flow — Норма (мобильная схема)</title>
+<!-- Исходник для images/norma/userflow-mobile.webp: рендер 360px × 3 в Chrome headless -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #f2f2f0;
+    --ink: #181818;
+    --muted: #5d5d5a;
+    --button: #636a83;
+    --screen: #e4e4e0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  body {
+    width: 360px;
+    padding: 12px 12px;
+    color: var(--ink);
+    font-family: Inter, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 8px;
+    align-items: start;
+  }
+  .span { grid-column: 1 / -1; margin: 4px 0 -12px; }
+  h2, h3 { margin: 0 0 5px; font-weight: 600; line-height: 1.15; }
+  h2 { font-size: 11.5px; }
+  h3 { font-size: 10px; min-height: 2.3em; }
+  h3 b {
+    display: inline-grid;
+    place-items: center;
+    width: 14px; height: 14px;
+    margin-right: 3px;
+    border: 1px solid rgba(24, 24, 24, 0.18);
+    border-radius: 50%;
+    font-size: 7.5px;
+    vertical-align: 1px;
+  }
+  .flow { display: flex; flex-direction: column; align-items: stretch; }
+  .chip {
+    padding: 3px 5px;
+    border-radius: 999px;
+    font-size: 8.6px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .start { border: 1px solid var(--button); color: var(--button); }
+  .button { background: var(--button); color: #fff; }
+  .screen { background: var(--screen); color: var(--ink); }
+  .extra { border: 1px dashed var(--muted); color: var(--muted); }
+  .arrow { height: 9px; margin: 0; text-align: center; font-size: 9px; line-height: 9px; color: var(--muted); }
+  .branch { display: flex; flex-direction: column; gap: 6px; }
+  .legend h2 { font-size: 10px; }
+  .legend .flow { gap: 6px; }
+  .legend-label { font-size: 7.5px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="grid">
+  <section>
+    <h3>Вход</h3>
+    <div class="flow">
+      <div class="chip start">Запуск приложения</div>
+      <div class="arrow">↓</div>
+      <div class="branch">
+        <div class="chip button">Вход</div>
+        <div class="chip button">Регистрация</div>
+        <div class="chip button">Ошибка / повторная попытка</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Онбординг</h3>
+    <div class="flow">
+      <div class="chip start">Телефон / email</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Код из СМС</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Профиль</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Проверка статуса самозанятого</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Идентификация</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Проверка пройдена</div>
+      <div class="arrow">↓</div>
+      <div class="branch">
+        <div class="chip button">Переход к главному экрану</div>
+        <div class="chip button">Ошибка / повторная попытка</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3>Главный экран</h3>
+    <div class="flow">
+      <div class="chip start">Главный экран</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Баланс</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Доход за месяц</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Последние операции</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Быстрые действия</div>
+    </div>
+  </section>
+
+  <h2 class="span">Основные сценарии</h2>
+
+  <section>
+    <h3><b>A</b>Принять оплату</h3>
+    <div class="flow">
+      <div class="chip start">Создать счёт / ссылку / QR</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Отправить клиенту</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Клиент оплачивает</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Оплата успешна?</div>
+      <div class="arrow">↓</div>
+      <div class="branch">
+        <div class="chip button">Деньги зачислены</div>
+        <div class="chip button">Повторить оплату</div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h3><b>B</b>Доходы и аналитика</h3>
+    <div class="flow">
+      <div class="chip start">История операций</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Фильтры</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Отчёты / выгрузка</div>
+    </div>
+  </section>
+  <section>
+    <h3><b>C</b>Налоги</h3>
+    <div class="flow">
+      <div class="chip start">Расчёт налога</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Статус начислений</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Оплатить налог</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Подтверждение</div>
+    </div>
+  </section>
+  <section>
+    <h3><b>D</b>Вывод средств</h3>
+    <div class="flow">
+      <div class="chip start">Выбор карты / счёта</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Проверка реквизитов</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Подтверждение вывода</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Средства отправлены</div>
+    </div>
+  </section>
+  <section>
+    <h3><b>E</b>Профиль и настройки</h3>
+    <div class="flow">
+      <div class="chip start">Личные данные</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Реквизиты</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Уведомления</div>
+      <div class="arrow">↓</div>
+      <div class="chip screen">Безопасность</div>
+      <div class="arrow">↓</div>
+      <div class="chip button">Поддержка / FAQ</div>
+      <div class="arrow">↓</div>
+      <div class="branch">
+        <div class="chip button">Чат с поддержкой</div>
+        <div class="chip button">Создать обращение</div>
+      </div>
+    </div>
+  </section>
+  <section class="legend">
+    <h3>Обозначения</h3>
+    <div class="flow">
+      <div class="chip start">Стартовое действие</div>
+      <div class="chip button">Кнопка</div>
+      <div class="chip screen">Экран</div>
+      <div class="chip extra">Лишний шаг</div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

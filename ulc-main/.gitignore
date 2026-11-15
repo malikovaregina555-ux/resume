@@ -1,0 +1,8 @@
+.vercel
+.DS_Store
+Thumbs.db
+.claude
+references
+*.pdf
+!Regina_Malikova_Web_Designer_CV.pdf
+.claude

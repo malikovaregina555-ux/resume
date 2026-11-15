@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Экраны сценария A — Норма</title>
+<style>
+  :root{
+    --bg:#f2f2f0;
+    --ink:#181818;
+    --muted:#5d5d5a;
+    --line: rgba(24,24,24,0.12);
+    --font-main: Inter, Arial, sans-serif;
+
+    --n-lime:#d4fc46;
+    --n-dark:#4f4f51;
+    --n-slate:#636a83;
+    --n-cream:#e7e6df;
+    --n-black:#141414;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-main);
+    padding:48px 40px 90px;
+  }
+  h1{
+    font-weight:800;
+    font-size:2.1rem;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  p.lead{
+    color:var(--muted);
+    max-width:680px;
+    line-height:1.5;
+    margin:0 0 40px;
+    font-size:0.95rem;
+  }
+  .legend{
+    display:flex; align-items:center; gap:20px; margin-bottom:36px; flex-wrap:wrap;
+  }
+  .legend-label{
+    font-size:0.85rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .legend-item{ display:flex; align-items:center; gap:8px; font-size:0.85rem; }
+  .dot{ width:14px; height:14px; border-radius:4px; }
+  .dot.ok{ background:var(--n-lime); border:1px solid var(--line); }
+  .dot.extra{ background:transparent; border:1.5px dashed var(--n-slate); }
+
+  .flow{
+    display:flex;
+    align-items:flex-start;
+    gap:0;
+    overflow-x:auto;
+    overflow-y:visible;
+    padding-top:16px;
+    padding-bottom:24px;
+  }
+  .step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    flex-shrink:0;
+    width:200px;
+    position:relative;
+  }
+  .arrow-between{
+    color:var(--muted);
+    font-size:1.3rem;
+    align-self:center;
+    margin-top:220px;
+    flex-shrink:0;
+    padding:0 6px;
+  }
+  figcaption{
+    font-size:0.82rem;
+    text-align:center;
+    line-height:1.35;
+    max-width:190px;
+  }
+  figcaption b{ display:block; font-size:0.85rem; margin-bottom:2px; }
+  figcaption span.tag{
+    display:inline-block;
+    margin-top:4px;
+    font-size:0.72rem;
+    padding:2px 8px;
+    border-radius:999px;
+    background:var(--n-cream);
+    color:var(--muted);
+  }
+  figcaption span.tag.extra{
+    background:transparent;
+    border:1px dashed var(--n-slate);
+    color:var(--n-slate);
+  }
+
+  /* --- phone --- */
+  .phone{
+    width:180px;
+    height:390px;
+    border-radius:30px;
+    padding:8px;
+    position:relative;
+    background:var(--n-black);
+    flex-shrink:0;
+  }
+  .phone.extra{
+    outline:2px dashed var(--n-slate);
+    outline-offset:4px;
+  }
+  .badge{
+    position:absolute;
+    top:-14px;
+    right:-14px;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:var(--ink);
+    color:var(--bg);
+    font-size:0.78rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:3;
+  }
+  .notch{
+    position:absolute;
+    top:8px; left:50%;
+    transform:translateX(-50%);
+    width:52px; height:12px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.15);
+    z-index:2;
+  }
+  .screen{
+    width:100%;
+    height:100%;
+    border-radius:22px;
+    overflow:hidden;
+    padding:22px 12px 12px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:11px;
+    color:#fff;
+  }
+
+  .topbar{ display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .back{
+    width:20px;height:20px;border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+    font-size:10px; color:#fff; flex-shrink:0;
+  }
+  .title{ flex:1; text-align:center; font-weight:700; font-size:11px; margin-right:20px; }
+
+  .label{ color:rgba(255,255,255,0.45); font-size:9px; letter-spacing:0.03em; text-transform:uppercase; }
+  .value{ font-weight:800; font-size:16px; }
+  .field{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px;
+    padding:8px 10px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .divider{ height:1px; background:rgba(255,255,255,0.08); margin:2px 0; }
+  .btn{
+    border-radius:999px;
+    padding:9px;
+    text-align:center;
+    font-weight:700;
+    font-size:10.5px;
+  }
+  .btn.primary{ background:var(--n-lime); color:#141414; }
+  .btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; }
+  .btn.disabled{ background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.35); }
+  .grow{ flex:1; }
+  .center{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px; }
+
+  .tpl-card{
+    display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px;
+    padding:8px 10px;
+  }
+  .tpl-card.selected{ border-color:var(--n-lime); background:rgba(212,252,70,0.08); }
+  .radio{ width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3); flex-shrink:0; }
+  .radio.on{ border-color:var(--n-lime); background:var(--n-lime); }
+
+  .share-row{ display:flex; gap:6px; }
+  .share-ic{
+    flex:1; aspect-ratio:1; border-radius:10px;
+    background:rgba(255,255,255,0.06);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+
+  .modal{
+    background:#232323;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .spinner{
+    width:34px;height:34px;border-radius:50%;
+    border:3px solid rgba(255,255,255,0.15);
+    border-top-color:var(--n-lime);
+  }
+  .check{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--n-lime);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px; color:#141414; font-weight:900;
+  }
+  .cross{
+    width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px; color:#fff; font-weight:900;
+  }
+</style>
+</head>
+<body>
+
+<h1>Экраны сценария A с лишними шагами</h1>
+<p class="lead">Макеты каждого шага сценария «Принять оплату» из user flow — 5 рабочих экранов и 4 добавленных (пунктирная рамка, номер соответствует пояснению в user flow). Стиль и компоненты — из существующих экранов кейса «Норма».</p>
+
+<div class="legend">
+  <span class="legend-label">Обозначения</span>
+  <span class="legend-item"><span class="dot ok"></span> рабочий шаг</span>
+  <span class="legend-item"><span class="dot extra"></span> лишний шаг</span>
+</div>
+
+<div class="flow">
+
+  <!-- 1: старт -->
+  <div class="step">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="topbar"><div class="back">←</div><div class="title">Счёт клиенту</div></div>
+        <div class="label">Клиент</div>
+        <div class="field"><span style="color:rgba(255,255,255,0.3)">Введите имя или ООО</span></div>
+        <div class="label" style="margin-top:2px;">Сумма</div>
+        <div class="field"><span style="color:rgba(255,255,255,0.3)">0 ₽</span></div>
+        <div class="label" style="margin-top:2px;">Назначение</div>
+        <div class="field"><span style="color:rgba(255,255,255,0.3)">Что оплачивают</span></div>
+        <div class="grow"></div>
+        <div class="btn primary">Выставить счёт</div>
+      </div>
+    </div>
+    <figcaption><b>Создать счёт / ссылку / QR</b>стартовое действие<span class="tag">старт</span></figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 2: EXTRA выбрать шаблон -->
+  <div class="step">
+    <div class="phone extra">
+      <div class="badge">1</div>
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="topbar"><div class="back">←</div><div class="title">Шаблон документа</div></div>
+        <div class="tpl-card selected"><div class="radio on"></div>Счёт на оплату</div>
+        <div class="tpl-card"><div class="radio"></div>Акт выполненных работ</div>
+        <div class="tpl-card"><div class="radio"></div>Договор оферты</div>
+        <div class="tpl-card"><div class="radio"></div>Кассовый чек</div>
+        <div class="grow"></div>
+        <div class="btn primary">Далее</div>
+      </div>
+    </div>
+    <figcaption><b>Выбрать шаблон документа</b>лишний: тип всегда один и тот же<span class="tag extra">лишний шаг</span></figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 3: отправить клиенту -->
+  <div class="step">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="topbar"><div class="back">←</div><div class="title">Счёт готов</div></div>
+        <div class="label">К оплате</div>
+        <div class="value">85 000 ₽</div>
+        <div class="divider"></div>
+        <div class="label">Отправить клиенту</div>
+        <div class="share-row">
+          <div class="share-ic">💬</div>
+          <div class="share-ic">✈️</div>
+          <div class="share-ic">🔗</div>
+          <div class="share-ic">▦</div>
+        </div>
+        <div class="grow"></div>
+        <div class="btn primary">Отправить клиенту</div>
+      </div>
+    </div>
+    <figcaption><b>Отправить клиенту</b>кнопка</figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 4: EXTRA подтвердить сумму ещё раз -->
+  <div class="step">
+    <div class="phone extra">
+      <div class="badge">2</div>
+      <div class="notch"></div>
+      <div class="screen" style="justify-content:flex-end;">
+        <div class="grow"></div>
+        <div class="modal">
+          <div class="label">Подтверждение</div>
+          <div style="font-size:11.5px; line-height:1.4;">Выставить счёт на <b>85 000 ₽</b> для ООО «Восход»?</div>
+          <div class="btn primary" style="margin-top:4px;">Подтвердить</div>
+          <div class="btn ghost">Отмена</div>
+        </div>
+      </div>
+    </div>
+    <figcaption><b>Подтвердить сумму ещё раз</b>лишний: дублирует шаг 1<span class="tag extra">лишний шаг</span></figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 5: клиент оплачивает -->
+  <div class="step">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen center" style="justify-content:center;">
+        <div class="spinner" style="animation:spin 1s linear infinite;"></div>
+        <div style="font-weight:700; margin-top:6px;">Ждём оплату</div>
+        <div style="color:rgba(255,255,255,0.5);">ООО «Восход» · 85 000 ₽</div>
+      </div>
+    </div>
+    <figcaption><b>Клиент оплачивает</b>экран ожидания со статусом</figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 6: EXTRA экран ожидания без действий -->
+  <div class="step">
+    <div class="phone extra">
+      <div class="badge">3</div>
+      <div class="notch"></div>
+      <div class="screen center" style="justify-content:center;">
+        <div class="spinner" style="animation:spin 1s linear infinite;"></div>
+      </div>
+    </div>
+    <figcaption><b>Экран ожидания без действий</b>лишний: нет статуса, нельзя отменить<span class="tag extra">лишний шаг</span></figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 7: оплата успешна -->
+  <div class="step">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen center" style="justify-content:center;">
+        <div class="check">✓</div>
+        <div style="font-weight:700; margin-top:6px;">Оплата успешна?</div>
+        <div style="color:rgba(255,255,255,0.5);">проверяем платёж…</div>
+      </div>
+    </div>
+    <figcaption><b>Оплата успешна?</b>развилка результата</figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 8: EXTRA повторное подтверждение отправки -->
+  <div class="step">
+    <div class="phone extra">
+      <div class="badge">4</div>
+      <div class="notch"></div>
+      <div class="screen" style="justify-content:flex-end;">
+        <div class="grow"></div>
+        <div class="modal">
+          <div class="label">Уведомление</div>
+          <div style="font-size:11.5px; line-height:1.4;">Отправить клиенту подтверждение оплаты ещё раз?</div>
+          <div class="btn primary" style="margin-top:4px;">Да, отправить</div>
+          <div class="btn ghost">Не нужно</div>
+        </div>
+      </div>
+    </div>
+    <figcaption><b>Повторное подтверждение отправки</b>лишний: дублирует шаг 3<span class="tag extra">лишний шаг</span></figcaption>
+  </div>
+
+  <div class="arrow-between">→</div>
+
+  <!-- 9: branch -->
+  <div class="step" style="width:220px;">
+    <div style="display:flex; gap:12px;">
+      <div class="phone" style="width:100px; height:390px;">
+        <div class="notch"></div>
+        <div class="screen center" style="justify-content:center; padding:22px 8px 8px;">
+          <div class="check" style="width:36px;height:36px;font-size:16px;">✓</div>
+          <div style="font-weight:700; margin-top:6px; font-size:10px;">Деньги зачислены</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:9px;">+85 000 ₽</div>
+        </div>
+      </div>
+      <div class="phone" style="width:100px; height:390px;">
+        <div class="notch"></div>
+        <div class="screen center" style="justify-content:center; padding:22px 8px 8px;">
+          <div class="cross" style="width:36px;height:36px;font-size:16px;">!</div>
+          <div style="font-weight:700; margin-top:6px; font-size:10px;">Оплата не прошла</div>
+          <div class="btn primary" style="font-size:9px; padding:6px; margin-top:6px;">Повторить</div>
+        </div>
+      </div>
+    </div>
+    <figcaption><b>Деньги зачислены / Повторить оплату</b>ветвление результата</figcaption>
+  </div>
+
+</div>
+
+<style>
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+</style>
+
+</body>
+</html>

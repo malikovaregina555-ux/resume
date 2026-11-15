@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регина — фронтенд-разработчик и веб-дизайнер</title>
+  <meta name="description" content="Портфолио Регины: лендинги, интерфейсы и кейсы. Аккуратная вёрстка, живое движение и понятный код.">
+  <meta name="theme-color" content="#f3eee4">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="folio.css">
+</head>
+<body>
+  <a class="skip" href="#works">К работам</a>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word"><span class="lc">Р</span><span class="lc">е</span><span class="lc">г</span><span class="lc">и</span><span class="lc">н</span><span class="lc">а</span></div>
+    <span class="loader-hint">нажмите, чтобы пропустить</span>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+  <div class="peek" id="peek" aria-hidden="true"><img alt=""></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="logo" href="#top" aria-label="Регина, наверх">Р/</a>
+    <nav aria-label="Разделы">
+      <a href="#works">Работы</a>
+      <a class="hide-s" href="#about">Обо мне</a>
+      <a class="hide-s" href="#stack">Стек</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <h1 class="name" aria-label="Регина">
+        <span class="mask" aria-hidden="true"><span class="ch">Р</span></span><span class="mask" aria-hidden="true"><span class="ch">е</span></span><span class="mask" aria-hidden="true"><span class="ch">г</span></span><span class="mask" aria-hidden="true"><span class="ch">и</span></span><span class="mask" aria-hidden="true"><span class="ch">н</span></span><span class="mask" aria-hidden="true"><span class="ch">а</span></span>
+      </h1>
+
+      <div class="hero-row">
+        <p class="lede reveal">Фронтенд-разработчик и веб-дизайнер. Собираю лендинги и интерфейсы: от идеи и макета до живой страницы.</p>
+
+        <div class="roles reveal" style="--delay:120ms" aria-label="Что я делаю">
+          <span class="mono label">Я</span>
+          <div class="roles-window" aria-hidden="true">
+            <ul>
+              <li>верстаю интерфейсы</li>
+              <li>рисую макеты</li>
+              <li>оживляю страницы</li>
+              <li>верстаю интерфейсы</li>
+            </ul>
+          </div>
+          <span class="sr">верстаю интерфейсы, рисую макеты, оживляю страницы</span>
+        </div>
+
+        <a class="badge reveal" style="--delay:240ms" href="#contact" aria-label="Открыта к проектам, перейти к контактам">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="ring" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text><textPath href="#ring" textLength="284" lengthAdjust="spacing">ОТКРЫТА К ПРОЕКТАМ • ОТКРЫТА К ПРОЕКТАМ •</textPath></text>
+          </svg>
+          <i class="badge-arrow"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="works" id="works">
+      <div class="sec-head">
+        <span class="mono label">(01) Избранное</span>
+        <h2>Работы</h2>
+        <span class="mono label count">05</span>
+      </div>
+
+      <div class="list">
+        <a class="row reveal" href="../fleur.html" data-img="../assets/preview-fleur.webp" data-cursor="открыть">
+          <span class="mono num">01</span>
+          <span class="title">le FLEUR*</span>
+          <span class="mono tags">Лендинг · мода · анимация</span>
+          <i class="go"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+          <img class="thumb" src="../assets/preview-fleur.webp" alt="Голубой fashion-коллаж" loading="lazy">
+        </a>
+        <a class="row reveal" href="../sense.html" data-img="../assets/preview-sense.webp" data-cursor="открыть">
+          <span class="mono num">02</span>
+          <span class="title">SENSE</span>
+          <span class="mono tags">Лендинг · танцевальная студия</span>
+          <i class="go"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+          <img class="thumb" src="../assets/preview-sense.webp" alt="Танцевальные кадры SENSE" loading="lazy">
+        </a>
+        <a class="row reveal" href="../kyoto.html" data-img="../assets/preview-kyoto.webp" data-cursor="открыть">
+          <span class="mono num">03</span>
+          <span class="title">Good Vibes Kyoto</span>
+          <span class="mono tags">Лендинг · уличный магазин</span>
+          <i class="go"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+          <img class="thumb" src="../assets/preview-kyoto.webp" alt="Улица Киото и пожилой мужчина в яркой футболке" loading="lazy">
+        </a>
+        <a class="row reveal" href="../norma.html" data-img="../assets/preview-norma.webp" data-cursor="открыть">
+          <span class="mono num">04</span>
+          <span class="title">норма</span>
+          <span class="mono tags">Кейс · финтех · дизайн-система</span>
+          <i class="go"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+          <img class="thumb" src="../assets/preview-norma.webp" alt="Логотип «норма»: знак из четырёх кругов" loading="lazy">
+        </a>
+        <a class="row reveal" href="../opara/index.html" data-img="../assets/preview-opara.webp" data-cursor="открыть">
+          <span class="mono num">05</span>
+          <span class="title">Опара</span>
+          <span class="mono tags">Сайт · пекарня · тёмная тема</span>
+          <i class="go"><svg viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></svg></i>
+          <img class="thumb" src="../assets/preview-opara.webp" alt="Логотип «Опара» на тёмном фоне" loading="lazy">
+        </a>
+      </div>
+      <p class="note mono">Учебные неофициальные концепты по визуальным референсам.</p>
+    </section>
+
+    <section class="about" id="about">
+      <span class="mono label">(02) Обо мне</span>
+      <div class="about-body">
+        <p class="statement reveal">
+          Я делаю сайты, которые <mark>приятно открывать</mark>: аккуратная вёрстка, <mark>живое движение</mark> и текст, который хочется дочитать. Люблю, когда у интерфейса есть <mark>характер</mark>, а код под ним спокойный и понятный.
+        </p>
+        <dl class="facts">
+          <div class="reveal"><dt class="mono">Роль</dt><dd>Фронтенд-разработка, веб-дизайн</dd></div>
+          <div class="reveal" style="--delay:100ms"><dt class="mono">Инструменты</dt><dd>HTML, CSS, JavaScript, TypeScript, React</dd></div>
+          <div class="reveal" style="--delay:200ms"><dt class="mono">Статус</dt><dd>Открыта к проектам</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="stack" id="stack" aria-label="Стек и навыки">
+      <div class="marquee">
+        <div class="track">
+          <ul>
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>React Query</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>React Query</li>
+          </ul>
+        </div>
+      </div>
+      <div class="marquee outline rev">
+        <div class="track">
+          <ul>
+            <li>Адаптивная вёрстка</li><li>Анимации</li><li>Доступность</li><li>Дизайн-системы</li><li>Git</li><li>Figma</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>Адаптивная вёрстка</li><li>Анимации</li><li>Доступность</li><li>Дизайн-системы</li><li>Git</li><li>Figma</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <span class="mono label">(03) Контакты</span>
+      <h2 class="reveal">Давайте сделаем что-нибудь хорошее.</h2>
+
+      <div class="mail-row reveal">
+        <!-- ЗАМЕНИТЬ: адрес-заглушка -->
+        <a class="mail" id="mail" href="mailto:hello@example.com" data-cursor="написать">hello@example.com</a>
+        <button class="copy" id="copy" type="button" data-cursor="копия">Скопировать</button>
+      </div>
+
+      <ul class="social reveal">
+        <!-- ЗАМЕНИТЬ: ссылки-заглушки -->
+        <li><a href="#" data-todo>Telegram</a></li>
+        <li><a href="#" data-todo>GitHub</a></li>
+        <li><a href="#" data-todo>Behance</a></li>
+      </ul>
+
+      <footer class="foot mono">
+        <span>© 2026 Регина</span>
+        <a href="../index.html">← В коллекцию макетов</a>
+        <a href="#top">Наверх ↑</a>
+      </footer>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="folio.js"></script>
+</body>
+</html>

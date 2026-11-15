@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="h" x1="0" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset=".45" stop-color="#9b9b9f"/><stop offset="1" stop-color="#2d2d30"/></linearGradient>
+<radialGradient id="p" cx="35%" cy="32%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#c9c9cc"/><stop offset=".8" stop-color="#55555a"/><stop offset="1" stop-color="#1f1f22"/></radialGradient>
+<pattern id="bw" width="11" height="9.5" patternUnits="userSpaceOnUse"><circle cx="5.5" cy="4.75" r="4.3" fill="url(#p)"/></pattern>
+<radialGradient id="o" cx="38%" cy="30%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+<clipPath id="k"><path d="M100 176C60 146 22 118 22 76C22 48 42 28 66 28C82 28 94 37 100 50C106 37 118 28 134 28C158 28 178 48 178 76C178 118 140 146 100 176Z"/></clipPath></defs><path d="M100 176C60 146 22 118 22 76C22 48 42 28 66 28C82 28 94 37 100 50C106 37 118 28 134 28C158 28 178 48 178 76C178 118 140 146 100 176Z" fill="url(#h)"/>
+<g clip-path="url(#k)"><rect width="200" height="200" fill="url(#bw)" opacity=".9"/><rect width="200" height="200" fill="url(#o)"/></g>
+<path d="M100 176C60 146 22 118 22 76C22 48 42 28 66 28C82 28 94 37 100 50C106 37 118 28 134 28C158 28 178 48 178 76C178 118 140 146 100 176Z" fill="none" stroke="#2a2a2d" stroke-opacity=".5" stroke-width="2"/></svg>

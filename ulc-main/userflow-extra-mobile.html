@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=360">
+<title>Лишние шаги — Норма (мобильная схема)</title>
+<!-- Исходник для images/norma/userflow-extra-steps-mobile.webp: рендер 360px × 3 в Chrome headless -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #f2f2f0;
+    --ink: #181818;
+    --muted: #5d5d5a;
+    --button: #636a83;
+    --screen: #e4e4e0;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  body {
+    width: 360px;
+    padding: 16px 16px 18px;
+    color: var(--ink);
+    font-family: Inter, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h3 { margin: 0 0 12px; font-size: 12px; font-weight: 600; line-height: 1.15; }
+  h3 b {
+    display: inline-grid;
+    place-items: center;
+    width: 17px; height: 17px;
+    margin-right: 5px;
+    border: 1px solid rgba(24, 24, 24, 0.18);
+    border-radius: 50%;
+    font-size: 9px;
+    vertical-align: 1px;
+  }
+  .flow { display: flex; flex-direction: column; width: 220px; margin: 0 auto; }
+  .chip {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .start { border: 1px solid var(--button); color: var(--button); }
+  .button { background: var(--button); color: #fff; }
+  .screen { background: var(--screen); color: var(--ink); }
+  .extra { border: 1px dashed var(--muted); color: var(--muted); }
+  .badge {
+    display: inline-grid;
+    place-items: center;
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 8px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .chip .badge { position: absolute; top: -6px; right: -6px; }
+  .arrow { height: 12px; text-align: center; font-size: 10px; line-height: 12px; color: var(--muted); }
+  .branch { display: flex; flex-direction: column; gap: 6px; }
+  .notes { display: flex; flex-direction: column; gap: 9px; margin-top: 20px; }
+  .note { display: flex; gap: 8px; align-items: flex-start; font-size: 9.5px; line-height: 1.4; color: var(--muted); }
+  .note .badge { margin-top: 1px; }
+  .note b { color: var(--ink); font-weight: 600; }
+</style>
+</head>
+<body>
+  <h3><b>A</b>Принять оплату</h3>
+  <div class="flow">
+    <div class="chip start">Создать счёт / ссылку / QR</div>
+    <div class="arrow">↓</div>
+    <div class="chip extra">Выбрать шаблон документа<span class="badge">1</span></div>
+    <div class="arrow">↓</div>
+    <div class="chip button">Отправить клиенту</div>
+    <div class="arrow">↓</div>
+    <div class="chip extra">Подтвердить сумму ещё раз<span class="badge">2</span></div>
+    <div class="arrow">↓</div>
+    <div class="chip screen">Клиент оплачивает</div>
+    <div class="arrow">↓</div>
+    <div class="chip extra">Экран ожидания без действий<span class="badge">3</span></div>
+    <div class="arrow">↓</div>
+    <div class="chip screen">Оплата успешна?</div>
+    <div class="arrow">↓</div>
+    <div class="chip extra">Повторное подтверждение отправки<span class="badge">4</span></div>
+    <div class="arrow">↓</div>
+    <div class="branch">
+      <div class="chip button">Деньги зачислены</div>
+      <div class="chip button">Повторить оплату</div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="note"><span class="badge">1</span><p style="margin:0"><b>Выбрать шаблон документа</b> — самозанятый почти всегда выставляет счёт одного и того же типа; выбор шаблона на каждый раз не даёт вариативности, только тормозит создание счёта.</p></div>
+    <div class="note"><span class="badge">2</span><p style="margin:0"><b>Подтвердить сумму ещё раз</b> — сумма уже была введена и видна на предыдущем экране; повторное подтверждение дублирует шаг «Создать счёт», не добавляя защиты от ошибки.</p></div>
+    <div class="note"><span class="badge">3</span><p style="margin:0"><b>Экран ожидания без действий</b> — пустой промежуточный экран без прогресса и без возможности отменить/уточнить статус; пользователь не может ничего сделать, только ждать — эту паузу можно показать статусом на предыдущем экране.</p></div>
+    <div class="note"><span class="badge">4</span><p style="margin:0"><b>Повторное подтверждение отправки</b> — «Отправить клиенту» уже было явным действием пользователя; второе подтверждение того же намерения не предотвращает ошибку, а просто повторяет уже пройденный шаг.</p></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regina — Visual Designer & Developer</title>
+  <meta name="description" content="Portfolio of Regina: unforgettable digital experiences for ambitious clients.">
+  <meta name="theme-color" content="#2b0f24">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="calla.css">
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script defer src="vendor/lenis.min.js"></script>
+  <script defer src="calla.bundle.js"></script>
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true"><span class="ld-name">Regina</span><div class="ld-bot"><span>LOADING</span><b id="ldNum">000</b></div></div>
+  <div class="pbar" id="pbar" aria-hidden="true"></div>
+  <!-- shared SVG defs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs><path id="ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="guide gx" aria-hidden="true"></div>
+  <div class="guide gy" aria-hidden="true"></div>
+  <div class="cross" id="cross" aria-hidden="true"></div>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  <nav class="menu" id="menu" aria-label="Sections">
+    <a href="#top">Intro</a><a href="#about">About</a><a href="#works">Works</a><a href="#services">Services</a><a href="#playbook">Playbook</a><a href="#contact">Contact</a>
+  </nav>
+
+  <canvas class="flowers" id="flowers" aria-hidden="true"></canvas>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="hero" id="top">
+      <div class="sky"></div>
+      <div class="card">
+        <div class="ell-wrap"><div class="ellipse"></div></div>
+        <div class="info">
+          <div class="info-a"><span>CREATIVE UI &amp; VISUAL DESIGNER</span>
+            <svg viewBox="0 0 24 14" width="22" height="13" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/><circle cx="12" cy="7" r="1.6"/></svg>
+          </div>
+          <div class="info-b"><span class="vert">REG 26</span><p>KEEPING WEB INTERESTING /<br>HELPING BRANDS STAND OUT</p></div>
+        </div>
+        <span class="hero-dot"></span>
+        <span class="hero-line"><i></i></span>
+        <a class="scroll-hint" href="#manifest"><span>SCROLL DOWN TO EXPLORE</span><b>↓</b></a>
+      </div>
+      <div class="mini-marq" aria-hidden="true"><div><span>INDEPENDENT — CREATIVE — VISUAL — DESIGNER — BASED IN — EUROPE — AVAILABLE FOR PROJECTS — </span><span>INDEPENDENT — CREATIVE — VISUAL — DESIGNER — BASED IN — EUROPE — AVAILABLE FOR PROJECTS — </span></div></div>
+    </section>
+
+    <!-- 2. MANIFEST -->
+    <section class="manifest" id="manifest">
+      <h2 class="mani">
+        <span class="ml"><span class="mt">Crafting</span><em class="sc" style="--sx:-6%">designing</em></span>
+        <span class="ml"><span class="mt">Unforgettable</span><em class="sc" style="--sx:-4%">premium — luxury</em></span>
+        <span class="ml"><span class="mt">Digital</span><em class="sc" style="--sx:2%">web/mobile</em></span>
+        <span class="ml"><span class="mt">Experiences</span><em class="sc" style="--sx:-5%">brands &amp; websites</em></span>
+        <span class="ml"><span class="mt">For Ambitious</span><em class="sc" style="--sx:4%">extraordinary</em></span>
+        <span class="ml"><span class="mt">Clients</span><em class="sc" style="--sx:0%">people</em></span>
+      </h2>
+      <span class="badge-box l">✱◎✱</span><span class="badge-box r">✱◎✱</span>
+    </section>
+
+    <!-- 3. ABOUT -->
+    <section class="about" id="about">
+      <div class="about-intro">
+        <div class="ghost-marq" aria-hidden="true"><div><span>Visual Designer ✱ Developer ✱ Storyteller ✱ </span><span>Visual Designer ✱ Developer ✱ Storyteller ✱ </span></div></div>
+        <p class="cap l">THE FUSION OF DESIGN PRINCIPLES WITH UNPARALLELED VISUAL STORYTELLING.</p>
+        <div class="mono"><svg class="mono-ring" viewBox="0 0 100 100" aria-hidden="true"><text><textPath href="#ring">DESIGN • DEVELOP • DELIVER • DESIGN • DEVELOP • DELIVER • </textPath></text></svg><span class="st t">✱</span><b>Rg</b><span class="st b">✱</span></div>
+        <p class="cap r">I CRAFT WEBSITES WHICH WILL ELEVATE YOUR BRAND TO A GLOBAL STAGE.</p>
+        <span class="tag">ABOUT ME</span>
+      </div>
+      <div class="lead-wrap">
+        <figure class="pol p1"><img src="../assets/sense-gal-3.webp" alt=""></figure>
+        <figure class="pol p2"><img src="../assets/kyoto-bike.webp" alt=""></figure>
+        <figure class="pol p3"><img src="../assets/sense-gal-5.webp" alt=""></figure>
+        <figure class="pol p4"><img src="../assets/kyoto-hero.webp" alt=""></figure>
+        <p class="lead">I am a passionate visual designer and developer <b>driven by a single mission</b></p>
+        <img class="lead-img" src="../assets/fashion-detail.webp" alt="">
+        <p class="lead">to create experiences that are as <b>beautiful as they are functional.</b></p>
+      </div>
+    </section>
+
+    <!-- 4. SHOWREEL -->
+    <section class="reel" id="reel">
+      <div class="reel-pin">
+        <div class="reel-box" id="reelBox">
+          <div class="track" id="reelTrack">
+            <div class="slide s1">
+              <b class="s1-word">FLEUR</b>
+              <div class="s1-stage"><img src="../assets/fashion-products.webp" alt=""></div>
+              <i class="hot h1"></i><i class="hot h2"></i><i class="hot h3"></i>
+              <svg class="s1-badge" viewBox="0 0 100 100" aria-hidden="true"><text><textPath href="#ring">NEW COLLECTION • SS 26 • NEW COLLECTION • </textPath></text></svg>
+              <div class="s1-card"><p>Experience the future of fashion — a symphony of colour, texture and a little bit of play.</p><span>$ 3 400</span></div>
+            </div>
+            <div class="slide s2">
+              <div class="cell"><img src="../assets/fashion-hero.webp" alt=""><span>01 — SUMMER</span></div>
+              <div class="cell"><img src="../assets/sense-gal-1.webp" alt=""><span>02 — MOTION</span></div>
+            </div>
+            <div class="slide s3">
+              <div class="s3-txt"><b>BRAND</b><span>IDENTITY</span><i>V—01</i><b>NORMA</b></div>
+              <div class="s3-ring" id="ring3">
+                <img src="../assets/sense-gal-1.webp" alt=""><img src="../assets/sense-gal-1.webp" alt=""><img src="../assets/sense-gal-3.webp" alt=""><img src="../assets/fashion-detail.webp" alt=""><img src="../assets/kyoto-bike.webp" alt="">
+                <img src="../assets/sense-gal-4.webp" alt=""><img src="../assets/kyoto-hero.webp" alt=""><img src="../assets/sense-gal-5.webp" alt=""><img src="../assets/fashion-hero.webp" alt=""><img src="../assets/sense-gal-6.webp" alt="">
+              </div>
+            </div>
+            <div class="slide s4">
+              <div class="s4-nav"><span>ABOUT</span><span>PROJECTS</span><span>CLASSES</span><span>CONTACT</span></div>
+              <div class="s4-l"><i>S</i><i>E</i><i>N</i><i>S</i><i>E</i></div>
+              <div class="diamond"><img src="../assets/sense-wide.webp" alt=""></div>
+              <p class="s4-txt">DANCING OUT LOUD,<br>MOVING WITH INTENTION</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WHAT I DO -->
+    <section class="whatido" id="whatido">
+      <h3 class="big"><span class="ml"><span class="mt">Crafting</span><em class="sc" style="--sx:-6%">for Visionary</em></span><span class="ml"><span class="mt">Legacies</span><em class="sc" style="--sx:-2%">brands</em></span></h3>
+      <span class="stars">✱✱✱</span>
+      <p class="cap a">I HAVE WON MULTIPLE AWARDS FROM DIFFERENT ORGANIZATIONS.</p>
+      <p class="cap b">MY FORTE LIES IN TECH, BEAUTY, FINANCE, FOOD, CRYPTO AND SAAS.</p>
+      <div class="w-right"><span class="tag">WHAT I DO</span>
+        <p class="serif">I combine timeless design principles with cutting-edge technology to craft award-winning websites that resonate with a global audience.</p></div>
+      <div class="w-pill"><span>MY PHILOSOPHY</span><a href="#works" class="round" aria-label="Down">↓</a></div>
+    </section>
+
+    <!-- 6. FEATURED PROJECTS -->
+    <section class="works" id="works">
+      <div class="ghost" aria-hidden="true"><span>W</span><span>O</span><span>R</span><span>K</span><span>S</span></div>
+      <h2 class="feat"><em>Featured</em><em>Projects</em></h2>
+
+      <a class="proj" href="../fleur.html" aria-label="Open le Fleur"><div class="pin">
+        <h3 class="ptitle"><em>L</em>E FLEUR</h3>
+        <div class="pframe"><img src="../assets/fashion-route-coast.webp" alt=""><span class="ptag">2026 ✦ FASHION LANDING</span><p class="pdesc">A pastel fashion collage with hand-drawn doodles, built for a summer capsule.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+
+      <a class="proj" href="../sense.html" aria-label="Open Sense"><div class="pin">
+        <h3 class="ptitle"><em>S</em>ENSE</h3>
+        <div class="pframe"><img src="../assets/sense-dancers.webp" alt=""><span class="ptag">2026 ✦ DANCE STUDIO</span><p class="pdesc">A dance studio in violet and lime — loud colour, bold type, movement everywhere.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+
+      <a class="proj" href="../kyoto.html" aria-label="Open Good Vibes Kyoto"><div class="pin">
+        <h3 class="ptitle"><em>G</em>OOD VIBES</h3>
+        <div class="pframe"><img src="../assets/kyoto-hero.webp" alt=""><span class="ptag">2026 ✦ STREET SHOP</span><p class="pdesc">A little street shop from Kyoto: green, friendly and a bit handmade.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+
+      <a class="proj" href="../norma.html" aria-label="Open Norma"><div class="pin">
+        <h3 class="ptitle"><em>N</em>ORMA</h3>
+        <div class="pframe"><img src="../assets/preview-norma.webp" alt="" class="logo"><span class="ptag">2026 ✦ FINTECH CASE</span><p class="pdesc">A fintech app identity: graphite, neon lime and four friendly circles.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+
+      <a class="proj" href="../opara/index.html" aria-label="Open Opara"><div class="pin">
+        <h3 class="ptitle"><em>O</em>PARA</h3>
+        <div class="pframe"><img src="../assets/preview-opara.webp" alt="" class="logo"><span class="ptag">2026 ✦ HOME BAKERY</span><p class="pdesc">A dark, warm site for a home bakery — all about crust and slow fermentation.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+
+      <a class="proj" href="../folio/index.html" aria-label="Open Regina portfolio"><div class="pin">
+        <h3 class="ptitle"><em>F</em>OLIO</h3>
+        <div class="pframe"><img src="../assets/preview-folio.webp" alt="" class="logo"><span class="ptag">2026 ✦ PORTFOLIO</span><p class="pdesc">A personal portfolio on paper and tomato red. Calm layout, lively motion.</p>
+          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+    </section>
+
+    <!-- 7. PHILOSOPHY -->
+    <section class="philo" id="philo">
+      <div class="philo-l">
+        <span class="tag">MY PHILOSOPHY</span>
+        <p class="serif">Functionality is the foundation, the floor through which design cannot fall. But what makes design truly stand out is the art within it. In a world of increasing standardization, it’s no longer enough to simply work; design must be memorable.</p>
+        <p class="cap">WHEN EVERYTHING STARTS TO LOOK THE SAME, ART BECOMES THE DIFFERENTIATOR, THE PERSONALITY WOVEN INTO DESIGN, THE SPARK THAT SETS IT APART.</p>
+        <span class="sign">© ——— ✱✱✱</span>
+      </div>
+      <div class="philo-r">
+        <svg class="philo-art" viewBox="0 0 420 600" role="img" aria-label="Line drawing of a calla lily bouquet">
+                    <g class="rings"><circle cx="210" cy="240" r="196"/><circle cx="210" cy="240" r="168"/><circle cx="210" cy="240" r="140"/></g>
+          <g class="stems">
+            <path class="gr draw" pathLength="1" d="M210 250C208 330 212 450 210 560"/>
+            <path class="gr draw" pathLength="1" d="M300 330C290 400 230 480 210 560"/>
+            <path class="gr draw" pathLength="1" d="M120 350C130 420 190 490 210 560"/>
+            <path class="gr draw" pathLength="1" d="M250 400C240 450 220 500 210 560"/>
+          </g>
+          <g class="leaves">
+            <path class="gr draw" pathLength="1" d="M210 522C150 500 90 440 70 380C120 400 190 450 210 522Z"/>
+            <path class="lc draw" pathLength="1" d="M210 522C150 470 110 430 74 384M168 478l-22 -4M142 452l-20 -8M118 428l-16 -10"/>
+            <path class="gr draw" pathLength="1" d="M210 532C270 507 340 452 360 397C300 412 230 467 210 532Z"/>
+            <path class="lc draw" pathLength="1" d="M210 532C270 482 318 440 356 400M252 492l22 -6M280 470l20 -10M308 446l18 -12"/>
+          </g>
+          <g class="fl"><g transform="translate(120 350) rotate(-16) scale(.8)" style="--c1:var(--plum);--c2:var(--lilac)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
+                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
+                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
+                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
+                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
+                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
+                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
+                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
+          <g class="fl"><g transform="translate(300 330) rotate(14) scale(.85)" style="--c1:var(--lilac);--c2:var(--pink)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
+                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
+                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
+                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
+                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
+                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
+                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
+                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
+          <g class="fl"><g transform="translate(210 250) scale(1.1)" style="--c1:var(--pink);--c2:var(--plum)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
+                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
+                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
+                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
+                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
+                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
+                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
+                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
+          <g class="fl"><g transform="translate(250 400) rotate(8) scale(.5)" style="--c1:var(--plum);--c2:var(--pink)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
+                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
+                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
+                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
+                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
+                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
+                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
+                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
+          <path class="pk draw" pathLength="1" d="M192 494C204 512 216 512 228 494M196 500C186 520 180 524 176 530M224 500C234 520 240 524 244 530"/>
+          <path class="gd draw" pathLength="1" d="M60 574Q210 542 360 574M90 584Q210 558 330 584"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 8. SERVICES -->
+    <section class="services" id="services">
+      <span class="tag c">WHAT I CAN DO FOR YOU</span>
+      <div class="svc">
+        <div class="svc-side l"><em>Services</em></div>
+        <div class="svc-words">
+          <p><span>Branding</span><img src="../assets/sense-gal-3.webp" alt="" class="th t1"></p>
+          <p><span>Web-Design</span><img src="../assets/kyoto-bike.webp" alt="" class="th t2"></p>
+          <p><span>Development</span><img src="../assets/fashion-detail.webp" alt="" class="th t3"></p>
+          <p><span>Assets</span><img src="../assets/kyoto-products.webp" alt="" class="th t4"></p>
+          <p><span>App-Design</span><img src="../assets/sense-gal-5.webp" alt="" class="th t5"></p>
+        </div>
+        <div class="svc-side r"><em>Provided</em></div>
+      </div>
+      <p class="spaced">I HAVE A NETWORK OF OTHER TALENTED FOLKS, DEPENDING ON THE PROJECT, I WORK WITH OTHERS TO DELIVER THE BEST WORK</p>
+    </section>
+
+    <!-- 9. PLAYBOOK -->
+    <section class="playbook" id="playbook">
+      <div class="pb-head">
+        <svg class="globe gl" viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="150" cy="110" rx="140" ry="100"/><ellipse cx="150" cy="110" rx="90" ry="100"/><ellipse cx="150" cy="110" rx="40" ry="100"/><line x1="150" y1="10" x2="150" y2="210"/><line x1="10" y1="110" x2="290" y2="110"/></svg>
+        <h2><em>Playbook</em></h2>
+        <svg class="globe gr" viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="150" cy="110" rx="140" ry="100"/><ellipse cx="150" cy="110" rx="90" ry="100"/><ellipse cx="150" cy="110" rx="40" ry="100"/><line x1="150" y1="10" x2="150" y2="210"/><line x1="10" y1="110" x2="290" y2="110"/></svg>
+        <p class="cap">SOME OF MY RANDOM EXPLORATIONS<br>WITH TYPE AND AESTHETICS</p>
+      </div>
+      <div class="pb-pin">
+        <div class="pb-track" id="pbTrack">
+          <figure style="--w:30vw;background:#1a1a1a"><img src="../assets/sense-gal-4.webp" alt=""></figure>
+          <figure style="--w:26vw;background:#9fb68a"><img src="../assets/kyoto-products.webp" alt=""></figure>
+          <figure style="--w:34vw;background:#efe9dc"><img src="../assets/fashion-products.webp" alt=""></figure>
+          <figure style="--w:24vw;background:#e8452c"><img src="../assets/preview-folio.webp" alt="" class="logo"></figure>
+          <figure style="--w:30vw;background:#f2f2f0"><img src="../assets/preview-norma.webp" alt="" class="logo"></figure>
+          <figure style="--w:34vw;background:#0c0c0d"><img src="../assets/kyoto-lane.webp" alt=""></figure>
+          <figure style="--w:26vw;background:#6b2a66"><img src="../assets/sense-gal-6.webp" alt=""></figure>
+        </div>
+        <div class="ruler" id="ruler"><i></i></div>
+      </div>
+      <div class="pb-quotes"><p><svg viewBox="0 0 24 14" width="26" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/></svg>Don’t settle for just<br>another website.</p><p><svg viewBox="0 0 24 14" width="26" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/></svg>When you can be the<br>benchmark.</p></div>
+    </section>
+
+    <!-- 10. RETRO PC + SNAKE -->
+    <section class="retro" id="retro">
+      <div class="retro-stage">
+        <svg class="warp" viewBox="0 0 600 400" aria-hidden="true"><g fill="none" stroke="#e0668e" stroke-width="1" opacity=".45" id="warpG"></g></svg>
+        <canvas id="pc" aria-label="Retro computer with a snake game. Click the screen to play."></canvas>
+        <p class="hint" id="pcHint">click the screen · arrows / WASD / swipe</p>
+      </div>
+    </section>
+
+    <!-- 11. CONTACT -->
+    <section class="contact" id="contact">
+      <a class="mail" href="mailto:hello@example.com" aria-label="Send an email">
+        <div class="mq"><div class="mq-in" id="mq"></div></div>
+      </a>
+      <footer><span>© 2026 REGINA — ALL RIGHTS RESERVED</span><a href="../index.html">← BACK TO THE COLLECTION</a><span>DESIGN INSPIRED BY “FREE FOR COPYING”</span></footer>
+    </section>
+  </main>
+</body>
+</html>

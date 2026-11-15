@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Скелетоны — Норма (мобильная сетка 2×2)</title>
+<!-- Исходник для images/norma/skeletons-mobile.webp: 4 ячейки из images/norma/skeletons.webp, рендер 960×1800 в Chrome headless -->
+<style>
+  html, body { margin: 0; background: #f2f2f0; }
+  body { padding-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 480px); }
+  .cell { width: 480px; height: 880px; background: url("images/norma/skeletons.webp") no-repeat; background-size: 2400px 1792px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell" style="background-position: 0 0"></div>         <!-- Онбординг: открытие счёта -->
+    <div class="cell" style="background-position: -960px 0"></div>    <!-- Перевод между валютами -->
+    <div class="cell" style="background-position: -960px -869px"></div>  <!-- Чек ФНС для клиента -->
+    <div class="cell" style="background-position: -1920px -869px"></div> <!-- Баланс и последние операции -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "landings",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["three-landings/server.mjs", "4173"],
+      "port": 4173
+    }
+  ]
+}

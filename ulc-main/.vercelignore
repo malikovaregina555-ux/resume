@@ -1,0 +1,71 @@
+.claude
+CLAUDE.md
+references
+
+# контекст Impeccable (для Claude, не для сайта)
+PRODUCT.md
+DESIGN.md
+DESIGN.json
+.impeccable
+*.pdf
+!Regina_Malikova_Web_Designer_CV.pdf
+
+# неиспользуемые экспорты/черновики (не referенсятся из index.html)
+img/turntable.apng
+img/turntable.gif
+img/turntable.mp4
+img/turntable.webp
+images/Group 5.png
+images/Group 6 (1).png
+images/Group 7 (1).png
+images/В1.png
+images/В2.png
+images/меню.png
+images/страница кейса.png
+
+# черновые страницы-прототипы
+scenario-a-screens.html
+skeletons.html
+userflow.html
+userflow-screens.html
+userflow-mobile.html
+userflow-extra-mobile.html
+skeletons-mobile.html
+
+# исходники «Подпислона» — на сайте их заменили WebP и видео из images/podpislon
+images/Frame 1336586331 (2).png
+images/415498047 (1).png
+images/415498048 (1).png
+images/415498049 (1).png
+images/415498050 (1).png
+images/Artboard 1 (5).gif
+images/Artboard 1 (6).gif
+images/Artboard 1 (7).gif
+images/podpislon/onboarding-1.mp4
+images/podpislon/onboarding-2.mp4
+images/podpislon/onboarding-3.mp4
+
+# удалённый кейс «Поле»
+images/pole
+images/norma/ris-02.webp
+images/norma/ris-03.webp
+images/norma/ris-04.webp
+norma-tab-screens.html
+exports
+images/norma/ris-12.webp
+images/norma/ris-13.webp
+images/norma/ris-15.webp
+images/norma/ris-16.webp
+images/norma/ris-07.webp
+images/norma/ris-08.webp
+images/norma/skeletons.webp
+images/norma/skeletons-mobile.webp
+images/norma/ris-01.webp
+images/norma/ris-09.webp
+images/norma/ris-10.webp
+images/norma/ris-14.webp
+images/norma/ris-11.webp
+palette-textures.html
+
+# удалённый кейс «Ресурс развития» (разметка — в references/index.backup-2026-10-07.html)
+images/resource-development
