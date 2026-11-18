@@ -296,15 +296,37 @@ html.is-loading,html.is-loading body{overflow:hidden}
 @keyframes spin{to{transform:rotate(360deg)}}
 .lead-img{width:clamp(180px,22vw,380px);aspect-ratio:1280/853;margin:7vh auto}
 .lead-wrap{padding-bottom:10vh}
-.pol{position:absolute;width:clamp(110px,14vw,300px);aspect-ratio:3/4;overflow:hidden;margin:0;box-shadow:0 30px 60px rgba(0,0,0,.35);rotate:var(--r,0deg)}
-.pol img,.lead-img img{display:block;width:100%;height:100%;object-fit:cover}
+.pol{position:absolute;width:clamp(150px,17vw,300px);margin:0;rotate:var(--r,0deg)}
+.pol img{display:block;width:100%;height:auto;filter:grayscale(1);box-shadow:0 16px 38px #0005;transition:filter .3s ease}
+.pol figcaption{margin-top:12px;color:#fff;font-size:clamp(13px,1.1vw,16px);line-height:1.45;text-wrap:pretty;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s}
+.pol:is(:hover,:focus){z-index:2}
+.lead-wrap .pol:is(:hover,:focus) img{filter:grayscale(0)}
+.pol:is(:hover,:focus) figcaption{opacity:1;visibility:visible}
+.pol:focus-visible{outline:2px solid var(--paper);outline-offset:6px}
+.lead-img img{display:block;width:100%;height:100%;object-fit:cover}
 .lead-img img{object-position:40% center}
 .lead-wrap .is-draggable{cursor:grab;touch-action:none;user-select:none;perspective:720px}
 .lead-wrap .is-draggable img{pointer-events:none;transition:transform .38s cubic-bezier(.2,.7,.2,1),filter .38s}
 .lead-wrap .is-dragging{cursor:grabbing;box-shadow:0 20px 34px rgba(0,0,0,.35);overflow:visible}
 .lead-wrap .is-dragging img{filter:brightness(1.08);transition-duration:.11s}
-.p1{left:5%;top:2%;--r:-7deg}.p2{right:6%;top:26%;--r:6deg}.p3{left:9%;bottom:4%;--r:4deg;width:clamp(90px,11vw,230px)}.p4{right:14%;bottom:2%;--r:-5deg;width:clamp(80px,9vw,200px)}
-@media (max-width:900px){.pol{display:none}}
+.lead-wrap .pol.is-draggable{touch-action:pan-y}
+.p1{left:5%;top:2%;--r:-7deg}
+.p2{right:6%;top:26%;--r:6deg;width:clamp(135px,14vw,245px)}
+.p3{left:9%;bottom:7%;--r:4deg}
+@media(max-width:900px){
+  .about-projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:24px;margin:40px auto 0;max-width:720px}
+  .about-projects .pol{position:relative;inset:auto;width:100%;rotate:none}
+}
+@media(max-width:560px){
+  .about-projects{grid-template-columns:minmax(0,1fr);width:min(100%,320px);gap:32px}
+}
+@media(hover:none){
+  .pol figcaption{opacity:1;visibility:visible}
+  .lead-wrap .pol.is-draggable{cursor:default}
+}
+@media(prefers-reduced-motion:reduce){
+  .lead-wrap .pol img,.pol figcaption{transition:none}
+}
 
 @media(max-width:560px){
   .process-list li{width:100%;padding:48px 12%;min-height:0}

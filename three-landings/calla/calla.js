@@ -34,6 +34,10 @@ $$('.lead-wrap :is(.pol,.lead-img)').forEach(photo=>{
   let x=0,y=0,drag=null;
   photo.addEventListener('pointerdown',event=>{
     if(!event.isPrimary||event.button!==0)return;
+    if(event.pointerType==='touch'&&photo.matches('.pol')){
+      photo.focus({preventScroll:true});
+      return;
+    }
     event.preventDefault();
     const {clientX,clientY,pointerId,timeStamp}=event;
     const rect=photo.getBoundingClientRect();
@@ -194,9 +198,12 @@ function setupScroll(){
   });
   gsap.to('.ghost-marq',{xPercent:-12,ease:'none',scrollTrigger:{trigger:'.about-intro',start:'top bottom',end:'bottom top',scrub:true}});
   gsap.fromTo('.lead-img',{clipPath:'inset(100% 0 0 0)',scale:1.3},{clipPath:'inset(0% 0 0 0)',scale:1,duration:1.4,ease:'power4.out',scrollTrigger:{trigger:'.lead-img',start:'top 85%',toggleActions:'play none none reverse'}});
-  $$('.pol').forEach((p,i)=>{
-    gsap.fromTo(p,{y:120+i*40,opacity:0},{y:-80-i*30,opacity:1,ease:'none',scrollTrigger:{trigger:'.lead-wrap',start:'top 90%',end:'bottom 20%',scrub:true}});
-    gsap.fromTo($('img',p),{scale:1.3},{scale:1,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'center center',scrub:true}});
+  gsap.matchMedia().add('(min-width: 901px)',()=>{
+    $$('.pol').forEach((photo,index)=>{
+      gsap.fromTo(photo,{y:55+index*15},{y:-45-index*15,ease:'none',scrollTrigger:{
+        trigger:'.lead-wrap',start:'top 90%',end:'bottom 20%',scrub:true
+      }});
+    });
   });
 
   /* works: tilted 3D cards */
