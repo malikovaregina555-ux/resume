@@ -1,11 +1,12 @@
-﻿<!doctype html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Regina — Visual Designer & Developer</title>
-  <meta name="description" content="Portfolio of Regina: unforgettable digital experiences for ambitious clients.">
+  <title>Регина Маликова — веб- и бренд-дизайнер</title>
+  <meta name="description" content="Портфолио Регины Маликовой. Веб-дизайн, интерфейсы, брендинг и вайбкодинг.">
   <meta name="theme-color" content="#2b0f24">
+  <link rel="stylesheet" href="../assets/fonts.css">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="calla.css">
   <script defer src="vendor/gsap.min.js"></script>
@@ -14,274 +15,204 @@
   <script defer src="calla.bundle.js"></script>
 </head>
 <body>
-  <div class="loader" id="loader" aria-hidden="true"><span class="ld-name">Regina</span><div class="ld-bot"><span>LOADING</span><b id="ldNum">000</b></div></div>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-progress" id="loaderProgress"></div>
+    <div class="lava-lamp"></div>
+    <div class="ld-bot"><span>ЗАГРУЗКА</span><b id="ldNum">000</b></div>
+  </div>
   <div class="pbar" id="pbar" aria-hidden="true"></div>
   <!-- shared SVG defs -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs><path id="ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
+    <defs>
+      <path id="corner-arrow" d="M0 0 48 48m0-24v24H24"/>
+      <path id="sound-speaker" d="M3 9h4l5-4v14l-5-4H3z"/>
+      <path id="sound-waves" d="M16 9a4 4 0 0 1 0 6m2-9a8 8 0 0 1 0 12"/>
+      <path id="sound-muted" d="m16 10 5 5m0-5-5 5"/>
+    </defs>
   </svg>
 
-  <div class="grain" aria-hidden="true"></div>
   <div class="guide gx" aria-hidden="true"></div>
   <div class="guide gy" aria-hidden="true"></div>
   <div class="cross" id="cross" aria-hidden="true"></div>
 
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
-  <nav class="menu" id="menu" aria-label="Sections">
-    <a href="#top">Intro</a><a href="#about">About</a><a href="#works">Works</a><a href="#services">Services</a><a href="#playbook">Playbook</a><a href="#contact">Contact</a>
-  </nav>
-
   <canvas class="flowers" id="flowers" aria-hidden="true"></canvas>
+  <canvas class="flowers flower-front" id="flowerFront" aria-hidden="true"></canvas>
+
+  <div class="site-menu" id="siteMenu" hidden>
+    <button class="site-menu__toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="siteMenuPanel"><span></span><span></span></button>
+    <button class="sound-toggle sound-toggle--menu" type="button" aria-label="Фоновая музыка" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sound-speaker"/><use class="sound-waves" href="#sound-waves"/><use class="sound-muted" href="#sound-muted"/></svg></button>
+    <nav class="site-menu__panel" id="siteMenuPanel" aria-label="Разделы сайта" hidden>
+      <a href="#about"><span>01</span>Обо мне</a>
+      <a href="#works"><span>02</span>Проекты</a>
+      <a href="#process"><span>03</span>Этапы работы</a>
+      <a href="#services"><span>04</span>Услуги</a>
+      <a href="experience.html"><span>05</span>Резюме ↗</a>
+      <a href="#faq"><span>06</span>FAQ</a>
+    </nav>
+  </div>
 
   <main>
     <!-- 1. HERO -->
     <section class="hero" id="top">
-      <div class="sky"></div>
+      <canvas class="hero-clouds" id="cloudSky" aria-hidden="true"></canvas>
       <div class="card">
         <div class="ell-wrap"><div class="ellipse"></div></div>
         <div class="info">
-          <div class="info-a"><span>CREATIVE UI &amp; VISUAL DESIGNER</span>
-            <svg viewBox="0 0 24 14" width="22" height="13" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/><circle cx="12" cy="7" r="1.6"/></svg>
+          <p class="info-name">Регина Маликова</p>
+          <div class="info-a"><span>ВЕБ-ДИЗАЙН · UI/UX · БРЕНДИНГ</span>
+            <svg class="info-mark" viewBox="0 0 28 28" width="28" height="28" fill="none" stroke="currentColor" stroke-width=".8" aria-hidden="true"><ellipse cx="14" cy="14" rx="12" ry="3.5"/><ellipse cx="14" cy="14" rx="12" ry="3.5" transform="rotate(45 14 14)"/><ellipse cx="14" cy="14" rx="12" ry="3.5" transform="rotate(90 14 14)"/><ellipse cx="14" cy="14" rx="12" ry="3.5" transform="rotate(135 14 14)"/></svg>
           </div>
-          <div class="info-b"><span class="vert">REG 26</span><p>KEEPING WEB INTERESTING /<br>HELPING BRANDS STAND OUT</p></div>
+          <div class="info-b">
+            <p>7+ ЛЕТ В ДИЗАЙНЕ<br>ОТ ИДЕИ И МАКЕТА ДО ЗАПУСКА</p>
+          </div>
+          <div class="hero-links"><a href="experience.html">Резюме ↗</a></div>
         </div>
-        <span class="hero-dot"></span>
+        <nav class="flower-nav" aria-label="Разделы сайта">
+          <a href="#about"><span>01</span>Обо мне</a>
+          <a href="#works"><span>02</span>Проекты</a>
+          <a href="#process"><span>03</span>Этапы работы</a>
+          <a href="#services"><span>04</span>Услуги</a>
+          <a href="experience.html"><span>05</span>Резюме</a>
+          <a href="#faq"><span>06</span>FAQ</a>
+        </nav>
+        <button class="hero-barcode" type="button" aria-label="Просканировать штрихкод"><svg viewBox="0 0 30 88" aria-hidden="true"><path d="M0 0h30v2H0z M0 4h30v1H0z M0 7h30v3H0z M0 12h30v2H0z M0 17h30v4H0z M0 23h30v1H0z M0 26h30v2H0z M0 31h30v1H0z M0 34h30v4H0z M0 40h30v2H0z M0 44h30v1H0z M0 47h30v3H0z M0 53h30v1H0z M0 56h30v2H0z M0 61h30v4H0z M0 67h30v2H0z M0 71h30v1H0z M0 74h30v3H0z M0 79h30v1H0z M0 83h30v2H0z M0 87h30v1H0z"/></svg></button>
+        <button class="sound-toggle sound-toggle--hero" type="button" aria-label="Фоновая музыка" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sound-speaker"/><use class="sound-waves" href="#sound-waves"/><use class="sound-muted" href="#sound-muted"/></svg></button>
         <span class="hero-line"><i></i></span>
-        <a class="scroll-hint" href="#manifest"><span>SCROLL DOWN TO EXPLORE</span><b>↓</b></a>
+        <a class="scroll-hint" href="#manifest" aria-label="Прокрутить вниз"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#corner-arrow"/></svg></a>
       </div>
-      <div class="mini-marq" aria-hidden="true"><div><span>INDEPENDENT — CREATIVE — VISUAL — DESIGNER — BASED IN — EUROPE — AVAILABLE FOR PROJECTS — </span><span>INDEPENDENT — CREATIVE — VISUAL — DESIGNER — BASED IN — EUROPE — AVAILABLE FOR PROJECTS — </span></div></div>
+      <div class="mini-marq" aria-hidden="true"><div class="mini-marq-track"><span>ВЕБ- И БРЕНД-ДИЗАЙНЕР · УЛЬЯНОВСК · РАБОТАЮ УДАЛЁННО ·</span></div></div>
     </section>
 
     <!-- 2. MANIFEST -->
     <section class="manifest" id="manifest">
       <h2 class="mani">
-        <span class="ml"><span class="mt">Crafting</span><em class="sc" style="--sx:-6%">designing</em></span>
-        <span class="ml"><span class="mt">Unforgettable</span><em class="sc" style="--sx:-4%">premium — luxury</em></span>
-        <span class="ml"><span class="mt">Digital</span><em class="sc" style="--sx:2%">web/mobile</em></span>
-        <span class="ml"><span class="mt">Experiences</span><em class="sc" style="--sx:-5%">brands &amp; websites</em></span>
-        <span class="ml"><span class="mt">For Ambitious</span><em class="sc" style="--sx:4%">extraordinary</em></span>
-        <span class="ml"><span class="mt">Clients</span><em class="sc" style="--sx:0%">people</em></span>
+        <span class="ml"><span class="mt">Создаю</span><em class="sc" style="--sx:-6%">дизайн</em></span>
+        <span class="ml"><span class="mt">Яркие</span><em class="sc" style="--sx:-4%">айдентика</em></span>
+        <span class="ml"><span class="mt">Цифровые</span><em class="sc" style="--sx:2%">веб и мобильные</em></span>
+        <span class="ml"><span class="mt">Проекты</span><em class="sc" style="--sx:-5%">бренды и сайты</em></span>
+        <span class="ml"><span class="mt">Для</span><em class="sc" style="--sx:4%">команд</em></span>
+        <span class="ml"><span class="mt">Брендов</span><em class="sc" style="--sx:0%">и продуктов</em></span>
       </h2>
-      <span class="badge-box l">✱◎✱</span><span class="badge-box r">✱◎✱</span>
     </section>
 
     <!-- 3. ABOUT -->
     <section class="about" id="about">
       <div class="about-intro">
-        <div class="ghost-marq" aria-hidden="true"><div><span>Visual Designer ✱ Developer ✱ Storyteller ✱ </span><span>Visual Designer ✱ Developer ✱ Storyteller ✱ </span></div></div>
-        <p class="cap l">THE FUSION OF DESIGN PRINCIPLES WITH UNPARALLELED VISUAL STORYTELLING.</p>
-        <div class="mono"><svg class="mono-ring" viewBox="0 0 100 100" aria-hidden="true"><text><textPath href="#ring">DESIGN • DEVELOP • DELIVER • DESIGN • DEVELOP • DELIVER • </textPath></text></svg><span class="st t">✱</span><b>Rg</b><span class="st b">✱</span></div>
-        <p class="cap r">I CRAFT WEBSITES WHICH WILL ELEVATE YOUR BRAND TO A GLOBAL STAGE.</p>
-        <span class="tag">ABOUT ME</span>
+        <div class="ghost-marq" aria-hidden="true"><div><span>Веб-дизайн ✱ Вайбкодинг ✱ Брендинг ✱ </span><span>Веб-дизайн ✱ Вайбкодинг ✱ Брендинг ✱ </span></div></div>
+        <span class="tag">ОБО МНЕ</span>
       </div>
       <div class="lead-wrap">
         <figure class="pol p1"><img src="../assets/sense-gal-3.webp" alt=""></figure>
         <figure class="pol p2"><img src="../assets/kyoto-bike.webp" alt=""></figure>
         <figure class="pol p3"><img src="../assets/sense-gal-5.webp" alt=""></figure>
         <figure class="pol p4"><img src="../assets/kyoto-hero.webp" alt=""></figure>
-        <p class="lead">I am a passionate visual designer and developer <b>driven by a single mission</b></p>
-        <img class="lead-img" src="../assets/fashion-detail.webp" alt="">
-        <p class="lead">to create experiences that are as <b>beautiful as they are functional.</b></p>
+        <p class="lead">Я веб и бренд-дизайнер. <b>Больше семи лет ловлю вайб в деталях &lt;3</b></p>
+        <figure class="lead-img"><img src="assets/regina-portrait.jpg" alt="Регина на набережной"></figure>
+        <p class="lead">Проектирую пользовательские сценарии и визуальные системы, <b>а интерактивные сайты и прототипы создаю с помощью вайбкодинга.</b></p>
       </div>
     </section>
 
-    <!-- 4. SHOWREEL -->
-    <section class="reel" id="reel">
-      <div class="reel-pin">
-        <div class="reel-box" id="reelBox">
-          <div class="track" id="reelTrack">
-            <div class="slide s1">
-              <b class="s1-word">FLEUR</b>
-              <div class="s1-stage"><img src="../assets/fashion-products.webp" alt=""></div>
-              <i class="hot h1"></i><i class="hot h2"></i><i class="hot h3"></i>
-              <svg class="s1-badge" viewBox="0 0 100 100" aria-hidden="true"><text><textPath href="#ring">NEW COLLECTION • SS 26 • NEW COLLECTION • </textPath></text></svg>
-              <div class="s1-card"><p>Experience the future of fashion — a symphony of colour, texture and a little bit of play.</p><span>$ 3 400</span></div>
-            </div>
-            <div class="slide s2">
-              <div class="cell"><img src="../assets/fashion-hero.webp" alt=""><span>01 — SUMMER</span></div>
-              <div class="cell"><img src="../assets/sense-gal-1.webp" alt=""><span>02 — MOTION</span></div>
-            </div>
-            <div class="slide s3">
-              <div class="s3-txt"><b>BRAND</b><span>IDENTITY</span><i>V—01</i><b>NORMA</b></div>
-              <div class="s3-ring" id="ring3">
-                <img src="../assets/sense-gal-1.webp" alt=""><img src="../assets/sense-gal-1.webp" alt=""><img src="../assets/sense-gal-3.webp" alt=""><img src="../assets/fashion-detail.webp" alt=""><img src="../assets/kyoto-bike.webp" alt="">
-                <img src="../assets/sense-gal-4.webp" alt=""><img src="../assets/kyoto-hero.webp" alt=""><img src="../assets/sense-gal-5.webp" alt=""><img src="../assets/fashion-hero.webp" alt=""><img src="../assets/sense-gal-6.webp" alt="">
-              </div>
-            </div>
-            <div class="slide s4">
-              <div class="s4-nav"><span>ABOUT</span><span>PROJECTS</span><span>CLASSES</span><span>CONTACT</span></div>
-              <div class="s4-l"><i>S</i><i>E</i><i>N</i><i>S</i><i>E</i></div>
-              <div class="diamond"><img src="../assets/sense-wide.webp" alt=""></div>
-              <p class="s4-txt">DANCING OUT LOUD,<br>MOVING WITH INTENTION</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. WHAT I DO -->
-    <section class="whatido" id="whatido">
-      <h3 class="big"><span class="ml"><span class="mt">Crafting</span><em class="sc" style="--sx:-6%">for Visionary</em></span><span class="ml"><span class="mt">Legacies</span><em class="sc" style="--sx:-2%">brands</em></span></h3>
-      <span class="stars">✱✱✱</span>
-      <p class="cap a">I HAVE WON MULTIPLE AWARDS FROM DIFFERENT ORGANIZATIONS.</p>
-      <p class="cap b">MY FORTE LIES IN TECH, BEAUTY, FINANCE, FOOD, CRYPTO AND SAAS.</p>
-      <div class="w-right"><span class="tag">WHAT I DO</span>
-        <p class="serif">I combine timeless design principles with cutting-edge technology to craft award-winning websites that resonate with a global audience.</p></div>
-      <div class="w-pill"><span>MY PHILOSOPHY</span><a href="#works" class="round" aria-label="Down">↓</a></div>
-    </section>
-
-    <!-- 6. FEATURED PROJECTS -->
+    <!-- 4. FEATURED PROJECTS -->
     <section class="works" id="works">
-      <div class="ghost" aria-hidden="true"><span>W</span><span>O</span><span>R</span><span>K</span><span>S</span></div>
-      <h2 class="feat"><em>Featured</em><em>Projects</em></h2>
+      <div class="ghost" aria-hidden="true"><span>Р</span><span>А</span><span>Б</span><span>О</span><span>Т</span><span>Ы</span></div>
+      <h2 class="feat"><em>Избранные</em><em>проекты</em></h2>
 
-      <a class="proj" href="../fleur.html" aria-label="Open le Fleur"><div class="pin">
-        <h3 class="ptitle"><em>L</em>E FLEUR</h3>
-        <div class="pframe"><img src="../assets/fashion-route-coast.webp" alt=""><span class="ptag">2026 ✦ FASHION LANDING</span><p class="pdesc">A pastel fashion collage with hand-drawn doodles, built for a summer capsule.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+      <a class="proj" href="../norma.html" aria-label="Смотреть кейс NORMA"><div class="pin">
+        <div class="pframe"><img src="../assets/preview-norma.webp" alt="" class="logo">
+          <svg class="parrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner-arrow"/></svg></div>
+        <div class="project-info">
+          <p class="ptag">UI/UX · Брендинг</p>
+          <h3 class="ptitle">Норма</h3>
+          <p class="project-period"><time datetime="2026">2026</time></p>
+          <p class="pdesc">Приложение для самозанятых, где можно выставить счёт, отследить оплату и проверить налог</p>
+        </div>
+      </div></a>
 
-      <a class="proj" href="../sense.html" aria-label="Open Sense"><div class="pin">
-        <h3 class="ptitle"><em>S</em>ENSE</h3>
-        <div class="pframe"><img src="../assets/sense-dancers.webp" alt=""><span class="ptag">2026 ✦ DANCE STUDIO</span><p class="pdesc">A dance studio in violet and lime — loud colour, bold type, movement everywhere.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+      <a class="proj" href="../opara/index.html" aria-label="Открыть Opara"><div class="pin">
+        <div class="pframe"><img src="../assets/preview-opara.webp" alt="" class="logo">
+          <svg class="parrow" viewBox="0 0 48 48" aria-hidden="true"><use href="#corner-arrow"/></svg></div>
+        <div class="project-info">
+          <p class="ptag">Веб · UI/UX</p>
+          <h3 class="ptitle">Опара</h3>
+          <p class="project-period"><time datetime="2026">2026</time></p>
+          <p class="pdesc">Сайт домашней пекарни в тёплых тёмных тонах. В центре внимания хрустящая корочка и медленное брожение</p>
+        </div>
+      </div></a>
 
-      <a class="proj" href="../kyoto.html" aria-label="Open Good Vibes Kyoto"><div class="pin">
-        <h3 class="ptitle"><em>G</em>OOD VIBES</h3>
-        <div class="pframe"><img src="../assets/kyoto-hero.webp" alt=""><span class="ptag">2026 ✦ STREET SHOP</span><p class="pdesc">A little street shop from Kyoto: green, friendly and a bit handmade.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
-
-      <a class="proj" href="../norma.html" aria-label="Open Norma"><div class="pin">
-        <h3 class="ptitle"><em>N</em>ORMA</h3>
-        <div class="pframe"><img src="../assets/preview-norma.webp" alt="" class="logo"><span class="ptag">2026 ✦ FINTECH CASE</span><p class="pdesc">A fintech app identity: graphite, neon lime and four friendly circles.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
-
-      <a class="proj" href="../opara/index.html" aria-label="Open Opara"><div class="pin">
-        <h3 class="ptitle"><em>O</em>PARA</h3>
-        <div class="pframe"><img src="../assets/preview-opara.webp" alt="" class="logo"><span class="ptag">2026 ✦ HOME BAKERY</span><p class="pdesc">A dark, warm site for a home bakery — all about crust and slow fermentation.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
-
-      <a class="proj" href="../folio/index.html" aria-label="Open Regina portfolio"><div class="pin">
-        <h3 class="ptitle"><em>F</em>OLIO</h3>
-        <div class="pframe"><img src="../assets/preview-folio.webp" alt="" class="logo"><span class="ptag">2026 ✦ PORTFOLIO</span><p class="pdesc">A personal portfolio on paper and tomato red. Calm layout, lively motion.</p>
-          <svg class="pbadge" viewBox="0 0 100 100"><text><textPath href="#ring">VIEW PROJECT • VIEW PROJECT • </textPath></text></svg><b class="parrow">↗</b></div></div></a>
+<div class="proj"><div class="pin"><div class="pframe case-placeholder">в разработке</div><div class="project-info"><p class="ptag">Крео · KV · Презентация</p><h3 class="ptitle">Коммуникативный дизайн</h3><p class="pdesc">В разработке</p></div></div></div><a class="proj" href="podpislon.html"><div class="pin"><div class="pframe"><img src="assets/podpislon/cover.webp" alt=""></div><div class="project-info"><p class="ptag">Арт · Крео</p><h3 class="ptitle">Подпислон</h3><p class="pdesc">Креативы для сервиса документооборота</p></div></div></a><div class="proj"><div class="pin"><div class="pframe case-placeholder">в разработке</div><div class="project-info"><p class="ptag"></p><h3 class="ptitle">Печать</h3><p class="pdesc">В разработке</p></div></div></div><div class="pet-projects"><h3>Пет-проекты</h3><div><a href="../fleur.html">Флёр ↗</a><a href="../sense.html">Сенс ↗</a><a href="../kyoto.html">Вайб ↗</a></div></div>
     </section>
 
-    <!-- 7. PHILOSOPHY -->
-    <section class="philo" id="philo">
-      <div class="philo-l">
-        <span class="tag">MY PHILOSOPHY</span>
-        <p class="serif">Functionality is the foundation, the floor through which design cannot fall. But what makes design truly stand out is the art within it. In a world of increasing standardization, it’s no longer enough to simply work; design must be memorable.</p>
-        <p class="cap">WHEN EVERYTHING STARTS TO LOOK THE SAME, ART BECOMES THE DIFFERENTIATOR, THE PERSONALITY WOVEN INTO DESIGN, THE SPARK THAT SETS IT APART.</p>
-        <span class="sign">© ——— ✱✱✱</span>
-      </div>
-      <div class="philo-r">
-        <svg class="philo-art" viewBox="0 0 420 600" role="img" aria-label="Line drawing of a calla lily bouquet">
-                    <g class="rings"><circle cx="210" cy="240" r="196"/><circle cx="210" cy="240" r="168"/><circle cx="210" cy="240" r="140"/></g>
-          <g class="stems">
-            <path class="gr draw" pathLength="1" d="M210 250C208 330 212 450 210 560"/>
-            <path class="gr draw" pathLength="1" d="M300 330C290 400 230 480 210 560"/>
-            <path class="gr draw" pathLength="1" d="M120 350C130 420 190 490 210 560"/>
-            <path class="gr draw" pathLength="1" d="M250 400C240 450 220 500 210 560"/>
-          </g>
-          <g class="leaves">
-            <path class="gr draw" pathLength="1" d="M210 522C150 500 90 440 70 380C120 400 190 450 210 522Z"/>
-            <path class="lc draw" pathLength="1" d="M210 522C150 470 110 430 74 384M168 478l-22 -4M142 452l-20 -8M118 428l-16 -10"/>
-            <path class="gr draw" pathLength="1" d="M210 532C270 507 340 452 360 397C300 412 230 467 210 532Z"/>
-            <path class="lc draw" pathLength="1" d="M210 532C270 482 318 440 356 400M252 492l22 -6M280 470l20 -10M308 446l18 -12"/>
-          </g>
-          <g class="fl"><g transform="translate(120 350) rotate(-16) scale(.8)" style="--c1:var(--plum);--c2:var(--lilac)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
-                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
-                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
-                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
-                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
-                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
-                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
-                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
-          <g class="fl"><g transform="translate(300 330) rotate(14) scale(.85)" style="--c1:var(--lilac);--c2:var(--pink)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
-                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
-                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
-                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
-                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
-                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
-                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
-                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
-          <g class="fl"><g transform="translate(210 250) scale(1.1)" style="--c1:var(--pink);--c2:var(--plum)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
-                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
-                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
-                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
-                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
-                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
-                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
-                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
-          <g class="fl"><g transform="translate(250 400) rotate(8) scale(.5)" style="--c1:var(--plum);--c2:var(--pink)"><path class="o" d="M0 0C-34 -22 -50 -92 -38 -150C-32 -180 -12 -202 14 -218C6 -184 32 -150 44 -112C56 -64 36 -22 0 0Z"/>
-                <path class="o" d="M-38 -150C-12 -134 24 -142 44 -112"/>
-                <path class="i" d="M0 -2C-24 -26 -34 -90 -24 -142"/>
-                <path class="i" d="M2 -2C-12 -30 -16 -92 -6 -140"/>
-                <path class="i" d="M4 -2C6 -30 8 -92 16 -134"/>
-                <path class="i" d="M2 -2C24 -26 34 -80 36 -118"/>
-                <path class="i" d="M-30 -150l5 9M-20 -146l4 11M-9 -143l3 11M3 -142l2 11M15 -139l1 11M27 -133l0 11"/>
-                <path class="sp" d="M-2 -132C0 -152 4 -172 8 -192"/></g></g>
-          <path class="pk draw" pathLength="1" d="M192 494C204 512 216 512 228 494M196 500C186 520 180 524 176 530M224 500C234 520 240 524 244 530"/>
-          <path class="gd draw" pathLength="1" d="M60 574Q210 542 360 574M90 584Q210 558 330 584"/>
-        </svg>
-      </div>
-    </section>
-
-    <!-- 8. SERVICES -->
+    <!-- 6. SERVICES -->
     <section class="services" id="services">
-      <span class="tag c">WHAT I CAN DO FOR YOU</span>
+      <h2 class="tag section-label">Чем я могу помочь</h2>
       <div class="svc">
-        <div class="svc-side l"><em>Services</em></div>
+        <div class="svc-side l"><em>Услуги</em></div>
         <div class="svc-words">
-          <p><span>Branding</span><img src="../assets/sense-gal-3.webp" alt="" class="th t1"></p>
-          <p><span>Web-Design</span><img src="../assets/kyoto-bike.webp" alt="" class="th t2"></p>
-          <p><span>Development</span><img src="../assets/fashion-detail.webp" alt="" class="th t3"></p>
-          <p><span>Assets</span><img src="../assets/kyoto-products.webp" alt="" class="th t4"></p>
-          <p><span>App-Design</span><img src="../assets/sense-gal-5.webp" alt="" class="th t5"></p>
+          <p><span>Брендинг</span></p>
+          <p><span>Веб-дизайн</span></p>
+          <p><span>Вайбкодинг</span></p>
+          <p><span>Графика</span></p>
+          <p class="svc-two-lines"><span>Дизайн</span> <span>приложений</span></p>
         </div>
-        <div class="svc-side r"><em>Provided</em></div>
+        <div class="svc-side r"><em>на заказ</em></div>
       </div>
-      <p class="spaced">I HAVE A NETWORK OF OTHER TALENTED FOLKS, DEPENDING ON THE PROJECT, I WORK WITH OTHERS TO DELIVER THE BEST WORK</p>
+      <p class="spaced">РАБОТАЮ САМОСТОЯТЕЛЬНО И В КОМАНДЕ С МАРКЕТОЛОГАМИ И РЕДАКТОРАМИ</p>
     </section>
 
-    <!-- 9. PLAYBOOK -->
-    <section class="playbook" id="playbook">
-      <div class="pb-head">
-        <svg class="globe gl" viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="150" cy="110" rx="140" ry="100"/><ellipse cx="150" cy="110" rx="90" ry="100"/><ellipse cx="150" cy="110" rx="40" ry="100"/><line x1="150" y1="10" x2="150" y2="210"/><line x1="10" y1="110" x2="290" y2="110"/></svg>
-        <h2><em>Playbook</em></h2>
-        <svg class="globe gr" viewBox="0 0 300 220" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="150" cy="110" rx="140" ry="100"/><ellipse cx="150" cy="110" rx="90" ry="100"/><ellipse cx="150" cy="110" rx="40" ry="100"/><line x1="150" y1="10" x2="150" y2="210"/><line x1="10" y1="110" x2="290" y2="110"/></svg>
-        <p class="cap">SOME OF MY RANDOM EXPLORATIONS<br>WITH TYPE AND AESTHETICS</p>
-      </div>
-      <div class="pb-pin">
-        <div class="pb-track" id="pbTrack">
-          <figure style="--w:30vw;background:#1a1a1a"><img src="../assets/sense-gal-4.webp" alt=""></figure>
-          <figure style="--w:26vw;background:#9fb68a"><img src="../assets/kyoto-products.webp" alt=""></figure>
-          <figure style="--w:34vw;background:#efe9dc"><img src="../assets/fashion-products.webp" alt=""></figure>
-          <figure style="--w:24vw;background:#e8452c"><img src="../assets/preview-folio.webp" alt="" class="logo"></figure>
-          <figure style="--w:30vw;background:#f2f2f0"><img src="../assets/preview-norma.webp" alt="" class="logo"></figure>
-          <figure style="--w:34vw;background:#0c0c0d"><img src="../assets/kyoto-lane.webp" alt=""></figure>
-          <figure style="--w:26vw;background:#6b2a66"><img src="../assets/sense-gal-6.webp" alt=""></figure>
-        </div>
-        <div class="ruler" id="ruler"><i></i></div>
-      </div>
-      <div class="pb-quotes"><p><svg viewBox="0 0 24 14" width="26" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/></svg>Don’t settle for just<br>another website.</p><p><svg viewBox="0 0 24 14" width="26" fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="12" cy="7" rx="11" ry="4"/><ellipse cx="12" cy="7" rx="4" ry="6"/></svg>When you can be the<br>benchmark.</p></div>
+    <section class="editorial-section" id="process" aria-labelledby="process-title">
+      <h2 class="tag section-label process-title" id="process-title">Как я работаю</h2>
+      <p class="process-subtitle">(на примере создания сайта)</p>
+      <ol class="process-list">
+        <li><span class="process-number" aria-hidden="true">01</span><h3>Задача</h3><p>Обсуждаем аудиторию, цель и объём работы. На выходе — согласованная задача</p></li>
+        <li><span class="process-number" aria-hidden="true">02</span><h3>Структура и прототип</h3><p>Собираю страницы и ключевые сценарии. Их можно проверить до дизайна</p><a href="../assets/norma/userflow.webp">Пример карты сценариев ↗</a></li>
+        <li><span class="process-number" aria-hidden="true">03</span><h3>Дизайн</h3><p>Выбираем визуальное направление. Затем уточняю детали и готовлю макеты для нужных экранов</p><a href="../norma.html">Пример интерфейсов ↗</a></li>
+        <li><span class="process-number" aria-hidden="true">04</span><h3>Вайбкодинг и запуск</h3><p>Если проекту нужен работающий сайт или интерактивный прототип, собираю его с помощью ИИ, затем проверяю адаптивность и ключевые сценарии</p><a href="../fleur.html">Пример сайта ↗</a></li>
+      </ol>
     </section>
 
-    <!-- 10. RETRO PC + SNAKE -->
+    <!-- 8. RETRO PC + SNAKE -->
     <section class="retro" id="retro">
       <div class="retro-stage">
-        <svg class="warp" viewBox="0 0 600 400" aria-hidden="true"><g fill="none" stroke="#e0668e" stroke-width="1" opacity=".45" id="warpG"></g></svg>
-        <canvas id="pc" aria-label="Retro computer with a snake game. Click the screen to play."></canvas>
-        <p class="hint" id="pcHint">click the screen · arrows / WASD / swipe</p>
+        <svg class="warp" viewBox="0 0 600 400" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="#e0668e" stroke-width="1" opacity=".45" id="warpG"></g></svg>
+        <canvas id="pc" aria-label="Ретрокомпьютер с игрой «Змейка». Нажмите на экран, чтобы начать."></canvas>
+        <p class="hint" id="pcHint">нажмите на экран · стрелки / WASD / свайпы</p>
       </div>
     </section>
 
-    <!-- 11. CONTACT -->
+    <section class="editorial-section faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Частые вопросы</h2>
+      <details><summary>Что подготовить к старту?</summary><p>Коротко расскажите о проекте, его аудитории и задаче. Если есть текущий сайт, материалы или ориентир по срокам, приложите их к сообщению</p></details>
+      <details><summary>Можно заказать только дизайн?</summary><p>Да. Можно заказать исследование, прототип или дизайн и получить макеты для передачи вашей команде</p></details>
+      <details><summary>Как проходят правки?</summary><p>На старте обсуждаем, как будем согласовывать этапы. По структуре и дизайну удобнее собирать обратную связь отдельно</p></details>
+      <details><summary>Можно обсудить проект от студии?</summary><p>Напишите, на каком этапе проект, какая часть нужна от меня и к какому сроку. По этим деталям обсудим формат сотрудничества</p></details>
+    </section>
+
+    <!-- 9. CONTACT -->
     <section class="contact" id="contact">
-      <a class="mail" href="mailto:hello@example.com" aria-label="Send an email">
-        <div class="mq"><div class="mq-in" id="mq"></div></div>
-      </a>
-      <footer><span>© 2026 REGINA — ALL RIGHTS RESERVED</span><a href="../index.html">← BACK TO THE COLLECTION</a><span>DESIGN INSPIRED BY “FREE FOR COPYING”</span></footer>
+      <a class="mq" href="https://t.me/verykarachay" aria-label="Обсудить проект в Telegram"><div class="mq-in" aria-hidden="true"><span>Обсудить проект&nbsp; · &nbsp;Обсудить проект&nbsp; · &nbsp;</span><span>Обсудить проект&nbsp; · &nbsp;Обсудить проект&nbsp; · &nbsp;</span></div></a>
+      <footer class="site-footer">
+        <div class="footer-panel">
+          <div>
+            <h2>Связаться</h2>
+            <a class="footer-tile" href="https://t.me/verykarachay">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 17-7-4 16-5-4-3 3 1-5zm6 3 7-6"/></svg>
+              Telegram
+            </a>
+          </div>
+          <div class="footer-invite">
+            <p>Расскажите о проекте, его задаче и сроках. Обсудим, чем я могу помочь</p>
+            <a class="footer-cta" href="https://t.me/verykarachay">Обсудить проект ↗</a>
+          </div>
+          <div class="footer-profile">
+            <h2>Для команд</h2>
+            <a class="footer-tile" href="experience.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg>
+              Опыт и резюме
+            </a>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Регина Маликова</span><a class="footer-up" href="#top" aria-label="Вернуться наверх">↑</a><a href="#works">К проектам ↗</a></div>
+      </footer>
     </section>
   </main>
 </body>

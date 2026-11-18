@@ -395,14 +395,6 @@ body.lightbox-open{
   border-radius: 20px;
   background: var(--swatch);
   }
-.palette-share__list i::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--texture) center top / cover no-repeat;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 12%, transparent 62%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 12%, transparent 62%);
-  }
 .palette-share__list li:first-child i{
   flex: none;
   aspect-ratio: 1;

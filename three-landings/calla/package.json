@@ -1,0 +1,7 @@
+{
+  "name": "calla",
+  "private": true,
+  "dependencies": {
+    "@originkit/avatars": "^0.3.0"
+  }
+}
