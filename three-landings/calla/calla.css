@@ -127,6 +127,23 @@ body::after{background:radial-gradient(circle,rgba(38,26,30,.06) .45px,transpare
 .experience h1,.experience h2{margin-bottom:18px}
 .experience-links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:18px}
 .experience article img{width:100%;max-height:540px;object-fit:cover;margin:24px 0}
+.podpislon-case article{padding-top:clamp(24px,4vw,52px)}
+.podpislon-case article header{padding:0;border:0}
+.podpislon-case article p{max-width:62ch;line-height:1.55}
+.podpislon-case article p + p{margin-top:12px}
+.podpislon-case article section{margin-top:clamp(48px,7vw,96px)}
+.podpislon-case article img{height:auto;max-height:none;margin:0}
+.podpislon-lead{margin-top:clamp(24px,4vw,48px)}
+.podpislon-creatives,.podpislon-motion{display:grid;gap:clamp(16px,2.5vw,28px);margin-top:24px}
+.podpislon-creatives{grid-template-columns:repeat(2,minmax(0,1fr))}
+.podpislon-creatives img:first-child{grid-column:1/-1}
+.podpislon-motion{grid-template-columns:repeat(3,minmax(0,1fr))}
+.podpislon-motion video{display:block;width:100%;height:auto;aspect-ratio:400/738;background:var(--paper)}
+.podpislon-case figcaption{margin-top:10px;font-size:14px;line-height:1.45}
+@media(max-width:699px){
+  .podpislon-creatives,.podpislon-motion{grid-template-columns:1fr}
+  .podpislon-motion figure{width:min(100%,320px);margin-inline:auto}
+}
 .experience dl{display:grid;grid-template-columns:max-content 1fr;gap:12px 24px;line-height:1.55}
 .experience dt{font-weight:600}
 @media(max-width:560px){
@@ -185,6 +202,8 @@ body::after{background:radial-gradient(circle,rgba(38,26,30,.06) .45px,transpare
 .ptitle{font-family:var(--heading);font-weight:400;font-size:clamp(34px,5vw,84px);line-height:1.05;color:var(--paper)}
 .pframe{position:relative;aspect-ratio:16/10;background:#060606;overflow:hidden;will-change:transform;transform-origin:50% 50%;box-shadow:0 40px 80px rgba(0,0,0,.35)}
 .pframe img{position:absolute;inset:3% 3% 3% 3%;width:94%;height:94%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pframe--full-bleed{aspect-ratio:auto;background:transparent;box-shadow:none}
+.pframe--full-bleed img{position:static;display:block;width:100%;height:auto}
 .proj:hover .pframe img{transform:scale(1.04)}
 .proj:first-of-type .pframe img{object-position:50% 35%}
 .ptag,.project-period{font-size:clamp(12px,1.1vw,16px);color:#d3cfca}

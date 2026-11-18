@@ -208,16 +208,18 @@ function setupScroll(){
 
   /* works: tilted 3D cards */
   $$('.proj').forEach(p=>{
-    const f=$('.pframe',p),img=$('img',f);
+    const f=$('.pframe',p);
+    const img=$('.pframe:not(.pframe--full-bleed) img',p);
     gsap.set(f,{transformPerspective:1500});
     gsap.timeline({scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}})
       .fromTo(f,{rotationX:62,scale:0.86,y:60},{rotationX:0,scale:1,y:0,ease:'none',duration:1})
       .to(f,{rotationX:-62,scale:0.86,y:-60,ease:'none',duration:1},'>0.1');
-    gsap.fromTo(img,{yPercent:-4},{yPercent:4,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}});
+    if(img)gsap.fromTo(img,{yPercent:-4},{yPercent:4,ease:'none',scrollTrigger:{trigger:p,start:'top bottom',end:'bottom top',scrub:true}});
     if(fine){
-      const ry=gsap.quickTo(f,'rotationY',{duration:0.8,ease:'power3'}),ix=gsap.quickTo(img,'x',{duration:0.9,ease:'power3'});
-      p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-0.5;ry(nx*10);ix(nx*-24)});
-      p.addEventListener('pointerleave',()=>{ry(0);ix(0)});
+      const ry=gsap.quickTo(f,'rotationY',{duration:0.8,ease:'power3'});
+      const ix=img?gsap.quickTo(img,'x',{duration:0.9,ease:'power3'}):null;
+      p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect(),nx=(e.clientX-r.left)/r.width-0.5;ry(nx*10);ix?.(nx*-24)});
+      p.addEventListener('pointerleave',()=>{ry(0);ix?.(0)});
     }
   });
   gsap.fromTo('.feat em',{y:60,opacity:0},{y:0,opacity:1,stagger:0.15,scrollTrigger:{trigger:'.feat',start:'top 88%',end:'top 55%',scrub:true}});
