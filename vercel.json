@@ -1,7 +1,9 @@
 {
   "outputDirectory": "three-landings",
   "redirects": [
-    { "source": "/", "destination": "/calla/index.html", "permanent": true },
-    { "source": "/index.html", "destination": "/calla/index.html", "permanent": true }
+    { "source": "/", "destination": "/cases/index.html", "permanent": true },
+    { "source": "/index.html", "destination": "/cases/index.html", "permanent": true },
+    { "source": "/calla", "destination": "/cases/index.html", "permanent": true },
+    { "source": "/calla/:path*", "destination": "/cases/:path*", "permanent": true }
   ]
 }

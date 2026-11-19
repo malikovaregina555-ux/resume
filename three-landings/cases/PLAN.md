@@ -59,7 +59,7 @@
 ## 3. Стек
 
 Как у соседних лендингов — чистые HTML/CSS/JS, без сборки:
-- `calla/index.html`, `calla/calla.css`, `calla/calla.js`, `calla/scene.js` (3D);
+- `cases/index.html`, `cases/calla.css`, `cases/calla.js`, `cases/scene.js` (3D);
 - **Three.js r160** (ES-модуль с jsDelivr, версия пиннится);
 - **GSAP 3.12 + ScrollTrigger** — pin, scrub, reveal;
 - **Lenis 1.1** — плавный скролл;
