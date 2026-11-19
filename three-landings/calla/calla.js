@@ -2,6 +2,7 @@ import {initFlowers,initPC} from './scene.js';
 import {initCloudSky} from './cloud-sky.ts';
 import {initLavaLamp} from './lava-lamp.ts';
 import {initBackgroundMusic} from './background-music.js';
+import {initMobileSnake} from './snake-mobile.js';
 
 
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -28,16 +29,12 @@ $('.hero-barcode').addEventListener('click',async()=>{
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine=matchMedia('(hover:hover)').matches;
 let photoLayer=0;
-$$('.lead-wrap :is(.pol,.lead-img)').forEach(photo=>{
+$$('.lead-wrap .lead-img').forEach(photo=>{
   const image=$('img',photo);
   photo.classList.add('is-draggable');
   let x=0,y=0,drag=null;
   photo.addEventListener('pointerdown',event=>{
     if(!event.isPrimary||event.button!==0)return;
-    if(event.pointerType==='touch'&&photo.matches('.pol')){
-      photo.focus({preventScroll:true});
-      return;
-    }
     event.preventDefault();
     const {clientX,clientY,pointerId,timeStamp}=event;
     const rect=photo.getBoundingClientRect();
@@ -89,8 +86,21 @@ function splitChars(el){
 function splitWords(el){
   const frag=document.createDocumentFragment();
   const walk=(node,cls)=>{
-    if(node.nodeType===3){node.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement('span');s.className='w'+(cls?' '+cls:'');s.textContent=w;frag.append(s,' ')})}
-    else node.childNodes.forEach(n=>walk(n,node.tagName==='B'?'hl':cls));
+    if(node.nodeName==='BR'){
+      frag.append(node.cloneNode());
+      return;
+    }
+    if(node.nodeType!==Node.TEXT_NODE){
+      node.childNodes.forEach(child=>walk(child,node.tagName==='B'?'hl':cls));
+      return;
+    }
+    // Split on collapsible HTML spaces, preserving nonbreaking word groups.
+    for(const word of node.textContent.split(/[ \t\n\r\f]+/).filter(Boolean)){
+      const span=document.createElement('span');
+      span.className=cls?'w '+cls:'w';
+      span.textContent=word;
+      frag.append(span,' ');
+    }
   };
   el.childNodes.forEach(n=>walk(n,''));
   el.replaceChildren(frag);
@@ -103,6 +113,7 @@ $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();
 /* The hero navigation gives way to a compact menu after the first screen. */
 const hero=$('.hero'),flowerNav=$('.flower-nav'),siteMenu=$('#siteMenu');
 const menuToggle=$('.site-menu__toggle'),menuPanel=$('#siteMenuPanel');
+const lightMenuSections=$$('main > [data-menu-theme="light"]');
 let previousScroll=window.scrollY;
 function closeMenu(){
   menuPanel.hidden=true;
@@ -117,7 +128,14 @@ function syncNavigation(){
   previousScroll=window.scrollY;
   const showMenu=rect.bottom <= 0;
   if(!showMenu&&!siteMenu.hidden)closeMenu();
-  siteMenu.hidden=!showMenu;
+  if(siteMenu.hidden===showMenu)siteMenu.hidden=!showMenu;
+  if(showMenu){
+    const {top,height}=menuToggle.getBoundingClientRect(), y=top+height/2;
+    siteMenu.classList.toggle('is-on-light',lightMenuSections.some(section=>{
+      const bounds=section.getBoundingClientRect();
+      return bounds.top<=y&&y<bounds.bottom;
+    }));
+  }
 }
 menuToggle.addEventListener('click',()=>{
   const opening=menuPanel.hidden;
@@ -173,6 +191,7 @@ for(let c=0;c<15;c++){let d='';for(let y=0;y<=400;y+=20)d+=(y?'L':'M')+(c*43+Mat
 const hint=$('#pcHint');
 const pc=initPC($('#pc'),{onPlay:()=>{hint.style.opacity=0}});
 if(!pc)hint.textContent='Этот браузер не поддерживает WebGL';
+initMobileSnake($('#snakeMobileLaunch'),$('#snakeMobile'));
 
 /* ───────── scroll-driven animation ───────── */
 function setupScroll(){
@@ -198,13 +217,6 @@ function setupScroll(){
   });
   gsap.to('.ghost-marq',{xPercent:-12,ease:'none',scrollTrigger:{trigger:'.about-intro',start:'top bottom',end:'bottom top',scrub:true}});
   gsap.fromTo('.lead-img',{clipPath:'inset(100% 0 0 0)',scale:1.3},{clipPath:'inset(0% 0 0 0)',scale:1,duration:1.4,ease:'power4.out',scrollTrigger:{trigger:'.lead-img',start:'top 85%',toggleActions:'play none none reverse'}});
-  gsap.matchMedia().add('(min-width: 901px)',()=>{
-    $$('.pol').forEach((photo,index)=>{
-      gsap.fromTo(photo,{y:55+index*15},{y:-45-index*15,ease:'none',scrollTrigger:{
-        trigger:'.lead-wrap',start:'top 90%',end:'bottom 20%',scrub:true
-      }});
-    });
-  });
 
   /* works: tilted 3D cards */
   $$('.proj').forEach(p=>{
@@ -251,13 +263,19 @@ function setupScroll(){
 /* ───────── loader → hero intro ───────── */
 const loader=$('#loader'),num=$('#ldNum');
 const loaderProgress=$('#loaderProgress');
-if(!reduce)gsap.set('.flower-nav a',{opacity:0});
-const disposeLamp=reduce?null:initLavaLamp($('.lava-lamp',loader));
+const skipIntro=reduce;
+if(!skipIntro)gsap.set('.flower-nav a',{opacity:0});
+const disposeLamp=skipIntro?null:initLavaLamp($('.lava-lamp',loader));
 let started=false;
 function start(){
   if(started)return;started=true;
   setupScroll();
-  if(reduce){loader.remove();flowers?.intro();return}
+  if(skipIntro){
+    loader.remove();
+    flowers?.intro();
+    lenis?.start();
+    return;
+  }
   const tl=gsap.timeline({defaults:{ease:'power4.out'}});
   tl.to('.ld-bot',{opacity:0,y:-30,duration:0.5,ease:'power2.in'})
     .to(loader,{clipPath:'inset(0 0 100% 0)',duration:1.1,ease:'power4.inOut',onComplete:()=>{disposeLamp?.();loader.remove()}},'>-0.1')
@@ -267,7 +285,7 @@ function start(){
     .add(()=>{flowers?.intro();lenis?.start()},'<0.1')
     .to('.flower-nav a',{opacity:1,stagger:0.1,duration:0.3},'+=1.3');
 }
-if(reduce){start()}else{
+if(skipIntro){start()}else{
   document.documentElement.classList.add('is-loading');
   const cnt={v:0};
   const paint=()=>{

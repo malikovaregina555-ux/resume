@@ -1,0 +1,227 @@
+/* Shared typography and return links for portfolio case studies. */
+:root {
+  --case-ink: #181818;
+  --case-muted: #5d5d5a;
+}
+
+.portfolio-case {
+  font-family: Inter, Arial, sans-serif;
+}
+
+.case-neutral {
+  color: var(--case-ink);
+}
+
+.case-neutral :is(.case-section__copy, figcaption) {
+  color: var(--case-muted);
+}
+
+.portfolio-case .case-title {
+  margin: 0;
+  font-family: inherit;
+  font-size: clamp(2.3rem, 11.4vw, 3.5rem);
+  font-weight: 400;
+  line-height: .94;
+}
+
+.portfolio-case .case-section__title {
+  margin: 0;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.125;
+  text-transform: uppercase;
+}
+
+.portfolio-case .case-section__copy {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.portfolio-case figcaption {
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.portfolio-case .case-preview {
+  display: block;
+  border-radius: 20px;
+  cursor: zoom-in;
+}
+
+.portfolio-case .case-preview:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (min-width: 700px) {
+  .portfolio-case .case-gallery--desktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-case .case-gallery--desktop > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.portfolio-case .case-back {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--case-rule, rgba(24, 24, 24, .18));
+  color: inherit;
+  font-size: .8125rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.portfolio-case .case-back:is(:hover, :focus-visible) {
+  border-color: currentColor;
+}
+
+.portfolio-case .case-end {
+  margin-top: 96px;
+  padding-top: 24px;
+  border-top: 1px solid var(--case-rule, rgba(24, 24, 24, .18));
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+.portfolio-case .case-end a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: .12em;
+}
+
+@media (min-width: 560px) {
+  .portfolio-case .case-title { font-size: 4.8rem; }
+  .portfolio-case .case-section__copy { font-size: 1.18rem; }
+}
+
+@media (min-width: 900px) {
+  .portfolio-case .case-title { font-size: 5.375rem; }
+  .portfolio-case .case-section__copy { font-size: 1.375rem; line-height: 1.32; }
+}
+
+/* Full-screen case image gallery. */
+[data-case-gallery] [aria-haspopup="dialog"] {
+  cursor: zoom-in;
+}
+
+[data-case-gallery] [aria-haspopup="dialog"]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+body.lightbox-open{
+  overflow: hidden;
+  }
+.lightbox{
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+  }
+.lightbox::backdrop{
+  background: #050505;
+  }
+.lightbox[open],
+.lightbox[open]::backdrop{
+  animation: lightbox-in 200ms ease;
+  }
+@keyframes lightbox-in{
+  from {
+    opacity: 0;
+  }
+  }
+.lightbox__nav{
+  position: absolute;
+  bottom: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #f2f2f0;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 160ms ease;
+  }
+.lightbox__nav:hover,
+.lightbox__nav:focus-visible{
+  opacity: 1;
+  }
+.lightbox__nav[hidden] {
+  display: none;
+}
+.lightbox__nav--prev{
+  left: 12px;
+  }
+.lightbox__nav--next{
+  right: 12px;
+  }
+.lightbox__nav svg{
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  }
+.lightbox__stage{
+  position: relative;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 16px 16px 72px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  user-select: none;
+  }
+.lightbox__img{
+  max-width: none;
+  margin: auto;
+  border-radius: 20px;
+  cursor: zoom-out;
+  }
+.lightbox.is-loading .lightbox__img{
+  opacity: 0;
+  }
+.lightbox.is-zoomable .lightbox__img{
+  cursor: zoom-in;
+  }
+.lightbox.is-dragging .lightbox__img{
+  cursor: grabbing;
+  }
+@media (min-width: 900px){
+.lightbox__nav{
+    top: 50%;
+    bottom: auto;
+    translate: 0 -50%;
+  }
+.lightbox__nav--prev{
+    left: 24px;
+  }
+.lightbox__nav--next{
+    right: 24px;
+  }
+.lightbox__stage{
+    padding: 40px 96px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open],
+  .lightbox[open]::backdrop {
+    animation: none;
+  }
+}

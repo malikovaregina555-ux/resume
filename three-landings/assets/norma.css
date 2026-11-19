@@ -2,8 +2,8 @@
   --bg: #f2f2f0;
   --panel: #dededc;
   --panel-soft: #e9e9e6;
-  --ink: #181818;
-  --muted: #5d5d5a;
+  --ink: var(--case-ink);
+  --muted: var(--case-muted);
   --dark: #050505;
   --dark-soft: #181818;
   --blue: #083fb8;
@@ -86,111 +86,6 @@ button{
   max-width: 1180px;
   margin: 0 auto;
   }
-.case-view .case-figure > img{
-  cursor: zoom-in;
-  }
-body.lightbox-open{
-  overflow: hidden;
-  }
-.lightbox{
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  background: transparent;
-  }
-.lightbox::backdrop{
-  background: #050505;
-  }
-.lightbox[open],
-.lightbox[open]::backdrop{
-  animation: lightbox-in 200ms ease;
-  }
-@keyframes lightbox-in{
-  from {
-    opacity: 0;
-  }
-  }
-.lightbox__nav{
-  position: absolute;
-  bottom: 12px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border: 0;
-  background: none;
-  color: var(--bg);
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 160ms ease;
-  }
-.lightbox__nav:hover,
-.lightbox__nav:focus-visible{
-  opacity: 1;
-  }
-.lightbox__nav--prev{
-  left: 12px;
-  }
-.lightbox__nav--next{
-  right: 12px;
-  }
-.lightbox__nav svg{
-  width: 32px;
-  height: 32px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  }
-.lightbox__stage{
-  position: relative;
-  display: grid;
-  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
-  width: 100%;
-  height: 100%;
-  padding: 16px 16px 72px;
-  overflow: auto;
-  overscroll-behavior: contain;
-  user-select: none;
-  }
-.lightbox__img{
-  max-width: none;
-  margin: auto;
-  border-radius: 20px;
-  cursor: zoom-out;
-  }
-.lightbox.is-loading .lightbox__img{
-  opacity: 0;
-  }
-.lightbox.is-zoomable .lightbox__img{
-  cursor: zoom-in;
-  }
-.lightbox.is-dragging .lightbox__img{
-  cursor: grabbing;
-  }
-@media (min-width: 900px){
-.lightbox__nav{
-    top: 50%;
-    bottom: auto;
-    translate: 0 -50%;
-  }
-.lightbox__nav--prev{
-    left: 24px;
-  }
-.lightbox__nav--next{
-    right: 24px;
-  }
-.lightbox__stage{
-    padding: 40px 96px;
-  }
-}
 .case-view{
   min-height: 100svh;
   padding: 86px var(--page-pad) 60px;
@@ -645,9 +540,5 @@ body.lightbox-open{
 }
 /* --- вставка в коллекцию макетов --- */
 .case-view{padding-top:56px}
-.case-back{display:inline-block;margin-bottom:44px;color:var(--muted);font-size:13px;line-height:1;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:5px;transition:color .2s,border-color .2s}
-.case-back:hover,.case-back:focus-visible{color:var(--ink);border-color:var(--ink)}
-.case-end{margin-top:96px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;color:var(--muted);font-size:12px;line-height:1.6}
-.case-end a{color:var(--ink)}
+.case-back{margin-bottom:44px}
 @media (min-width:900px){.case-view{padding-top:64px}}
-@media (max-width:559px){.case-end{flex-direction:column;gap:8px}}

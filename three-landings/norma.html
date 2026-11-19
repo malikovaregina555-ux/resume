@@ -6,13 +6,12 @@
   <title>норма — финтех-приложение для самозанятых</title>
   <meta name="description" content="Концепт макетов финтех-приложения для самозанятых: дизайн-система, логобук, user flow и экраны.">
   <link rel="icon" href="assets/fleur-icon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="calla/fonts.css">
   <link rel="stylesheet" href="assets/norma.css">
+  <link rel="stylesheet" href="assets/case.css">
 </head>
-<body class="case-mode">
-  <article class="case-view" id="caseView">
+<body class="case-mode portfolio-case">
+  <article class="case-view" id="caseView" data-case-gallery>
     <div class="case-page">
       <a class="case-back" href="calla/index.html#works">← К проектам</a>
       <header class="case-hero">
@@ -149,14 +148,7 @@
     </div>
   </article>
 
-  <dialog class="lightbox" id="lightbox" aria-label="просмотр изображения">
-    <div class="lightbox__stage">
-      <img class="lightbox__img" alt="" draggable="false">
-    </div>
-    <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="предыдущее изображение" data-step="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg></button>
-    <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="следующее изображение" data-step="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8"/></svg></button>
-  </dialog>
-
+  <script src="assets/case-lightbox.js" defer></script>
   <script src="assets/norma.js" defer></script>
 </body>
 </html>

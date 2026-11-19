@@ -7,14 +7,16 @@
   <title>Подпислон — Регина Маликова</title>
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="calla.css">
+  <link rel="stylesheet" href="../assets/case.css">
+  <script src="../assets/case-lightbox.js" defer></script>
 </head>
-<body class="experience podpislon-case">
+<body class="experience portfolio-case case-neutral podpislon-case">
   <main class="experience-main">
-    <nav aria-label="Навигация"><a href="index.html#works">← К проектам</a></nav>
-    <article>
+    <nav aria-label="Навигация"><a class="case-back" href="index.html#works">← К проектам</a></nav>
+    <article data-case-gallery>
       <header>
-        <h1>Подпислон</h1>
-        <p>Сервис документооборота · B2B · Креативы и анимация</p>
+        <h1 class="case-title">Подпислон</h1>
+        <p class="case-section__copy">Сервис документооборота · B2B · Креативы и анимация</p>
       </header>
 
       <figure class="podpislon-lead">
@@ -23,14 +25,14 @@
       </figure>
 
       <section aria-labelledby="podpislon-task">
-        <h2 id="podpislon-task">Задача</h2>
-        <p>Использовать маскота в существующей дизайн-системе, чтобы создать рекламные креативы и анимации для слайдера онбординга в личном кабинете.</p>
-        <p>Я самостоятельно дорисовала новые позы и выражения лица слона на основе существующего маскота.</p>
+        <h2 class="case-section__title" id="podpislon-task">Задача</h2>
+        <p class="case-section__copy">Использовать маскота в существующей дизайн-системе, чтобы создать рекламные креативы и анимации для слайдера онбординга в личном кабинете.</p>
+        <p class="case-section__copy">Я самостоятельно дорисовала новые позы и выражения лица слона на основе существующего маскота.</p>
       </section>
 
       <section aria-labelledby="podpislon-creatives">
-        <h2 id="podpislon-creatives">Креативы</h2>
-        <p>В серии креативов я объяснила сложные процессы документооборота через знакомые ситуации.</p>
+        <h2 class="case-section__title" id="podpislon-creatives">Креативы</h2>
+        <p class="case-section__copy">В серии креативов я объяснила сложные процессы документооборота через знакомые ситуации.</p>
         <div class="podpislon-creatives">
           <img src="assets/podpislon/creative-01.webp" width="1200" height="1200" alt="Креатив о потерянном акте и задержке бухгалтерии" loading="lazy" decoding="async">
           <img src="assets/podpislon/creative-02.webp" width="1200" height="1200" alt="Креатив о признаках сложного документооборота" loading="lazy" decoding="async">
@@ -41,7 +43,8 @@
       </section>
 
       <section aria-labelledby="podpislon-motion">
-        <h2 id="podpislon-motion">Анимация онбординга</h2>
+        <h2 class="case-section__title" id="podpislon-motion">Анимация онбординга</h2>
+        <p class="case-section__copy">Для онбординга в личном кабинете сервиса «Подпислон» я разработала сценарий, отрисовала позы слона и сделала анимацию.</p>
         <div class="podpislon-motion">
           <figure>
             <video width="400" height="738" controls muted loop playsinline preload="none" poster="assets/podpislon/onboarding-01-poster.webp" aria-labelledby="podpislon-motion-01">
@@ -67,15 +70,7 @@
         </div>
       </section>
 
-      <section aria-labelledby="podpislon-next">
-        <h2 id="podpislon-next">Что дальше</h2>
-        <p>Маскот в рекламе и онбординге сохраняет один визуальный язык. Если нужны похожие креативы или анимация для продукта, напишите мне.</p>
-        <nav class="experience-links" aria-label="Навигация по кейсам">
-          <a href="index.html#works">← К проектам</a>
-          <a href="../norma.html">Следующий кейс — Норма →</a>
-          <a href="https://t.me/verykarachay">Написать в Telegram ↗</a>
-        </nav>
-      </section>
+      <footer class="case-end" id="case-end"><a href="index.html#works">К проектам</a></footer>
     </article>
   </main>
 </body>
