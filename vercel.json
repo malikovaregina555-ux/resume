@@ -1,3 +1,7 @@
 {
-  "outputDirectory": "three-landings"
+  "outputDirectory": "three-landings",
+  "redirects": [
+    { "source": "/", "destination": "/calla/index.html", "permanent": true },
+    { "source": "/index.html", "destination": "/calla/index.html", "permanent": true }
+  ]
 }
